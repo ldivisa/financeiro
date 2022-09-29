@@ -7,8 +7,74 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
         <exec.mainClass>com.mycompany.financeiro.Financeiro</exec.mainClass>
     </properties>
+    
+    <dependencies>
+        <dependency>    
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>8.0.30</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+<dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.39.3.0</version>
+</dependency>
+
+    <dependency>
+        <groupId>net.sf.jasperreports</groupId>
+        <artifactId>jasperreports</artifactId>
+      <version>6.20.0</version>
+    </dependency>
+</dependencies>
+
+<build>
+    <plugins>
+        
+         <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.5</version>
+                    <configuration>
+                      <encoding>UTF-8</encoding>
+                      <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>jrxml</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>jasper</nonFilteredFileExtension>
+                      </nonFilteredFileExtensions>
+                    </configuration>
+                  </plugin>
+      <!-- any other plugins -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+           </execution>
+        </executions>
+        <configuration>
+            <archive>
+                <manifest>
+                    <addClasspath>
+                        true
+                    </addClasspath>
+                    <mainClass>
+                        com.mycompany.financeiro.Financeiro
+                    </mainClass>
+                </manifest>
+                    
+            </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
