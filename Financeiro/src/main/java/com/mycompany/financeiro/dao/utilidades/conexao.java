@@ -79,7 +79,7 @@ public void executaUpdate(String SQL)
             statement =conectar.createStatement();
             System.out.println("\nStatement criado");
             System.out.println("\nSQL:"+SQL);
-            //statement.executeUpdate(SQL);
+            statement.executeUpdate(SQL);
             System.out.println("\nresultset preenchido");
             statement.close();
             }

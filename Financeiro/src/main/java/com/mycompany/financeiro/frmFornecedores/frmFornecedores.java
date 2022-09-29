@@ -6,41 +6,50 @@ package com.mycompany.financeiro.frmFornecedores;
 
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.utilidades.conexao;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.UIManager.getString;
 
 /**
  *
  * @author luiz.souza
  */
 public class frmFornecedores extends javax.swing.JFrame {
-    public int posicaoFornecedores;
+    public int posicaoFornecedores=0;
     List<fornecedores> fornecedores = new ArrayList<>();
     public ResultSet resultado;
     public int codigo;
+    public boolean carregaCBFornecedores = true;
+    HashMap cbFornecedorMapa =new HashMap();
     /**
      * Creates new form frmFornecedores
      */
     public frmFornecedores() {
         initComponents();
         fornecedores=carregaFornecedores();
-        mostrarFornecedores(fornecedores);
+        mostrarFornecedores(fornecedores,posicaoFornecedores);
+        travaredicaoCamposFornecedores();
+        carregarcbFornecedores();
     }
 public List<fornecedores> carregaFornecedores(){
         conexao con = new conexao();
         con.conecta();
-        resultado = con.executaConsulta("select * from fornecedores");
-        System.out.print("\nEntrei no carregaFornecedores() \n");
-        
+        resultado = con.executaConsulta("select * from fornecedores order by NomeFornecedor ");
+        //System.out.print("\nEntrei no carregaFornecedores() \n");
+        fornecedores.clear();
         try
         {
         while (resultado.next())
         {
-            System.out.print("\n Entrei no while do carregaFornecedores()\n");
-            System.out.print("\nResultado: " + resultado.toString());
+          //  System.out.print("\n Entrei no while do carregaFornecedores()\n");
+            
             fornecedores atual = new fornecedores();
             atual.setEnderecoFornecedor(resultado.getString("EnderecoFornecedor"));
             atual.setIdFornecedor(resultado.getInt("IdFornecedor"));
@@ -48,27 +57,27 @@ public List<fornecedores> carregaFornecedores(){
             atual.setFoneFornecedor(resultado.getString("FoneFornecedor"));
             atual.setObservacoesfornecedor(resultado.getString("Observacoesfornecedor"));
         fornecedores.add(atual);
-        System.out.print("\nLendo registros: "+fornecedores.size());
+        //System.out.print("\nLendo registros: "+fornecedores.size());
         }
-        System.out.print("\nSaindo do while: ");
+        //System.out.print("\nSaindo do while: ");
         }
     catch (SQLException e)
     {
         JOptionPane.showMessageDialog(null, e);
     }
      posicaoFornecedores=0;
-     System.out.print("\nRegistros lidos: "+fornecedores.size());
+     //System.out.print("\nRegistros lidos: "+fornecedores.size());
      return fornecedores;
         }
-public void mostrarFornecedores(List<fornecedores> fornecedores)
+public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoFornecedores)
 {
-    if ((fornecedores.size()-1)<1)
+    if ((fornecedores.size())<1)
     {
     JOptionPane.showMessageDialog(null, "Não há registros suficientes para exibição "+(fornecedores.size()-1));
     }
     else
     {
-    System.out.print("\nposicao:"+posicaoFornecedores+"\n");
+    //System.out.print("\nposicao:"+posicaoFornecedores+"\n");
     tf_Id.setText(String.valueOf(fornecedores.get(posicaoFornecedores).getIdFornecedor()));
     tf_Nome.setText(fornecedores.get(posicaoFornecedores).getNomeFornecedor());
     tf_Endereco.setText(fornecedores.get(posicaoFornecedores).getEnderecoFornecedor());
@@ -106,6 +115,11 @@ public void mostrarFornecedores(List<fornecedores> fornecedores)
         btn_Novo = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         lbl_posicao = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        cb_fornecedores = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -152,6 +166,11 @@ public void mostrarFornecedores(List<fornecedores> fornecedores)
 
         tf_Observacao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tf_Observacao.setText("jTextField5");
+        tf_Observacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_ObservacaoActionPerformed(evt);
+            }
+        });
 
         btn_Ultimo.setText("Último");
         btn_Ultimo.addActionListener(new java.awt.event.ActionListener() {
@@ -183,18 +202,70 @@ public void mostrarFornecedores(List<fornecedores> fornecedores)
 
         lbl_posicao.setText("jLabel1");
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Cadastro de fornecedores:");
+
+        jButton2.setMnemonic('p');
+        jButton2.setText("Pesquisa");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        cb_fornecedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_fornecedoresActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(cb_fornecedores, 0, 635, Short.MAX_VALUE)
+                .addGap(82, 82, 82)
+                .addComponent(jButton2)
+                .addGap(26, 26, 26))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(cb_fornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34))
+        );
+
+        jButton3.setText("Excluir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 883, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_Novo)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_Primeiro)
                         .addGap(18, 18, 18)
                         .addComponent(btn_Anterior)
@@ -208,36 +279,40 @@ public void mostrarFornecedores(List<fornecedores> fornecedores)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tf_Observacao))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(lbl_Id)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_Endereco)
                             .addComponent(lbl_Fone)
-                            .addComponent(lbl_Nome))
+                            .addComponent(lbl_Nome)
+                            .addComponent(lbl_Id))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(tf_Nome)
                             .addComponent(tf_Fone)
                             .addComponent(tf_Endereco))))
                 .addGap(31, 31, 31)
                 .addComponent(lbl_posicao)
-                .addGap(24, 24, 24))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_Id)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_posicao)))
+                    .addComponent(lbl_posicao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,15 +329,18 @@ public void mostrarFornecedores(List<fornecedores> fornecedores)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_Obs)
                     .addComponent(tf_Observacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Ultimo)
                     .addComponent(btn_Proximo)
                     .addComponent(btn_Anterior)
                     .addComponent(btn_Primeiro)
                     .addComponent(btn_Novo)
-                    .addComponent(jButton1))
-                .addGap(30, 30, 30))
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -272,56 +350,110 @@ public void mostrarFornecedores(List<fornecedores> fornecedores)
    if (posicaoFornecedores<fornecedores.size()-1)
         posicaoFornecedores=posicaoFornecedores+1;
         
-            mostrarFornecedores(fornecedores);
+            mostrarFornecedores(fornecedores,posicaoFornecedores);
     }//GEN-LAST:event_btn_ProximoActionPerformed
 
     private void btn_AnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AnteriorActionPerformed
 if (posicaoFornecedores>0)
     posicaoFornecedores=posicaoFornecedores-1;
-        mostrarFornecedores(fornecedores);        // TODO add your handling code here:
+        mostrarFornecedores(fornecedores,posicaoFornecedores);        // TODO add your handling code here:
     }//GEN-LAST:event_btn_AnteriorActionPerformed
 
     private void btn_PrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PrimeiroActionPerformed
     posicaoFornecedores=0;
-        mostrarFornecedores(fornecedores);
+        mostrarFornecedores(fornecedores,posicaoFornecedores);
     }//GEN-LAST:event_btn_PrimeiroActionPerformed
 
     private void btn_UltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_UltimoActionPerformed
     posicaoFornecedores=fornecedores.size()-1;
-        mostrarFornecedores(fornecedores);
+        mostrarFornecedores(fornecedores,posicaoFornecedores);
     }//GEN-LAST:event_btn_UltimoActionPerformed
 
     private void btn_NovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NovoActionPerformed
     limpaCamposFornecedores();
+    liberaredicaoCamposFornecedores();
+    
     }//GEN-LAST:event_btn_NovoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     codigo= pegaUltimoCodigoFornecedores()+1;
-    System.out.print(codigo);
+    System.out.print("\nBotao 1 codigo:"+codigo+"\n");
         String SQL = "Insert into fornecedores (IdFornecedor,NomeFornecedor,FoneFornecedor,EnderecoFornecedor,ObservacoesFornecedor) values ("+codigo+",'"+
             tf_Nome.getText()+"','"+tf_Fone.getText()+"','"+tf_Endereco.getText()+"','"+tf_Observacao.getText()+"')";
+    
     conexao con = new conexao();
     con.conecta();
     con.executaUpdate(SQL);
+    
     limpaCamposFornecedores();
-    carregaFornecedores();
-    mostrarFornecedores(fornecedores);
+    fornecedores=carregaFornecedores();
+    mostrarFornecedores(fornecedores,posicaoFornecedores);
+    carregarcbFornecedores();
+    travaredicaoCamposFornecedores();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    mostrarFornecedores(fornecedores,posicaoFornecedores);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cb_fornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_fornecedoresActionPerformed
+        try {
+            
+            for (int i=0;i<=fornecedores.size()-1;i++)
+            {
+            System.out.print("\nFornecedores: "+cb_fornecedores.getSelectedItem().toString());
+            System.out.print("\nCB: "+cb_fornecedores.getSelectedItem().toString());
+                if (fornecedores.get(i).getNomeFornecedor().equals(cb_fornecedores.getSelectedItem()))    
+            {cbFornecedorMapa.put("Nome", fornecedores.get(i).getNomeFornecedor());
+            cbFornecedorMapa.put("Id",i);
+             }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        System.out.print("\nChave ID: "+cbFornecedorMapa.get("Id").toString());
+        posicaoFornecedores = Integer.parseUnsignedInt(cbFornecedorMapa.get("Id").toString());
+    }//GEN-LAST:event_cb_fornecedoresActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    conexao con = new conexao();
+    con.conecta();
+    con.executaUpdate("delete from fornecedores where IdFornecedor ="+tf_Id.getText());
+    fornecedores.clear();
+    fornecedores =carregaFornecedores();
+        mostrarFornecedores(fornecedores, posicaoFornecedores);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void tf_ObservacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ObservacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_ObservacaoActionPerformed
+    public void carregarcbFornecedores(){
+        //if (carregaCBFornecedores==true)
+        
+        fornecedores = carregaFornecedores();
+        cb_fornecedores.removeAllItems();
+        for (int i =0; i<=fornecedores.size()-1;i++)
+        {
+        cb_fornecedores.addItem(fornecedores.get(i).getNomeFornecedor());
+        }
+                                            }
+            
     public int pegaUltimoCodigoFornecedores()
         {
          conexao con = new conexao();
-         con.executaConsulta("Select IdFornecedor from fornecedores order by IdFornecedor");
+         con.executaConsulta("Select IdFornecedor from fornecedores ");
+         
          try
          {
          codigo = (fornecedores.size()-1);
-         System.out.print("\n Ultimo codigo:"+codigo);
+         //System.out.print("\n Ultimo codigo:"+codigo);
+         con.resultado.close();
          }
          catch (Exception e)
          {
          JOptionPane.showMessageDialog(null, e);
          }
-        System.out.print("\npegaUltimoCodigoForenecedores: "+codigo+"\n");
+        //System.out.print("\npegaUltimoCodigoForenecedores: "+codigo+"\n");
          return codigo;
         }
     /**
@@ -336,6 +468,26 @@ if (posicaoFornecedores>0)
     tf_Observacao.setText("");
     tf_Nome.requestFocus();
     }
+    
+     public void travaredicaoCamposFornecedores()
+    { 
+    tf_Id.setEditable(false);
+    tf_Nome.setEditable(false);
+    tf_Endereco.setEditable(false);
+    tf_Fone.setEditable(false);
+    tf_Observacao.setEditable(false);
+    tf_Nome.setEditable(false);
+    }
+     
+    public void liberaredicaoCamposFornecedores()
+    { 
+    tf_Id.setEditable(true);
+    tf_Nome.setEditable(true);
+    tf_Endereco.setEditable(true);
+    tf_Fone.setEditable(true);
+    tf_Observacao.setEditable(true);
+    tf_Nome.setEditable(true);
+    } 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -374,7 +526,12 @@ if (posicaoFornecedores>0)
     private javax.swing.JButton btn_Primeiro;
     private javax.swing.JButton btn_Proximo;
     private javax.swing.JToggleButton btn_Ultimo;
+    private javax.swing.JComboBox<String> cb_fornecedores;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_Endereco;
     private javax.swing.JLabel lbl_Fone;
     private javax.swing.JLabel lbl_Id;
