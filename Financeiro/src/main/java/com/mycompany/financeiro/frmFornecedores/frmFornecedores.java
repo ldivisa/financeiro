@@ -83,7 +83,7 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
     tf_Endereco.setText(fornecedores.get(posicaoFornecedores).getEnderecoFornecedor());
     tf_Fone.setText(fornecedores.get(posicaoFornecedores).getFoneFornecedor());
     tf_Observacao.setText(fornecedores.get(posicaoFornecedores).getObservacoesfornecedor());
-    lbl_posicao.setText(String.valueOf(posicaoFornecedores));
+    
     }   
 
 }
@@ -114,12 +114,12 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
         btn_Primeiro = new javax.swing.JButton();
         btn_Novo = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        lbl_posicao = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         cb_fornecedores = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,12 +200,12 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
             }
         });
 
-        lbl_posicao.setText("jLabel1");
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro de fornecedores:");
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
         jButton2.setMnemonic('p');
         jButton2.setText("Pesquisa");
@@ -226,26 +226,33 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(cb_fornecedores, 0, 635, Short.MAX_VALUE)
-                .addGap(82, 82, 82)
+                .addGap(35, 35, 35)
                 .addComponent(jButton2)
-                .addGap(26, 26, 26))
+                .addGap(83, 83, 83))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(cb_fornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34))
+                    .addComponent(cb_fornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(18, 18, 18))
         );
 
         jButton3.setText("Excluir");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Editar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -265,6 +272,8 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_Primeiro)
                         .addGap(18, 18, 18)
@@ -292,9 +301,7 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
                             .addComponent(tf_Nome)
                             .addComponent(tf_Fone)
                             .addComponent(tf_Endereco))))
-                .addGap(31, 31, 31)
-                .addComponent(lbl_posicao)
-                .addContainerGap())
+                .addGap(74, 74, 74))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,14 +312,10 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_Id)))
-                    .addComponent(lbl_posicao))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_Id))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -337,10 +340,11 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
                     .addComponent(btn_Primeiro)
                     .addComponent(btn_Novo)
                     .addComponent(jButton1)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addGap(38, 38, 38)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -376,8 +380,10 @@ if (posicaoFornecedores>0)
     }//GEN-LAST:event_btn_NovoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    codigo= pegaUltimoCodigoFornecedores()+1;
-    System.out.print("\nBotao 1 codigo:"+codigo+"\n");
+    if (tf_Id.getText().isEmpty())
+    {
+        codigo= pegaUltimoCodigoFornecedores()+1;
+    //System.out.print("\nBotao 1 codigo:"+codigo+"\n");
         String SQL = "Insert into fornecedores (IdFornecedor,NomeFornecedor,FoneFornecedor,EnderecoFornecedor,ObservacoesFornecedor) values ("+codigo+",'"+
             tf_Nome.getText()+"','"+tf_Fone.getText()+"','"+tf_Endereco.getText()+"','"+tf_Observacao.getText()+"')";
     
@@ -390,6 +396,28 @@ if (posicaoFornecedores>0)
     mostrarFornecedores(fornecedores,posicaoFornecedores);
     carregarcbFornecedores();
     travaredicaoCamposFornecedores();
+    }
+    else
+    {
+      String SQL = "Update fornecedores set IdFornecedor="+Integer.valueOf(tf_Id.getText())+
+              ",NomeFornecedor='"+tf_Nome.getText()+
+              "',FoneFornecedor='"+tf_Fone.getText()+
+              "',EnderecoFornecedor='"+tf_Endereco.getText()+
+              "',ObservacoesFornecedor='"+tf_Observacao.getText()+
+              "' where IdFornecedor="+Integer.valueOf(tf_Id.getText());
+           
+      System.out.print("\nSQL UPDATE:"+SQL);
+    
+    conexao con = new conexao();
+    con.conecta();
+    con.executaUpdate(SQL);
+    limpaCamposFornecedores();
+    fornecedores=carregaFornecedores();
+    mostrarFornecedores(fornecedores,posicaoFornecedores);
+    carregarcbFornecedores();
+    travaredicaoCamposFornecedores();
+//JOptionPane.showMessageDialog(null, "Implementar");
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -401,8 +429,8 @@ if (posicaoFornecedores>0)
             
             for (int i=0;i<=fornecedores.size()-1;i++)
             {
-            System.out.print("\nFornecedores: "+cb_fornecedores.getSelectedItem().toString());
-            System.out.print("\nCB: "+cb_fornecedores.getSelectedItem().toString());
+            //System.out.print("\nFornecedores: "+cb_fornecedores.getSelectedItem().toString());
+            //System.out.print("\nCB: "+cb_fornecedores.getSelectedItem().toString());
                 if (fornecedores.get(i).getNomeFornecedor().equals(cb_fornecedores.getSelectedItem()))    
             {cbFornecedorMapa.put("Nome", fornecedores.get(i).getNomeFornecedor());
             cbFornecedorMapa.put("Id",i);
@@ -411,8 +439,9 @@ if (posicaoFornecedores>0)
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        System.out.print("\nChave ID: "+cbFornecedorMapa.get("Id").toString());
+        //System.out.print("\nChave ID: "+cbFornecedorMapa.get("Id").toString());
         posicaoFornecedores = Integer.parseUnsignedInt(cbFornecedorMapa.get("Id").toString());
+            mostrarFornecedores(fornecedores,posicaoFornecedores);
     }//GEN-LAST:event_cb_fornecedoresActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -422,11 +451,16 @@ if (posicaoFornecedores>0)
     fornecedores.clear();
     fornecedores =carregaFornecedores();
         mostrarFornecedores(fornecedores, posicaoFornecedores);
+        carregarcbFornecedores();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tf_ObservacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ObservacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_ObservacaoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+     liberaredicaoCamposFornecedores();
+    }//GEN-LAST:event_jButton4ActionPerformed
     public void carregarcbFornecedores(){
         //if (carregaCBFornecedores==true)
         
@@ -530,6 +564,7 @@ if (posicaoFornecedores>0)
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_Endereco;
@@ -537,7 +572,6 @@ if (posicaoFornecedores>0)
     private javax.swing.JLabel lbl_Id;
     private javax.swing.JLabel lbl_Nome;
     private javax.swing.JLabel lbl_Obs;
-    private javax.swing.JLabel lbl_posicao;
     private javax.swing.JTextField tf_Endereco;
     private javax.swing.JTextField tf_Fone;
     private javax.swing.JTextField tf_Id;
