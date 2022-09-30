@@ -203,7 +203,7 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de fornecedores:");
+        jLabel1.setText("Cadastro de Fornecedores:");
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -431,7 +431,7 @@ if (posicaoFornecedores>0)
             {
             //System.out.print("\nFornecedores: "+cb_fornecedores.getSelectedItem().toString());
             //System.out.print("\nCB: "+cb_fornecedores.getSelectedItem().toString());
-                if (fornecedores.get(i).getNomeFornecedor().equals(cb_fornecedores.getSelectedItem()))    
+            if (fornecedores.get(i).getNomeFornecedor().equals(cb_fornecedores.getSelectedItem()))    
             {cbFornecedorMapa.put("Nome", fornecedores.get(i).getNomeFornecedor());
             cbFornecedorMapa.put("Id",i);
              }
@@ -447,7 +447,7 @@ if (posicaoFornecedores>0)
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     conexao con = new conexao();
     con.conecta();
-    con.executaUpdate("delete from fornecedores where IdFornecedor ="+tf_Id.getText());
+    con.executaUpdate("delete from fornecedores where IdFornecedor ="+Integer.valueOf(tf_Id.getText()));
     fornecedores.clear();
     fornecedores =carregaFornecedores();
         mostrarFornecedores(fornecedores, posicaoFornecedores);
@@ -466,6 +466,7 @@ if (posicaoFornecedores>0)
         
         fornecedores = carregaFornecedores();
         cb_fornecedores.removeAllItems();
+        //System.out.print("\n total de itens na array: "+fornecedores.size());
         for (int i =0; i<=fornecedores.size()-1;i++)
         {
         cb_fornecedores.addItem(fornecedores.get(i).getNomeFornecedor());
@@ -475,11 +476,12 @@ if (posicaoFornecedores>0)
     public int pegaUltimoCodigoFornecedores()
         {
          conexao con = new conexao();
-         con.executaConsulta("Select IdFornecedor from fornecedores ");
+         resultado = con.executaConsulta("Select IdFornecedor from fornecedores order by IdFornecedor desc limit 1");
          
          try
          {
-         codigo = (fornecedores.size()-1);
+         codigo = (resultado.getInt("IdFornecedor")+1);
+             
          //System.out.print("\n Ultimo codigo:"+codigo);
          con.resultado.close();
          }
@@ -505,22 +507,22 @@ if (posicaoFornecedores>0)
     
      public void travaredicaoCamposFornecedores()
     { 
-    tf_Id.setEditable(false);
-    tf_Nome.setEditable(false);
-    tf_Endereco.setEditable(false);
-    tf_Fone.setEditable(false);
-    tf_Observacao.setEditable(false);
-    tf_Nome.setEditable(false);
+    tf_Id.setEnabled(false);
+    tf_Nome.setEnabled(false);
+    tf_Endereco.setEnabled(false);
+    tf_Fone.setEnabled(false);
+    tf_Observacao.setEnabled(false);
+    tf_Nome.setEnabled(false);
     }
      
     public void liberaredicaoCamposFornecedores()
     { 
-    tf_Id.setEditable(true);
-    tf_Nome.setEditable(true);
-    tf_Endereco.setEditable(true);
-    tf_Fone.setEditable(true);
-    tf_Observacao.setEditable(true);
-    tf_Nome.setEditable(true);
+    tf_Id.setEnabled(true);
+    tf_Nome.setEnabled(true);
+    tf_Endereco.setEnabled(true);
+    tf_Fone.setEnabled(true);
+    tf_Observacao.setEnabled(true);
+    tf_Nome.setEnabled(true);
     } 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

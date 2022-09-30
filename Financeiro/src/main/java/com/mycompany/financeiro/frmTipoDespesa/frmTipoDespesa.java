@@ -82,7 +82,7 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
     tf_Id.setText(String.valueOf(despesas.get(posicaoDespesas).getIdTipoDespesa()));
     tf_Nome.setText(despesas.get(posicaoDespesas).getNomeDespesa());
     tf_Observacao.setText(despesas.get(posicaoDespesas).getObservaçãoDespesa());
-    tf_tipo.setText(despesas.get(posicaoDespesas).getTipoDespesa());
+    
     
     if (despesas.get(posicaoDespesas).getTipoDespesa().equals("C"))
     {
@@ -123,15 +123,14 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
         btn_Ultimo = new javax.swing.JToggleButton();
         btn_Primeiro = new javax.swing.JButton();
         btn_Novo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn_salvar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         cb_despesas = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_Excluir = new javax.swing.JButton();
+        btn_Editar = new javax.swing.JButton();
         lbl_Id1 = new javax.swing.JLabel();
-        tf_tipo = new javax.swing.JTextField();
         cb_tipo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -194,10 +193,10 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
             }
         });
 
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_salvar.setText("Salvar");
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_salvarActionPerformed(evt);
             }
         });
 
@@ -243,25 +242,22 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
                 .addGap(18, 18, 18))
         );
 
-        jButton3.setText("Excluir");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_Excluir.setText("Excluir");
+        btn_Excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_ExcluirActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Editar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btn_Editar.setText("Editar");
+        btn_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btn_EditarActionPerformed(evt);
             }
         });
 
         lbl_Id1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbl_Id1.setText("Tipo:");
-
-        tf_tipo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tf_tipo.setText("jTextField1");
 
         cb_tipo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Despesa de Casa", "Despesa da Loja", "Material para Venda" }));
@@ -280,11 +276,11 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_Novo)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(btn_salvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(btn_Excluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addComponent(btn_Editar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_Primeiro))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -298,12 +294,10 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
                             .addComponent(tf_Observacao)
                             .addComponent(tf_Nome)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(tf_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(18, 18, 18)
                 .addComponent(btn_Anterior)
                 .addGap(29, 29, 29)
@@ -333,14 +327,12 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl_Obs)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(lbl_Id1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(tf_Observacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(cb_tipo)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Ultimo)
@@ -348,9 +340,9 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
                     .addComponent(btn_Anterior)
                     .addComponent(btn_Primeiro)
                     .addComponent(btn_Novo)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btn_salvar)
+                    .addComponent(btn_Excluir)
+                    .addComponent(btn_Editar))
                 .addGap(34, 34, 34)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -388,13 +380,22 @@ if (posicaoDespesas>0)
     
     }//GEN-LAST:event_btn_NovoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
     if (tf_Id.getText().isEmpty())
     {
-        codigo= pegaUltimoCodigoDespesas()+1;
-    System.out.print("\nBotao 1 codigo:"+codigo+"\n");
+      codigo= pegaUltimoCodigoDespesas()+1;
+      //System.out.print("\nBotao 1 codigo:"+codigo+"\n");
+      String strTipoDespesa="";
+      if (cb_tipo.getSelectedIndex()==0)
+          strTipoDespesa="C";
+      if (cb_tipo.getSelectedIndex()==1)
+          strTipoDespesa="L";
+      if (cb_tipo.getSelectedIndex()==2)
+          strTipoDespesa="M";
+          
+          
         String SQL = "Insert into tipodespesa (IdTipoDespesa ,NomeDespesa,ObservacaoDespesa,TipoDespesa) values ("+codigo+",'"+
-            tf_Nome.getText()+"','"+tf_Observacao.getText()+"','"+tf_tipo.getText()+"')";
+            tf_Nome.getText()+"','"+tf_Observacao.getText()+"','"+strTipoDespesa+"')";
     
     conexao con = new conexao();
     con.conecta();
@@ -408,10 +409,18 @@ if (posicaoDespesas>0)
     }
     else
     {
+      String strTipoDespesa="";
+      if (cb_tipo.getSelectedIndex()==0)
+          strTipoDespesa="C";
+      if (cb_tipo.getSelectedIndex()==1)
+          strTipoDespesa="L";
+      if (cb_tipo.getSelectedIndex()==2)
+          strTipoDespesa="M";
+      
       String SQL = "Update tipodespesa set IdTipoDespesa="+Integer.valueOf(tf_Id.getText())+
               ",NomeDespesa='"+tf_Nome.getText()+
               "',ObservacaoDespesa='"+tf_Observacao.getText()+
-              "',TipoDespesa='"+tf_tipo.getText()+
+              "',TipoDespesa='"+strTipoDespesa+
               "' where IdTipoDespesa="+Integer.valueOf(tf_Id.getText());
            
       System.out.print("\nSQL UPDATE:"+SQL);
@@ -426,7 +435,7 @@ if (posicaoDespesas>0)
     travaredicaoCamposDespesas();
 //JOptionPane.showMessageDialog(null, "Implementar");
     }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     mostrarDespesas(despesas,posicaoDespesas);
@@ -454,7 +463,7 @@ if (posicaoDespesas>0)
             mostrarDespesas(despesas,posicaoDespesas);
     }//GEN-LAST:event_cb_despesasActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExcluirActionPerformed
     conexao con = new conexao();
     con.conecta();
     con.executaUpdate("delete from tipodespesa where IdTipoDespesa="+tf_Id.getText());
@@ -462,15 +471,15 @@ if (posicaoDespesas>0)
     despesas =carregaDespesas();
         mostrarDespesas(despesas, posicaoDespesas);
         carregarcbDespesas();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_ExcluirActionPerformed
 
     private void tf_ObservacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ObservacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_ObservacaoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btn_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarActionPerformed
      liberaredicaoCamposDespesas();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btn_EditarActionPerformed
     public void carregarcbDespesas(){
         //if (carregaCBFornecedores==true)
         
@@ -509,26 +518,26 @@ if (posicaoDespesas>0)
     tf_Id.setText("");
     tf_Nome.setText("");
     tf_Observacao.setText("");
-    tf_tipo.setText("");
     tf_Nome.requestFocus();
     }
     
      public void travaredicaoCamposDespesas()
     { 
-    tf_Id.setEditable(false);
-    tf_Nome.setEditable(false);
-    tf_Observacao.setEditable(false);
-    tf_tipo.setEditable(false);
-    tf_Nome.setEditable(false);
+    
+    tf_Id.setEnabled(false);
+    tf_Nome.setEnabled(false);
+    tf_Observacao.setEnabled(false);
+    cb_tipo.setEnabled(false);
+    tf_Nome.setEnabled(false);
     }
      
     public void liberaredicaoCamposDespesas()
     { 
-    tf_Id.setEditable(true);
-    tf_Nome.setEditable(true);
-    tf_Observacao.setEditable(true);
-    tf_tipo.setEditable(true);
-    tf_Nome.setEditable(true);
+    tf_Id.setEnabled(true);
+    tf_Nome.setEnabled(true);
+    tf_Observacao.setEnabled(true);
+    cb_tipo.setEnabled(true);
+    tf_Nome.setEnabled(true);
     } 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -564,16 +573,16 @@ if (posicaoDespesas>0)
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Anterior;
+    private javax.swing.JButton btn_Editar;
+    private javax.swing.JButton btn_Excluir;
     private javax.swing.JButton btn_Novo;
     private javax.swing.JButton btn_Primeiro;
     private javax.swing.JButton btn_Proximo;
     private javax.swing.JToggleButton btn_Ultimo;
+    private javax.swing.JButton btn_salvar;
     private javax.swing.JComboBox<String> cb_despesas;
     private javax.swing.JComboBox<String> cb_tipo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_Id;
@@ -583,7 +592,6 @@ if (posicaoDespesas>0)
     private javax.swing.JTextField tf_Id;
     private javax.swing.JTextField tf_Nome;
     private javax.swing.JTextField tf_Observacao;
-    private javax.swing.JTextField tf_tipo;
     // End of variables declaration//GEN-END:variables
 }
 
