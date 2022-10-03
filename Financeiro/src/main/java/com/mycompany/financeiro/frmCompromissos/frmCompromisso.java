@@ -15,6 +15,8 @@ public class frmCompromisso extends javax.swing.JFrame {
      */
     public frmCompromisso() {
         initComponents();
+        limparCamposCompromisso();
+        travarCamposCompromisso();
     }
 
     /**
@@ -46,11 +48,12 @@ public class frmCompromisso extends javax.swing.JFrame {
         tf_codigodeBarras = new javax.swing.JTextField();
         lbl_observacao = new javax.swing.JLabel();
         sp_observacao = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ta_observacao = new javax.swing.JTextArea();
         lbl_dataPagamento = new javax.swing.JLabel();
         lbl_pagamentoEfetuado = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        tf_dataPagamento = new javax.swing.JTextField();
+        chb_pagamentoEfetuado = new javax.swing.JCheckBox();
+        btn_novo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,10 +120,10 @@ public class frmCompromisso extends javax.swing.JFrame {
         lbl_observacao.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         lbl_observacao.setText("Observações:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
-        jTextArea1.setRows(5);
-        sp_observacao.setViewportView(jTextArea1);
+        ta_observacao.setColumns(20);
+        ta_observacao.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        ta_observacao.setRows(5);
+        sp_observacao.setViewportView(ta_observacao);
 
         lbl_dataPagamento.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         lbl_dataPagamento.setText("Data Pagamento:");
@@ -128,11 +131,19 @@ public class frmCompromisso extends javax.swing.JFrame {
         lbl_pagamentoEfetuado.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         lbl_pagamentoEfetuado.setText("Pagamento efetuado:");
 
-        jTextField1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
-        jTextField1.setText("jTextField1");
+        tf_dataPagamento.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        tf_dataPagamento.setText("jTextField1");
 
-        jCheckBox1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
-        jCheckBox1.setText("SIM");
+        chb_pagamentoEfetuado.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        chb_pagamentoEfetuado.setText("SIM");
+
+        btn_novo.setMnemonic('N');
+        btn_novo.setText("Novo");
+        btn_novo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_novoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,14 +153,15 @@ public class frmCompromisso extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_novo)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl_pagamentoEfetuado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox1))
+                        .addComponent(chb_pagamentoEfetuado))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl_dataPagamento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_dataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lbl_observacao)
@@ -228,17 +240,70 @@ public class frmCompromisso extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_dataPagamento)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_dataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_pagamentoEfetuado)
-                    .addComponent(jCheckBox1))
-                .addContainerGap(73, Short.MAX_VALUE))
+                    .addComponent(chb_pagamentoEfetuado))
+                .addGap(18, 18, 18)
+                .addComponent(btn_novo)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
+        
+    }//GEN-LAST:event_btn_novoActionPerformed
+    
+    public void limparCamposCompromisso()
+    {
+    tf_Id.setText(" ");
+    tf_codigodeBarras.setText("");
+    tf_dataCadastro.setText("");
+    tf_dataPagamento.setText("");
+    tf_dataVencimento.setText("");
+    tf_documento.setText("");
+    tf_fornecedor.setText("");
+    tf_parcela.setText("      ");
+    tf_valor.setText("       ");
+    ta_observacao.setText("");
+    }
+    
+    public void travarCamposCompromisso()
+    {
+    tf_Id.setEnabled(false);
+    tf_codigodeBarras.setEnabled(false);
+    tf_dataCadastro.setEnabled(false);
+    tf_dataPagamento.setEnabled(false);
+    tf_dataVencimento.setEnabled(false);
+    tf_documento.setEnabled(false);
+    tf_fornecedor.setEnabled(false);
+    tf_parcela.setEnabled(false);
+    tf_valor.setEnabled(false);
+    ta_observacao.setEnabled(false);
+    cb_fornecedor.setEnabled(false);
+    chb_pagamentoEfetuado.setEnabled(false);
+    ta_observacao.setEnabled(false);
+    }
+    
+    public void liberarCamposCompromisso()
+    {
+    tf_Id.setEnabled(true);
+    tf_codigodeBarras.setEnabled(true);
+    tf_dataCadastro.setEnabled(true);
+    tf_dataPagamento.setEnabled(true);
+    tf_dataVencimento.setEnabled(true);
+    tf_documento.setEnabled(true);
+    tf_fornecedor.setEnabled(true);
+    tf_parcela.setEnabled(true);
+    tf_valor.setEnabled(true);
+    ta_observacao.setEnabled(true);
+    cb_fornecedor.setEnabled(true);
+    chb_pagamentoEfetuado.setEnabled(true);
+    ta_observacao.setEnabled(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -276,11 +341,10 @@ public class frmCompromisso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DescritivoDoFormulário;
+    private javax.swing.JButton btn_novo;
     private javax.swing.JComboBox<String> cb_fornecedor;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox chb_pagamentoEfetuado;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbl_DataCadastro;
     private javax.swing.JLabel lbl_Id;
     private javax.swing.JLabel lbl_codigodeBarras;
@@ -292,9 +356,11 @@ public class frmCompromisso extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_parcela;
     private javax.swing.JLabel lbl_valor;
     private javax.swing.JScrollPane sp_observacao;
+    private javax.swing.JTextArea ta_observacao;
     private javax.swing.JTextField tf_Id;
     private javax.swing.JTextField tf_codigodeBarras;
     private javax.swing.JTextField tf_dataCadastro;
+    private javax.swing.JTextField tf_dataPagamento;
     private javax.swing.JTextField tf_dataVencimento;
     private javax.swing.JTextField tf_documento;
     private javax.swing.JTextField tf_fornecedor;
