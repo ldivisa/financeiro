@@ -46,7 +46,7 @@ public boolean conecta()
 }
 public ResultSet executaConsulta(String SQL)
     {
-    String url="jdbc:sqlite:c:/banco/financeiro";
+    String url="jdbc:sqlite:/home/luiz/banco/financeiro";
     
         try{
             conexao con = new conexao();
