@@ -4,7 +4,7 @@
  */
 package com.mycompany.financeiro.dao;
 
-import java.sql.Date;
+
 
 /**
  *
@@ -13,8 +13,8 @@ import java.sql.Date;
 public class compromissos {
     
 private int idCompromissos;
-private Date dataCadastro;
-private Date dataVencimento;
+private String dataCadastro;
+private String dataVencimento;
 private Double valor;
 private int idFornecedor;
 private String Documento;
@@ -22,7 +22,7 @@ private String parcela;
 private String codigodeBarras;
 private String observacao;
 private int tipoDespesa;
-private Date dataPagamento;
+private String dataPagamento;
 private boolean pagamentoEfetuado;        
 
     public int getIdCompromissos() {
@@ -33,19 +33,19 @@ private boolean pagamentoEfetuado;
         this.idCompromissos = idCompromissos;
     }
 
-    public Date getDataCadastro() {
+    public String getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public Date getDataVencimento() {
+    public String getDataVencimento() {
         return dataVencimento;
     }
 
-    public void setDataVencimento(Date dataVencimento) {
+    public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
 
@@ -105,11 +105,11 @@ private boolean pagamentoEfetuado;
         this.tipoDespesa = tipoDespesa;
     }
 
-    public Date getDataPagamento() {
+    public String getDataPagamento() {
         return dataPagamento;
     }
 
-    public void setDataPagamento(Date dataPagamento) {
+    public void setDataPagamento(String dataPagamento) {
         this.dataPagamento = dataPagamento;
     }
 
