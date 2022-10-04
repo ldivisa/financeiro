@@ -29,6 +29,9 @@ public class conexao {
     public Statement statement;
     public ResultSet resultado;
     public String SQL;
+    public String url="jdbc:sqlite:/home/luiz/banco/financeiro";
+        //url="jdbc:sqlite:/C:/banco/financeiro";
+    
     
 public boolean conecta()
 {
@@ -46,9 +49,7 @@ public boolean conecta()
 }
 public ResultSet executaConsulta(String SQL)
     {
-    //String url="jdbc:sqlite:/home/luiz/banco/financeiro";
-        String url="jdbc:sqlite:/C:/banco/financeiro";
-    
+        
         try{
             conexao con = new conexao();
             conectar = DriverManager.getConnection(url);
@@ -71,8 +72,7 @@ public ResultSet executaConsulta(String SQL)
     
 public void executaUpdate(String SQL)
     {
-    String url="jdbc:sqlite:c:/banco/financeiro";
-    
+        
         try{
             conexao con = new conexao();
             conectar = DriverManager.getConnection(url);
