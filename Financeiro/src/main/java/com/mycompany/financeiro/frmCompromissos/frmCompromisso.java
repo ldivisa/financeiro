@@ -446,7 +446,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     System.out.print("\nTamanho do array de compromissos: "+compromissos.size());
     for (int i = 0; i<=compromissos.size() ;i++)
     {
-        System.out.print("\nComparando "+compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" com "+IdUltimoCompromisso);
+       // System.out.print("\nComparando "+compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" com "+IdUltimoCompromisso);
      if (compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()>IdUltimoCompromisso)
         {
         IdUltimoCompromisso=compromissos.get(posicaoUltimoCompromisso).getIdCompromissos();
