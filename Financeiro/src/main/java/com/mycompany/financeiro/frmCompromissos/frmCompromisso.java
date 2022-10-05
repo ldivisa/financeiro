@@ -8,12 +8,14 @@ import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.tipodespesa;
 import com.mycompany.financeiro.dao.utilidades.conexao;
+import com.sun.tools.javac.main.OptionHelper;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,7 +41,12 @@ public class frmCompromisso extends javax.swing.JFrame {
         carregarTipoDespesa();
         pesquisaNomeFornecedorporID(posicaoFornecedor);
         pesquisaNomeTipoDespesaporID(posicaoTipoDespesa);
+        btn_salvar.setEnabled(false);
+        btn_gravarmodificacao.setEnabled(false);
+        
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,6 +57,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        GrupoTipoDívida = new javax.swing.ButtonGroup();
         DescritivoDoFormulário = new javax.swing.JLabel();
         lbl_Id = new javax.swing.JLabel();
         tf_Id = new javax.swing.JTextField();
@@ -83,6 +91,13 @@ public class frmCompromisso extends javax.swing.JFrame {
         btn_Anterior = new javax.swing.JButton();
         btn_Próximo = new javax.swing.JButton();
         btn_Último = new javax.swing.JButton();
+        lbl_tipodivida = new javax.swing.JLabel();
+        rb_boleto = new javax.swing.JRadioButton();
+        rb_cheque = new javax.swing.JRadioButton();
+        btn_salvar = new javax.swing.JButton();
+        btn_editar = new javax.swing.JButton();
+        btn_sair = new javax.swing.JButton();
+        btn_gravarmodificacao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -233,6 +248,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             }
         });
 
+        btn_Primeiro.setMnemonic('p');
         btn_Primeiro.setText("Primeiro");
         btn_Primeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,6 +256,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             }
         });
 
+        btn_Anterior.setMnemonic('a');
         btn_Anterior.setText("Anterior");
         btn_Anterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,6 +264,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             }
         });
 
+        btn_Próximo.setMnemonic('r');
         btn_Próximo.setText("Próximo");
         btn_Próximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,10 +272,72 @@ public class frmCompromisso extends javax.swing.JFrame {
             }
         });
 
+        btn_Último.setMnemonic('u');
         btn_Último.setText("Último");
         btn_Último.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ÚltimoActionPerformed(evt);
+            }
+        });
+
+        lbl_tipodivida.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbl_tipodivida.setText("Tipo:");
+
+        rb_boleto.setBackground(new java.awt.Color(153, 153, 153));
+        GrupoTipoDívida.add(rb_boleto);
+        rb_boleto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rb_boleto.setText("Boleto");
+        rb_boleto.setAlignmentY(0.0F);
+        rb_boleto.setMaximumSize(new java.awt.Dimension(100, 41));
+        rb_boleto.setMinimumSize(new java.awt.Dimension(100, 41));
+        rb_boleto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                rb_boletoFocusLost(evt);
+            }
+        });
+
+        rb_cheque.setBackground(new java.awt.Color(153, 153, 153));
+        GrupoTipoDívida.add(rb_cheque);
+        rb_cheque.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rb_cheque.setText("Cheque");
+        rb_cheque.setAlignmentY(0.0F);
+        rb_cheque.setMaximumSize(new java.awt.Dimension(100, 41));
+        rb_cheque.setMinimumSize(new java.awt.Dimension(100, 41));
+        rb_cheque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_chequeActionPerformed(evt);
+            }
+        });
+
+        btn_salvar.setMnemonic('s');
+        btn_salvar.setText("Salvar");
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
+
+        btn_editar.setMnemonic('e');
+        btn_editar.setText("Editar");
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
+            }
+        });
+
+        btn_sair.setMnemonic('s');
+        btn_sair.setText("Sair");
+        btn_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_sairActionPerformed(evt);
+            }
+        });
+
+        btn_gravarmodificacao.setMnemonic('g');
+        btn_gravarmodificacao.setText("Gravar Modificações");
+        btn_gravarmodificacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_gravarmodificacaoActionPerformed(evt);
             }
         });
 
@@ -269,91 +349,108 @@ public class frmCompromisso extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sp_observacao)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btn_novo)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btn_salvar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btn_editar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_gravarmodificacao)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_sair)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Primeiro)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_Anterior)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_Próximo)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_Último))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lbl_dataPagamento)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tf_dataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(lbl_tipoDespesa)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tf_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(cb_tipoDespesa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lbl_codigodeBarras)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tf_codigodeBarras))
+                        .addComponent(lbl_observacao, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lbl_Id)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lbl_DataCadastro)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tf_dataCadastro)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lbl_tipodivida)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(rb_boleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(11, 11, 11)
+                                    .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(36, 36, 36)
+                                    .addComponent(lbl_dataVencimento)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tf_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cb_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lbl_documento)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tf_documento, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lbl_parcela)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tf_parcela))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(28, 28, 28)
+                                    .addComponent(lbl_valor)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tf_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(sp_observacao))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_codigodeBarras)
+                        .addComponent(lbl_pagamentoEfetuado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_codigodeBarras))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_dataPagamento)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_dataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbl_tipoDespesa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cb_tipoDespesa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_observacao)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_pagamentoEfetuado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chb_pagamentoEfetuado))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cb_fornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lbl_documento)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tf_documento, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_Id)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lbl_DataCadastro)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lbl_dataVencimento)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_parcela)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_parcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_valor)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tf_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_novo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_Primeiro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Anterior)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Próximo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Último)
-                        .addGap(117, 117, 117)))
-                .addContainerGap())
+                        .addComponent(chb_pagamentoEfetuado)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(DescritivoDoFormulário)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Id)
-                    .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_DataCadastro)
-                    .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_dataVencimento)
-                    .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_valor)
-                    .addComponent(tf_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_Id)
+                        .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_DataCadastro)
+                        .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_valor)
+                        .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_tipodivida)
+                        .addComponent(lbl_dataVencimento)
+                        .addComponent(rb_boleto, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -363,7 +460,7 @@ public class frmCompromisso extends javax.swing.JFrame {
                     .addComponent(tf_documento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_parcela)
                     .addComponent(tf_parcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_codigodeBarras)
                     .addComponent(tf_codigodeBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -371,7 +468,7 @@ public class frmCompromisso extends javax.swing.JFrame {
                 .addComponent(lbl_observacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sp_observacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_dataPagamento)
                     .addComponent(tf_dataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,7 +485,11 @@ public class frmCompromisso extends javax.swing.JFrame {
                     .addComponent(btn_Primeiro)
                     .addComponent(btn_Anterior)
                     .addComponent(btn_Próximo)
-                    .addComponent(btn_Último))
+                    .addComponent(btn_Último)
+                    .addComponent(btn_salvar)
+                    .addComponent(btn_editar)
+                    .addComponent(btn_sair)
+                    .addComponent(btn_gravarmodificacao))
                 .addGap(36, 36, 36))
         );
 
@@ -400,7 +501,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     liberarCamposCompromisso();
     tf_Id.setText(String.valueOf(pegaultimoIdCompromisso()));
     tf_dataCadastro.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/YYYY")));
-    
+    btn_salvar.setEnabled(true);
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void btn_PrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PrimeiroActionPerformed
@@ -530,7 +631,7 @@ public class frmCompromisso extends javax.swing.JFrame {
      else
      {
             JOptionPane.showMessageDialog(null,"Há problema no valor digitado no campo de valor, refaça com atenção!");
-            tf_valor.setText("");
+            //tf_valor.setText("");
             tf_valor.requestFocus();
      }
      
@@ -555,6 +656,103 @@ public class frmCompromisso extends javax.swing.JFrame {
             tf_dataPagamento.requestFocus();
         }
     }//GEN-LAST:event_tf_dataPagamentoFocusLost
+
+    private void rb_boletoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rb_boletoFocusLost
+     /*//if(!(rb_boleto.isSelected()||!rb_cheque.isSelected())){
+     if(rb_boleto.isSelected()||rb_boleto.isSelected())
+     {
+     System.out.print("\n Selecionada opcao de tipo de divida");
+     }
+     else
+     {
+            JOptionPane.showMessageDialog(null,"Defina se a dívida é um boleto ou um cheque!");
+            rb_boleto.requestFocus();
+     }*/
+    }//GEN-LAST:event_rb_boletoFocusLost
+
+    private void rb_chequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_chequeActionPerformed
+          if(rb_boleto.isSelected()||rb_boleto.isSelected())
+     {
+     System.out.print("\n Selecionada opcao de tipo de divida");
+     }
+     else
+     {
+            JOptionPane.showMessageDialog(null,"Defina se a dívida é um boleto ou um cheque!");
+            rb_boleto.requestFocus();
+     }
+    }//GEN-LAST:event_rb_chequeActionPerformed
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+    //definir qual o estado de tipodivida ->
+    boolean bolTipoDivida=false;
+    if(rb_boleto.isSelected())
+        bolTipoDivida= false; //false para boleto
+    if(rb_cheque.isSelected())    
+        bolTipoDivida=true; //true para cheques
+    
+    conexao con  = new conexao();
+    con.conecta();
+    SQL=("insert into compromissos (idCompromisso,TipoDivida,DataCadastro,DataVencimento,Valor,IdFornecedor,Documento,Parcela,CodigoBarras,Observacao,TipoDespesa,DataPagamento,PagamentoEfetuado)"
+      +"values ("
+      +(tf_Id.getText())+","
+      +bolTipoDivida+",'"
+      +tf_dataCadastro.getText()+"','"
+      +tf_dataVencimento.getText()+"','"
+      +tf_valor.getText()+"',"
+      +(tf_fornecedor.getText())+",'"
+      +tf_documento.getText()+ "','"
+      +tf_parcela.getText()+"','"
+      +tf_codigodeBarras.getText()+"','"
+      +ta_observacao.getText()+"','"
+      +tf_tipoDespesa.getText()+"',"
+      +null+","
+      +null+
+      ")");
+            
+    System.out.print ("\n"+SQL);
+    con.executaUpdate(SQL);
+    btn_salvar.setEnabled(false);
+    travarCamposCompromisso();
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
+   dispose();
+    }//GEN-LAST:event_btn_sairActionPerformed
+
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+   liberarCamposCompromisso();
+   btn_editar.setEnabled(false);
+   btn_gravarmodificacao.setEnabled(true);
+        
+    }//GEN-LAST:event_btn_editarActionPerformed
+
+    private void btn_gravarmodificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarmodificacaoActionPerformed
+     boolean tipoDivida;
+        if (rb_boleto.isSelected())
+        tipoDivida=false;
+    else
+        tipoDivida=true;
+        
+        SQL = "update compromissos set "+
+            "idCompromisso = "+tf_Id.getText()+","+
+            "TipoDivida = "+tipoDivida+","+
+            "DataCadastro = '"+tf_dataCadastro.getText()+"',"+
+            "DataVencimento = '"+tf_dataVencimento.getText()+"',"+
+            "Valor = '"+tf_valor.getText()+"',"+
+            "IdFornecedor ="+tf_fornecedor.getText()+","+
+            "Documento = '"+tf_documento.getText()+"',"+
+            "Parcela = '"+tf_parcela.getText()+"',"+
+            "CodigoBarras = '"+tf_codigodeBarras.getText()+"',"+
+            "Observacao = ' "+ta_observacao.getText()+"',"+
+            "TipoDespesa = " +tf_tipoDespesa.getText()+" "+
+            "where idCompromisso ="+tf_Id.getText();
+        System.out.print("\nSQL="+SQL);
+        conexao con = new conexao();
+        con.conecta();
+        con.executaUpdate(SQL);
+        btn_gravarmodificacao.setEnabled(false);
+        btn_editar.setEnabled(true);
+    }//GEN-LAST:event_btn_gravarmodificacaoActionPerformed
 
     public void carregarFornecedor()
     {
@@ -618,12 +816,13 @@ public class frmCompromisso extends javax.swing.JFrame {
     {
     posicaoUltimoCompromisso=0;
     System.out.print("\nTamanho do array de compromissos: "+compromissos.size());
-    for (int i = 0; i<=compromissos.size() ;i++)
+    for (int i = 0; i<=compromissos.size()-1 ;i++)
     {
-       // System.out.print("\nComparando "+compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" com "+IdUltimoCompromisso);
+        System.out.print("\nComparando Valor na posicao:"+posicaoCompromissos+" de compromissos <LIST>: "+ compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" com  IdUltimoCompromisso:"+IdUltimoCompromisso);
      if (compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()>IdUltimoCompromisso)
         {
         IdUltimoCompromisso=compromissos.get(posicaoUltimoCompromisso).getIdCompromissos();
+        posicaoUltimoCompromisso=posicaoUltimoCompromisso+1;
         }
      else
         {
@@ -671,21 +870,25 @@ public class frmCompromisso extends javax.swing.JFrame {
     tf_Id.setText(" ");
     tf_codigodeBarras.setText("");
     tf_dataCadastro.setText("");
+    rb_boleto.setSelected(false);
+    rb_cheque.setSelected(false);
     tf_dataPagamento.setText("");
     tf_dataVencimento.setText("");
     tf_documento.setText("");
     tf_fornecedor.setText("");
     tf_parcela.setText("      ");
-    tf_valor.setText("       ");
+    tf_valor.setText("");
     ta_observacao.setText("");
     tf_tipoDespesa.setText("");
-    tf_dataVencimento.requestFocus();
+    //rb_boleto.requestFocus();
+    
     
     }
     
     public void travarCamposCompromisso()
     {
     tf_Id.setEnabled(false);
+    GrupoTipoDívida.clearSelection();
     tf_codigodeBarras.setEnabled(false);
     tf_dataCadastro.setEnabled(false);
     tf_dataPagamento.setEnabled(false);
@@ -700,11 +903,15 @@ public class frmCompromisso extends javax.swing.JFrame {
     chb_pagamentoEfetuado.setEnabled(false);
     tf_tipoDespesa.setEnabled(false);
     ta_observacao.setEnabled(false);
+    rb_boleto.setEnabled(false);
+    rb_cheque.setEnabled(false);
+    
     }
     
     public void liberarCamposCompromisso()
     {
     tf_Id.setEnabled(true);
+    GrupoTipoDívida.clearSelection();
     tf_codigodeBarras.setEnabled(true);
     //tf_dataCadastro.setEnabled(true);
     //tf_dataPagamento.setEnabled(true);
@@ -719,6 +926,9 @@ public class frmCompromisso extends javax.swing.JFrame {
     //chb_pagamentoEfetuado.setEnabled(true);
     tf_tipoDespesa.setEnabled(true);
     ta_observacao.setEnabled(true);
+    rb_boleto.setEnabled(true);
+    rb_cheque.setEnabled(true);
+    rb_boleto.requestFocus();
     }
     
     public List<compromissos> carregarCompromissos()
@@ -736,6 +946,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             {
             compromissos compromisso = new compromissos();
             compromisso.setCodigodeBarras(rsCompromissos.getString("codigoBarras"));
+            compromisso.settipoDivida(rsCompromissos.getBoolean("TipoDivida"));
             compromisso.setDataCadastro(rsCompromissos.getString("DataCadastro"));
             compromisso.setDataPagamento(rsCompromissos.getString("DataPagamento"));
             compromisso.setDataVencimento(rsCompromissos.getString("DataVencimento"));
@@ -777,14 +988,23 @@ public class frmCompromisso extends javax.swing.JFrame {
         {
             chb_pagamentoEfetuado.setSelected(false);
         }
+    System.out.print("\nPosicao: "+posicaoCompromissos+" tipo divida: "+compromissos.get(posicaoCompromissos).gettipoDivida());
+    if(compromissos.get(posicaoCompromissos).gettipoDivida())
+    {
+       GrupoTipoDívida.clearSelection();
+        //GrupoTipoDívida.setSelected(rb_cheque,true);
+        rb_cheque.setSelected(true);
+        
+    }
+    else
+    {
+       GrupoTipoDívida.clearSelection();
+        rb_boleto.setSelected(true);
+    }
     tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
     tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));
     tf_valor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getValor()));
-            
-    
-    
-    
-    
+     
     }
     /**
      * @param args the command line arguments
@@ -823,10 +1043,15 @@ public class frmCompromisso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DescritivoDoFormulário;
+    private javax.swing.ButtonGroup GrupoTipoDívida;
     private javax.swing.JButton btn_Anterior;
     private javax.swing.JButton btn_Primeiro;
     private javax.swing.JButton btn_Próximo;
+    private javax.swing.JButton btn_editar;
+    private javax.swing.JButton btn_gravarmodificacao;
     private javax.swing.JButton btn_novo;
+    private javax.swing.JButton btn_sair;
+    private javax.swing.JButton btn_salvar;
     private javax.swing.JButton btn_Último;
     private javax.swing.JComboBox<String> cb_fornecedor;
     private javax.swing.JComboBox<String> cb_tipoDespesa;
@@ -842,7 +1067,10 @@ public class frmCompromisso extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_pagamentoEfetuado;
     private javax.swing.JLabel lbl_parcela;
     private javax.swing.JLabel lbl_tipoDespesa;
+    private javax.swing.JLabel lbl_tipodivida;
     private javax.swing.JLabel lbl_valor;
+    private javax.swing.JRadioButton rb_boleto;
+    private javax.swing.JRadioButton rb_cheque;
     private javax.swing.JScrollPane sp_observacao;
     private javax.swing.JTextArea ta_observacao;
     private javax.swing.JTextField tf_Id;

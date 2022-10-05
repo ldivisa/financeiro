@@ -4,11 +4,10 @@
  */
 package com.mycompany.financeiro.dao.utilidades;
 
-import static com.sun.tools.doclint.Entity.prop;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Parameter;
 import java.util.Properties;
 
 /**

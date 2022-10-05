@@ -13,12 +13,12 @@ import java.util.Properties;
  */
 public class frmConfigurações extends javax.swing.JFrame {
     public Properties cfg;
+    public configurações config = new configurações();
     /**
      * Creates new form frmCOnfigurações
      */
     public frmConfigurações() {
         initComponents();
-        configurações config = new configurações();
         cfg = config.leBanco();
         tf_NomedoArquivo.setText(cfg.getProperty("banco"));
         
@@ -113,6 +113,7 @@ public class frmConfigurações extends javax.swing.JFrame {
 
     private void GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GravarActionPerformed
     cfg.put("banco", tf_NomedoArquivo);
+    config.gravaBanco(tf_NomedoArquivo.getText());
     dispose();
     }//GEN-LAST:event_GravarActionPerformed
 

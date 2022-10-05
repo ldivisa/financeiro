@@ -12,10 +12,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,9 +25,9 @@ public class conexao {
     public Statement statement;
     public ResultSet resultado;
     public String SQL;
-    public String url="jdbc:sqlite:/home/luiz/banco/financeiro";
-        //url="jdbc:sqlite:/C:/banco/financeiro";
-    
+    public String url;
+    public configurações configs = new configurações();    
+           
     
 public boolean conecta()
 {
@@ -49,10 +45,11 @@ public boolean conecta()
 }
 public ResultSet executaConsulta(String SQL)
     {
-        
+    
         try{
             conexao con = new conexao();
-            conectar = DriverManager.getConnection(url);
+            url = configs.leBanco().getProperty("banco"); 
+            conectar = DriverManager.getConnection("jdbc:sqlite://"+url);
             //System.out.println("\nDriver manager conexao efetuada");
             statement =conectar.createStatement();
             //System.out.println("\nStatement criado");
@@ -75,7 +72,8 @@ public void executaUpdate(String SQL)
         
         try{
             conexao con = new conexao();
-            conectar = DriverManager.getConnection(url);
+            url = configs.leBanco().getProperty("banco"); 
+            conectar = DriverManager.getConnection("jdbc:sqlite://"+url);
             System.out.println("\nDriver manager conexao efetuada");
             statement =conectar.createStatement();
             System.out.println("\nStatement criado");

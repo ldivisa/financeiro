@@ -13,6 +13,7 @@ package com.mycompany.financeiro.dao;
 public class compromissos {
     
 private int idCompromissos;
+private boolean tipoDivida;
 private String dataCadastro;
 private String dataVencimento;
 private Double valor;
@@ -24,6 +25,15 @@ private String observacao;
 private int tipoDespesa;
 private String dataPagamento;
 private boolean pagamentoEfetuado;        
+
+    public boolean gettipoDivida() {
+        return tipoDivida;
+    }
+
+    public void settipoDivida(boolean tipoDivida) {
+        this.tipoDivida = tipoDivida;
+    }
+
 
     public int getIdCompromissos() {
         return idCompromissos;
