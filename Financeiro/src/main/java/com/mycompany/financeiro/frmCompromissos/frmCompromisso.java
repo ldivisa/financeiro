@@ -309,7 +309,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             }
         });
 
-        btn_salvar.setMnemonic('s');
+        btn_salvar.setMnemonic('a');
         btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

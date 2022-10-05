@@ -576,7 +576,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_salvar">
       <Properties>
-        <Property name="mnemonic" type="int" value="115"/>
+        <Property name="mnemonic" type="int" value="97"/>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
       <Events>
