@@ -5,7 +5,9 @@
 package com.mycompany.financeiro.Menu;
 
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletos;
+import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletosVencidos;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarCheques;
+import com.mycompany.financeiro.frmCompromissos.frmBaixarChequesVencidos;
 import com.mycompany.financeiro.frmCompromissos.frmCompromisso;
 
 /**
@@ -36,8 +38,12 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        Avencer = new javax.swing.JMenu();
+        Baixarchequesnaovencidos = new javax.swing.JMenuItem();
+        BaixarBoletosnaovencidos = new javax.swing.JMenuItem();
+        Vencidos = new javax.swing.JMenu();
+        BaixarBoletosvencidos = new javax.swing.JMenuItem();
+        Baixarchequesvencidos = new javax.swing.JMenuItem();
         Relatórios = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,21 +72,45 @@ public class frmMenu extends javax.swing.JFrame {
 
         jMenu2.setText("Baixar dívida");
 
-        jMenuItem2.setText("Baixar Boletos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem2);
+        Avencer.setText("A vencer");
 
-        jMenuItem3.setText("Baixar Cheques");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        Baixarchequesnaovencidos.setText("Baixar Cheques não vencidos");
+        Baixarchequesnaovencidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                BaixarchequesnaovencidosActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        Avencer.add(Baixarchequesnaovencidos);
+
+        BaixarBoletosnaovencidos.setText("Baixar Boletos não vencidos");
+        BaixarBoletosnaovencidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BaixarBoletosnaovencidosActionPerformed(evt);
+            }
+        });
+        Avencer.add(BaixarBoletosnaovencidos);
+
+        jMenu2.add(Avencer);
+
+        Vencidos.setText("Vencidos");
+
+        BaixarBoletosvencidos.setText("Baixar boletos vencidos");
+        BaixarBoletosvencidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BaixarBoletosvencidosActionPerformed(evt);
+            }
+        });
+        Vencidos.add(BaixarBoletosvencidos);
+
+        Baixarchequesvencidos.setText("Baixar cheques vencidos");
+        Baixarchequesvencidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BaixarchequesvencidosActionPerformed(evt);
+            }
+        });
+        Vencidos.add(Baixarchequesvencidos);
+
+        jMenu2.add(Vencidos);
 
         Lançamentos.add(jMenu2);
 
@@ -120,15 +150,25 @@ public class frmMenu extends javax.swing.JFrame {
      System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void BaixarBoletosnaovencidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BaixarBoletosnaovencidosActionPerformed
      frmBaixarBoletos frm = new frmBaixarBoletos();
      frm.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_BaixarBoletosnaovencidosActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void BaixarchequesnaovencidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BaixarchequesnaovencidosActionPerformed
       frmBaixarCheques frm = new frmBaixarCheques();
      frm.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_BaixarchequesnaovencidosActionPerformed
+
+    private void BaixarBoletosvencidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BaixarBoletosvencidosActionPerformed
+    frmBaixarBoletosVencidos frm = new frmBaixarBoletosVencidos();
+    frm.setVisible(true);
+    }//GEN-LAST:event_BaixarBoletosvencidosActionPerformed
+
+    private void BaixarchequesvencidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BaixarchequesvencidosActionPerformed
+    frmBaixarChequesVencidos frm = new frmBaixarChequesVencidos();
+    frm.setVisible(true);
+    }//GEN-LAST:event_BaixarchequesvencidosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,14 +206,18 @@ public class frmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Avencer;
+    private javax.swing.JMenuItem BaixarBoletosnaovencidos;
+    private javax.swing.JMenuItem BaixarBoletosvencidos;
+    private javax.swing.JMenuItem Baixarchequesnaovencidos;
+    private javax.swing.JMenuItem Baixarchequesvencidos;
     private javax.swing.JMenu Lançamentos;
     private javax.swing.JMenu Relatórios;
+    private javax.swing.JMenu Vencidos;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }

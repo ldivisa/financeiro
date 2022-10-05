@@ -29,22 +29,52 @@
                 <Property name="text" type="java.lang.String" value="Baixar d&#xed;vida"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                <Menu class="javax.swing.JMenu" name="Avencer">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Baixar Boletos"/>
+                    <Property name="text" type="java.lang.String" value="A vencer"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="Baixarchequesnaovencidos">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Baixar Cheques n&#xe3;o vencidos"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BaixarchequesnaovencidosActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="BaixarBoletosnaovencidos">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Baixar Boletos n&#xe3;o vencidos"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BaixarBoletosnaovencidosActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="Vencidos">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Baixar Cheques"/>
+                    <Property name="text" type="java.lang.String" value="Vencidos"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
-                  </Events>
-                </MenuItem>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="BaixarBoletosvencidos">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Baixar boletos vencidos"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BaixarBoletosvencidosActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="Baixarchequesvencidos">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Baixar cheques vencidos"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BaixarchequesvencidosActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
               </SubComponents>
             </Menu>
           </SubComponents>

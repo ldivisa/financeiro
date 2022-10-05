@@ -19,12 +19,32 @@ private String dataVencimento;
 private Double valor;
 private int idFornecedor;
 private String Documento;
+private String DataVencimentoPesquisavel;
 private String parcela;
 private String codigodeBarras;
 private String observacao;
 private int tipoDespesa;
 private String dataPagamento;
 private boolean pagamentoEfetuado;        
+
+    public boolean isTipoDivida() {
+        return tipoDivida;
+    }
+
+    public void setTipoDivida(boolean tipoDivida) {
+        this.tipoDivida = tipoDivida;
+    }
+
+    public String getDataVencimentoPesquisavel() {
+        return DataVencimentoPesquisavel;
+    }
+
+    public void setDataVencimentoPesquisavel(String DataVencimentoPesquisavel) {
+        this.DataVencimentoPesquisavel = DataVencimentoPesquisavel;
+    }
+
+
+    
 
     public boolean gettipoDivida() {
         return tipoDivida;
