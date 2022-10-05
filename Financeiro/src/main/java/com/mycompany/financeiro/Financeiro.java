@@ -6,6 +6,7 @@
 package com.mycompany.financeiro;
 
 
+import com.mycompany.financeiro.Menu.frmMenu;
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.utilidades.*;
 import com.mycompany.financeiro.frmCompromissos.frmCompromisso;
@@ -23,8 +24,8 @@ import javax.swing.JOptionPane;
 public class Financeiro {
 
     public static void main(String[] args) {
-        //frmFornecedores frm = new frmFornecedores();
-        //frm.setVisible(true);
+        frmMenu frm = new frmMenu();
+        frm.setVisible(true);
         
 }
 }

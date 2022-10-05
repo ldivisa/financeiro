@@ -10,9 +10,11 @@ import com.mycompany.financeiro.dao.tipodespesa;
 import com.mycompany.financeiro.dao.utilidades.conexao;
 import com.sun.tools.javac.main.OptionHelper;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.swing.ButtonGroup;
@@ -22,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author luiz
  */
-public class frmCompromisso extends javax.swing.JFrame {
+public class frmBaixarCheques extends javax.swing.JFrame {
     public ResultSet rsCompromissos,  rsFornecedor, rstipoDespesa;
     public String SQL;
     public int posicaoCompromissos=0,posicaoFornecedor=0,posicaoTipoDespesa=0,posicaoUltimoCompromisso=0,IdUltimoCompromisso=0;
@@ -32,7 +34,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     /**
      * Creates new form frmCompromisso
      */
-    public frmCompromisso() {
+    public frmBaixarCheques() {
         initComponents();
         limparCamposCompromisso();
         travarCamposCompromisso();
@@ -104,7 +106,7 @@ public class frmCompromisso extends javax.swing.JFrame {
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
         DescritivoDoFormulário.setForeground(new java.awt.Color(255, 0, 0));
         DescritivoDoFormulário.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DescritivoDoFormulário.setText("Compromissos");
+        DescritivoDoFormulário.setText("Baixar Cheques");
         DescritivoDoFormulário.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lbl_Id.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
@@ -219,6 +221,7 @@ public class frmCompromisso extends javax.swing.JFrame {
 
         btn_novo.setMnemonic('N');
         btn_novo.setText("Novo");
+        btn_novo.setEnabled(false);
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_novoActionPerformed(evt);
@@ -317,8 +320,8 @@ public class frmCompromisso extends javax.swing.JFrame {
             }
         });
 
-        btn_editar.setMnemonic('e');
-        btn_editar.setText("Editar");
+        btn_editar.setMnemonic('b');
+        btn_editar.setText("Baixar");
         btn_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_editarActionPerformed(evt);
@@ -397,9 +400,9 @@ public class frmCompromisso extends javax.swing.JFrame {
                                     .addComponent(lbl_tipodivida)
                                     .addGap(18, 18, 18)
                                     .addComponent(rb_boleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(29, 29, 29)
+                                    .addGap(43, 43, 43)
                                     .addComponent(lbl_dataVencimento)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -502,7 +505,6 @@ public class frmCompromisso extends javax.swing.JFrame {
     tf_Id.setText(String.valueOf(pegaultimoIdCompromisso()));
     tf_dataCadastro.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/YYYY")));
     btn_salvar.setEnabled(true);
-    btn_editar.setEnabled(false);
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void btn_PrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PrimeiroActionPerformed
@@ -707,7 +709,7 @@ public class frmCompromisso extends javax.swing.JFrame {
       +ta_observacao.getText()+"','"
       +tf_tipoDespesa.getText()+"',"
       +null+","
-      +false+
+      +null+
       ")");
             
     System.out.print ("\n"+SQL);
@@ -733,6 +735,10 @@ public class frmCompromisso extends javax.swing.JFrame {
         tipoDivida=false;
     else
         tipoDivida=true;
+        Date data = new Date();
+        SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM/yyyy");
+        String datahoje = formatodata.format(data);
+        System.out.print("\n Hoje é:"+datahoje);
         
         SQL = "update compromissos set "+
             "idCompromisso = "+tf_Id.getText()+","+
@@ -745,7 +751,9 @@ public class frmCompromisso extends javax.swing.JFrame {
             "Parcela = '"+tf_parcela.getText()+"',"+
             "CodigoBarras = '"+tf_codigodeBarras.getText()+"',"+
             "Observacao = ' "+ta_observacao.getText()+"',"+
-            "TipoDespesa = " +tf_tipoDespesa.getText()+" "+
+            "TipoDespesa = " +tf_tipoDespesa.getText()+" ,"+
+            "DataPagamento = '"+datahoje+"',"+
+            "PagamentoEfetuado = '1'"+    
             "where idCompromisso ="+tf_Id.getText();
         System.out.print("\nSQL="+SQL);
         conexao con = new conexao();
@@ -753,6 +761,8 @@ public class frmCompromisso extends javax.swing.JFrame {
         con.executaUpdate(SQL);
         btn_gravarmodificacao.setEnabled(false);
         btn_editar.setEnabled(true);
+        carregarCompromissos();
+        mostrarCompromissos(compromissos);
     }//GEN-LAST:event_btn_gravarmodificacaoActionPerformed
 
     public void carregarFornecedor()
@@ -937,12 +947,20 @@ public class frmCompromisso extends javax.swing.JFrame {
     rsCompromissos=null;    
     conexao con = new conexao();
     con.conecta();
-    SQL  = "select * from compromissos";
+    SQL  = "select * from compromissos where PagamentoEfetuado = '0' and TipoDivida='1'";
     rsCompromissos = con.executaConsulta(SQL);
     compromissos.clear();
-            
+    
     try
         {
+        if (!rsCompromissos.isBeforeFirst())
+        {
+            JOptionPane.showMessageDialog(null, "Não identifiquei registros passíveis de baixa financeira");
+            dispose();
+            return compromissos;
+        }
+        
+        
         while(rsCompromissos.next())
             {
             compromissos compromisso = new compromissos();
@@ -1037,7 +1055,7 @@ public class frmCompromisso extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmCompromisso().setVisible(true);
+                new frmBaixarCheques().setVisible(true);
             }
         });
     }
