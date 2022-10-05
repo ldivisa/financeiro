@@ -11,9 +11,9 @@ import com.mycompany.financeiro.dao.utilidades.conexao;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -109,6 +109,11 @@ public class frmCompromisso extends javax.swing.JFrame {
 
         tf_dataVencimento.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         tf_dataVencimento.setText("jTextField1");
+        tf_dataVencimento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tf_dataVencimentoFocusLost(evt);
+            }
+        });
 
         lbl_valor.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         lbl_valor.setText("Valor:");
@@ -117,14 +122,39 @@ public class frmCompromisso extends javax.swing.JFrame {
         tf_valor.setText("jTextField1");
         tf_valor.setAutoscrolls(false);
         tf_valor.setMinimumSize(new java.awt.Dimension(120, 39));
+        tf_valor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tf_valorFocusLost(evt);
+            }
+        });
+        tf_valor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_valorActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         jLabel1.setText("Fornecedor:");
 
         cb_fornecedor.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        cb_fornecedor.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_fornecedorItemStateChanged(evt);
+            }
+        });
 
         tf_fornecedor.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         tf_fornecedor.setText("jTextField1");
+        tf_fornecedor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tf_fornecedorFocusLost(evt);
+            }
+        });
+        tf_fornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_fornecedorActionPerformed(evt);
+            }
+        });
 
         lbl_documento.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         lbl_documento.setText("Documento:");
@@ -163,6 +193,11 @@ public class frmCompromisso extends javax.swing.JFrame {
 
         tf_dataPagamento.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         tf_dataPagamento.setText("jTextField1");
+        tf_dataPagamento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tf_dataPagamentoFocusLost(evt);
+            }
+        });
 
         chb_pagamentoEfetuado.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         chb_pagamentoEfetuado.setText("SIM");
@@ -177,11 +212,26 @@ public class frmCompromisso extends javax.swing.JFrame {
 
         tf_tipoDespesa.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         tf_tipoDespesa.setText("jTextField1");
+        tf_tipoDespesa.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tf_tipoDespesaFocusLost(evt);
+            }
+        });
 
         lbl_tipoDespesa.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         lbl_tipoDespesa.setText("Tipo de Despesa:");
 
         cb_tipoDespesa.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        cb_tipoDespesa.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_tipoDespesaItemStateChanged(evt);
+            }
+        });
+        cb_tipoDespesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_tipoDespesaActionPerformed(evt);
+            }
+        });
 
         btn_Primeiro.setText("Primeiro");
         btn_Primeiro.addActionListener(new java.awt.event.ActionListener() {
@@ -248,11 +298,11 @@ public class frmCompromisso extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tf_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cb_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cb_fornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(lbl_documento)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_documento))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tf_documento, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lbl_Id)
                                         .addGap(18, 18, 18)
@@ -265,14 +315,16 @@ public class frmCompromisso extends javax.swing.JFrame {
                                         .addComponent(lbl_dataVencimento)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbl_valor)
-                                    .addComponent(lbl_parcela))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tf_parcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_parcela)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tf_parcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_valor)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tf_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_novo)
@@ -382,14 +434,136 @@ public class frmCompromisso extends javax.swing.JFrame {
     mostrarCompromissos(compromissos);
     }//GEN-LAST:event_btn_ÚltimoActionPerformed
 
+    private void tf_fornecedorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_fornecedorFocusLost
+    if(!tf_fornecedor.getText().isEmpty())
+    {
+        carregarFornecedor();
+    posicaoFornecedor=0;
+    for (int i=0; i<=fornecedores.size()-1;i++)
+        {
+            if (fornecedores.get(posicaoFornecedor).getIdFornecedor()==Integer.valueOf(tf_fornecedor.getText()))
+            {
+                cb_fornecedor.setSelectedIndex(posicaoFornecedor);            
+            }
+            else
+            {
+            posicaoFornecedor=posicaoFornecedor+1;
+            }
+        }
+    }
+    }//GEN-LAST:event_tf_fornecedorFocusLost
+
+    private void cb_fornecedorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_fornecedorItemStateChanged
+    posicaoFornecedor=0;
+    for (int i=0; i<=fornecedores.size()-1;i++)
+        {
+            System.out.print("\n combo fornecedor:"+cb_fornecedor.getSelectedItem().toString());
+            if (fornecedores.get(posicaoFornecedor).getNomeFornecedor().equals(cb_fornecedor.getSelectedItem().toString()))
+            {
+                tf_fornecedor.setText(String.valueOf(fornecedores.get(posicaoFornecedor).getIdFornecedor()));
+            }
+            else
+            {
+            posicaoFornecedor=posicaoFornecedor+1;
+            System.out.print("\nPassando...");
+            }
+        }
+    }//GEN-LAST:event_cb_fornecedorItemStateChanged
+
+    private void tf_fornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_fornecedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_fornecedorActionPerformed
+
+    private void tf_tipoDespesaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_tipoDespesaFocusLost
+        if (!tf_tipoDespesa.getText().isBlank())
+        {
+        carregarTipoDespesa();
+    posicaoTipoDespesa=0;
+    for (int i=0; i<=tipoDespesa.size()-1;i++)
+        {
+            if (tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()==Integer.valueOf(tf_tipoDespesa.getText()))
+            {
+                cb_tipoDespesa.setSelectedIndex(posicaoTipoDespesa);            
+            }
+            else
+            {
+            posicaoTipoDespesa=posicaoTipoDespesa+1;
+            }
+        }
+        }
+    }//GEN-LAST:event_tf_tipoDespesaFocusLost
+
+    private void cb_tipoDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoDespesaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_tipoDespesaActionPerformed
+
+    private void cb_tipoDespesaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_tipoDespesaItemStateChanged
+    posicaoTipoDespesa=0;
+    for (int i=0; i<=tipoDespesa.size()-1;i++)
+        {
+            
+            if (tipoDespesa.get(posicaoTipoDespesa).getNomeDespesa().equals(cb_tipoDespesa.getSelectedItem().toString()))
+            {
+                tf_tipoDespesa.setText(String.valueOf(tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()));
+            }
+            else
+            {
+            posicaoTipoDespesa=posicaoTipoDespesa+1;
+            
+            }
+        }
+    }//GEN-LAST:event_cb_tipoDespesaItemStateChanged
+
+    private void tf_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_valorActionPerformed
+     
+    }//GEN-LAST:event_tf_valorActionPerformed
+
+    private void tf_valorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_valorFocusLost
+    
+    String strvalor = (tf_valor.getText());
+        
+     if (Pattern.matches("^([1-9]{1}[\\d]{0,2}(\\.[\\d]{3})*(\\,[\\d]{0,2})?|[1-9]{1}[\\d]{0,}(\\,[\\d]{0,2})?|0(\\,[\\d]{0,2})?|(\\,[\\d]{1,2})?)$",strvalor))
+     {
+            strvalor= strvalor.replace(",",".");
+            tf_valor.setText(strvalor);
+     }
+     else
+     {
+            JOptionPane.showMessageDialog(null,"Há problema no valor digitado no campo de valor, refaça com atenção!");
+            tf_valor.setText("");
+            tf_valor.requestFocus();
+     }
+     
+    }//GEN-LAST:event_tf_valorFocusLost
+
+    private void tf_dataVencimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_dataVencimentoFocusLost
+        String DataVencimento = tf_dataVencimento.getText();
+        if (!Pattern.matches("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((?:19|20)[0-9][0-9])", DataVencimento))
+        {
+            JOptionPane.showMessageDialog(null,"Há problema no valor digitado no campo de Data de Vencimento, refaça com atenção!");
+            tf_dataVencimento.setText("");
+            tf_dataVencimento.requestFocus();
+        }
+    }//GEN-LAST:event_tf_dataVencimentoFocusLost
+
+    private void tf_dataPagamentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_dataPagamentoFocusLost
+    String DataPagamento = tf_dataPagamento.getText();
+        if (!Pattern.matches("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((?:19|20)[0-9][0-9])", DataPagamento))
+        {
+            JOptionPane.showMessageDialog(null,"Há problema no valor digitado no campo de Data de Pagamento, refaça com atenção!");
+            tf_dataPagamento.setText("");
+            tf_dataPagamento.requestFocus();
+        }
+    }//GEN-LAST:event_tf_dataPagamentoFocusLost
 
     public void carregarFornecedor()
     {
     conexao con =new conexao();
     con.conecta();
     rsFornecedor = null;
-    rsFornecedor = con.executaConsulta("select * from  fornecedores");
+    rsFornecedor = con.executaConsulta("select * from  fornecedores order by NomeFornecedor");
     fornecedores.clear();
+    cb_fornecedor.removeAllItems();
     try 
         {
             while (rsFornecedor.next())
@@ -417,7 +591,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     conexao con =new conexao();
     con.conecta();
     rstipoDespesa = null;
-    rstipoDespesa = con.executaConsulta("select * from  tipoDespesa");
+    rstipoDespesa = con.executaConsulta("select * from  tipoDespesa order by NomeDespesa");
     tipoDespesa.clear();
     try 
         {
@@ -533,7 +707,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     tf_Id.setEnabled(true);
     tf_codigodeBarras.setEnabled(true);
     //tf_dataCadastro.setEnabled(true);
-    tf_dataPagamento.setEnabled(true);
+    //tf_dataPagamento.setEnabled(true);
     tf_dataVencimento.setEnabled(true);
     tf_documento.setEnabled(true);
     tf_fornecedor.setEnabled(true);
@@ -542,7 +716,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     ta_observacao.setEnabled(true);
     cb_fornecedor.setEnabled(true);
     cb_tipoDespesa.setEnabled(true);
-    chb_pagamentoEfetuado.setEnabled(true);
+    //chb_pagamentoEfetuado.setEnabled(true);
     tf_tipoDespesa.setEnabled(true);
     ta_observacao.setEnabled(true);
     }
