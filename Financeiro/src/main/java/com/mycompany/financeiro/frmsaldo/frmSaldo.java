@@ -7,6 +7,7 @@ package com.mycompany.financeiro.frmsaldo;
 import com.mycompany.financeiro.dao.utilidades.conexao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -47,6 +48,7 @@ public class frmSaldo extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setMnemonic('g');
         jButton2.setText("Gravar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +58,11 @@ public class frmSaldo extends javax.swing.JFrame {
 
         tf_saldo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         tf_saldo.setText("jTextField1");
+        tf_saldo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tf_saldoFocusLost(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Saldo Bancário:");
@@ -72,7 +79,6 @@ public class frmSaldo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tf_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
                         .addGap(28, 28, 28)
                         .addComponent(jButton1)
@@ -128,6 +134,21 @@ public class frmSaldo extends javax.swing.JFrame {
      con.executaUpdate("insert into saldo (saldo) values ("+Double.valueOf(tf_saldo.getText())+")");
      dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tf_saldoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_saldoFocusLost
+                  
+          if (!Pattern.matches("^([1-9]{1}[\\d]{0,2}(\\.[\\d]{3})*(\\,[\\d]{0,2})?|[1-9]{1}[\\d]{0,}(\\,[\\d]{0,2})?|0(\\,[\\d]{0,2})?|(\\,[\\d]{1,2})?)$",tf_saldo.getText()))
+        {
+            JOptionPane.showMessageDialog(null,"Há problema no valor digitado no campo de saldo Bancário, refaça com atenção!");
+            tf_saldo.setText("");
+            tf_saldo.requestFocus();
+        }
+        tf_saldo.setText(tf_saldo.getText().replace(",","."));  
+        
+        
+     
+     
+    }//GEN-LAST:event_tf_saldoFocusLost
 
     /**
      * @param args the command line arguments
