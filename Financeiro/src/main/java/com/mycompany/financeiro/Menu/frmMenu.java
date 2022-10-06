@@ -4,6 +4,7 @@
  */
 package com.mycompany.financeiro.Menu;
 
+import com.mycompany.financeiro.Configurações.frmConfigurações;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletos;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletosVencidos;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarCheques;
@@ -87,6 +88,8 @@ public class frmMenu extends javax.swing.JFrame {
         Vencidos = new javax.swing.JMenu();
         BaixarBoletosvencidos = new javax.swing.JMenuItem();
         Baixarchequesvencidos = new javax.swing.JMenuItem();
+        Configuração = new javax.swing.JMenu();
+        Bancodedados = new javax.swing.JMenuItem();
         Relatórios = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -340,6 +343,18 @@ public class frmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(Lançamentos);
 
+        Configuração.setText("Configuração");
+
+        Bancodedados.setText("Banco de dados");
+        Bancodedados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BancodedadosActionPerformed(evt);
+            }
+        });
+        Configuração.add(Bancodedados);
+
+        jMenuBar1.add(Configuração);
+
         Relatórios.setText("Relatórios");
         jMenuBar1.add(Relatórios);
 
@@ -436,6 +451,11 @@ public class frmMenu extends javax.swing.JFrame {
         lblDiferencaTotal.setText(String.valueOf(chequesVencer+boletosVencer-saldo));
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void BancodedadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BancodedadosActionPerformed
+    frmConfigurações frmcfg = new frmConfigurações();
+    frmcfg.setVisible(true);
+    }//GEN-LAST:event_BancodedadosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -477,6 +497,8 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem BaixarBoletosvencidos;
     private javax.swing.JMenuItem Baixarchequesnaovencidos;
     private javax.swing.JMenuItem Baixarchequesvencidos;
+    private javax.swing.JMenuItem Bancodedados;
+    private javax.swing.JMenu Configuração;
     private javax.swing.JMenu Lançamentos;
     private javax.swing.JMenu Relatórios;
     private javax.swing.JMenu Vencidos;

@@ -6,6 +6,7 @@
 package com.mycompany.financeiro;
 
 
+import com.mycompany.financeiro.Configurações.frmConfigurações;
 import com.mycompany.financeiro.Menu.frmMenu;
 import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;
@@ -39,6 +40,7 @@ public class Financeiro {
         pegarValorChequesVencidos();
         frmMenu frm = new frmMenu();
         frm.setVisible(true);
+        
         
 }
     

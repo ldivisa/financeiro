@@ -79,6 +79,21 @@
             </Menu>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="Configura&#xe7;&#xe3;o">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xe3;o"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="Bancodedados">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Banco de dados"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BancodedadosActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="Relat&#xf3;rios">
           <Properties>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>

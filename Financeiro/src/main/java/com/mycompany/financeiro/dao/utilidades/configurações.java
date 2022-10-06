@@ -5,10 +5,12 @@
 package com.mycompany.financeiro.dao.utilidades;
 
 
+import com.mycompany.financeiro.Configurações.frmConfigurações;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,9 +38,13 @@ public class configurações {
     public Properties leBanco (){
     try {
     //carrega properties
+   
     prop.load(new FileInputStream("config.properties"));
     } catch (IOException ex) {
-    ex.printStackTrace();
+        
+        JOptionPane.showMessageDialog(null, "Erro ao carregar arquivo de configurações "+ex);
+        
+       
     }
     return prop;   
     }
