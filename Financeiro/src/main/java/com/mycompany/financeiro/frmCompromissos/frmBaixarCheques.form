@@ -7,6 +7,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[800, 600]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -27,104 +30,120 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="DescritivoDoFormulário" alignment="1" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Component id="DescritivoDoFormulário" min="-2" pref="793" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="btn_novo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_salvar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_editar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_gravarmodificacao" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_sair" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btn_Primeiro" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_Anterior" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_Próximo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_Último" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lbl_tipoDespesa" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tf_tipoDespesa" min="-2" pref="67" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="cb_tipoDespesa" min="-2" pref="347" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="sp_observacao" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lbl_dataPagamento" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="tf_dataPagamento" min="-2" pref="177" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lbl_observacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lbl_pagamentoEfetuado" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="chb_pagamentoEfetuado" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="lbl_dataPagamento" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tf_dataPagamento" min="-2" pref="177" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lbl_tipoDespesa" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tf_tipoDespesa" min="-2" pref="67" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="cb_tipoDespesa" max="32767" attributes="0"/>
-                      </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lbl_codigodeBarras" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tf_codigodeBarras" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="lbl_observacao" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lbl_dataVencimento" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tf_dataVencimento" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lbl_valor" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tf_valor" min="-2" pref="106" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lbl_Id" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tf_Id" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tf_Id" min="-2" pref="52" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Component id="lbl_DataCadastro" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tf_dataCadastro" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbl_tipodivida" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="tf_dataCadastro" min="-2" pref="113" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lbl_tipodivida" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="rb_boleto" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="rb_cheque" min="-2" pref="112" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="lbl_dataVencimento" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="tf_dataVencimento" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="rb_cheque" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lbl_documento" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="tf_documento" min="-2" pref="282" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="lbl_parcela" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="tf_parcela" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lbl_codigodeBarras" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="tf_codigodeBarras" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                                  <Component id="btn_sair" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btn_Primeiro" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btn_Anterior" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btn_Próximo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btn_Último" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="tf_fornecedor" min="-2" pref="35" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="cb_fornecedor" min="-2" pref="527" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lbl_documento" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tf_documento" min="-2" pref="282" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lbl_parcela" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tf_parcela" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="lbl_valor" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tf_valor" min="-2" pref="157" max="-2" attributes="0"/>
+                                  <Component id="cb_fornecedor" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <Component id="sp_observacao" alignment="1" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lbl_pagamentoEfetuado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="chb_pagamentoEfetuado" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btn_novo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="btn_salvar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btn_editar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btn_gravarmodificacao" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -134,46 +153,51 @@
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="DescritivoDoFormulário" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbl_Id" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tf_Id" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_DataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tf_dataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tf_dataVencimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tf_valor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_valor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_tipodivida" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_dataVencimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rb_boleto" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="rb_cheque" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbl_Id" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tf_Id" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_DataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tf_dataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_tipodivida" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rb_boleto" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="rb_cheque" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbl_dataVencimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tf_dataVencimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_valor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tf_valor" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cb_fornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_fornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_documento" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_documento" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbl_parcela" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_parcela" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" pref="19" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_codigodeBarras" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_codigodeBarras" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="lbl_observacao" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="sp_observacao" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="8" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_dataPagamento" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_dataPagamento" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_tipoDespesa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_tipoDespesa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cb_tipoDespesa" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -183,19 +207,22 @@
                   <Component id="lbl_pagamentoEfetuado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="chb_pagamentoEfetuado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_novo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_editar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_gravarmodificacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_salvar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_Primeiro" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_Anterior" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_Próximo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_Último" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_salvar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_editar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_sair" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_gravarmodificacao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -217,7 +244,7 @@
     <Component class="javax.swing.JLabel" name="lbl_Id">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Id:"/>
       </Properties>
@@ -225,7 +252,7 @@
     <Component class="javax.swing.JTextField" name="tf_Id">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
@@ -233,7 +260,7 @@
     <Component class="javax.swing.JLabel" name="lbl_DataCadastro">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Data Cadastro:"/>
       </Properties>
@@ -241,7 +268,7 @@
     <Component class="javax.swing.JTextField" name="tf_dataCadastro">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
@@ -249,7 +276,7 @@
     <Component class="javax.swing.JLabel" name="lbl_dataVencimento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Data Vencimento:"/>
       </Properties>
@@ -257,7 +284,7 @@
     <Component class="javax.swing.JTextField" name="tf_dataVencimento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
@@ -268,7 +295,7 @@
     <Component class="javax.swing.JLabel" name="lbl_valor">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Valor:"/>
       </Properties>
@@ -276,7 +303,7 @@
     <Component class="javax.swing.JTextField" name="tf_valor">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
         <Property name="autoscrolls" type="boolean" value="false"/>
@@ -292,7 +319,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Fornecedor:"/>
       </Properties>
@@ -300,7 +327,7 @@
     <Component class="javax.swing.JComboBox" name="cb_fornecedor">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
@@ -316,7 +343,7 @@
     <Component class="javax.swing.JTextField" name="tf_fornecedor">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
@@ -328,7 +355,7 @@
     <Component class="javax.swing.JLabel" name="lbl_documento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Documento:"/>
         <Property name="toolTipText" type="java.lang.String" value="N&#xfa;mero do pedido ou nota fiscal que gerou a d&#xed;vida"/>
@@ -337,7 +364,7 @@
     <Component class="javax.swing.JTextField" name="tf_documento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
@@ -345,7 +372,7 @@
     <Component class="javax.swing.JLabel" name="lbl_parcela">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Parcela:"/>
       </Properties>
@@ -353,7 +380,7 @@
     <Component class="javax.swing.JTextField" name="tf_parcela">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
         <Property name="toolTipText" type="java.lang.String" value="n&#xfa;mero da parcela do boleto caso existam v&#xe1;rias parcelas relacionadas &#xe0; mesma nota fiscal ou pedido"/>
@@ -362,7 +389,7 @@
     <Component class="javax.swing.JLabel" name="lbl_codigodeBarras">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="C&#xf3;digo de barras:"/>
       </Properties>
@@ -370,7 +397,7 @@
     <Component class="javax.swing.JTextField" name="tf_codigodeBarras">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
         <Property name="toolTipText" type="java.lang.String" value="Digite ou digitalize o c&#xf3;digo de barras do boleto se puder"/>
@@ -379,7 +406,7 @@
     <Component class="javax.swing.JLabel" name="lbl_observacao">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xf5;es:"/>
       </Properties>
@@ -395,7 +422,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Noto Sans" size="24" style="0"/>
+              <Font name="Noto Sans" size="14" style="0"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
           </Properties>
@@ -405,7 +432,7 @@
     <Component class="javax.swing.JLabel" name="lbl_dataPagamento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Data Pagamento:"/>
       </Properties>
@@ -413,7 +440,7 @@
     <Component class="javax.swing.JLabel" name="lbl_pagamentoEfetuado">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Pagamento efetuado:"/>
       </Properties>
@@ -421,7 +448,7 @@
     <Component class="javax.swing.JTextField" name="tf_dataPagamento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
@@ -432,13 +459,16 @@
     <Component class="javax.swing.JCheckBox" name="chb_pagamentoEfetuado">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="SIM"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn_novo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
         <Property name="mnemonic" type="int" value="78"/>
         <Property name="text" type="java.lang.String" value="Novo"/>
         <Property name="enabled" type="boolean" value="false"/>
@@ -450,7 +480,7 @@
     <Component class="javax.swing.JTextField" name="tf_tipoDespesa">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
@@ -461,7 +491,7 @@
     <Component class="javax.swing.JLabel" name="lbl_tipoDespesa">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Tipo de Despesa:"/>
       </Properties>
@@ -469,7 +499,7 @@
     <Component class="javax.swing.JComboBox" name="cb_tipoDespesa">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
@@ -485,6 +515,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_Primeiro">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
         <Property name="mnemonic" type="int" value="112"/>
         <Property name="text" type="java.lang.String" value="Primeiro"/>
       </Properties>
@@ -494,6 +527,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_Anterior">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
         <Property name="mnemonic" type="int" value="97"/>
         <Property name="text" type="java.lang.String" value="Anterior"/>
       </Properties>
@@ -503,6 +539,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_Pr&#xf3;ximo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
         <Property name="mnemonic" type="int" value="114"/>
         <Property name="text" type="java.lang.String" value="Pr&#xf3;ximo"/>
       </Properties>
@@ -512,6 +551,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_&#xda;ltimo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
         <Property name="mnemonic" type="int" value="117"/>
         <Property name="text" type="java.lang.String" value="&#xda;ltimo"/>
       </Properties>
@@ -522,7 +564,7 @@
     <Component class="javax.swing.JLabel" name="lbl_tipodivida">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Tipo:"/>
       </Properties>
@@ -536,7 +578,7 @@
           <ComponentRef name="GrupoTipoD&#xed;vida"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Boleto"/>
         <Property name="alignmentY" type="float" value="0.0"/>
@@ -560,7 +602,7 @@
           <ComponentRef name="GrupoTipoD&#xed;vida"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="24" style="0"/>
+          <Font name="Noto Sans" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cheque"/>
         <Property name="alignmentY" type="float" value="0.0"/>
@@ -577,6 +619,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_salvar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
         <Property name="mnemonic" type="int" value="97"/>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
@@ -586,6 +631,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_editar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
         <Property name="mnemonic" type="int" value="98"/>
         <Property name="text" type="java.lang.String" value="Baixar"/>
       </Properties>
@@ -595,6 +643,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_sair">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
         <Property name="mnemonic" type="int" value="115"/>
         <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
@@ -604,6 +655,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_gravarmodificacao">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
         <Property name="mnemonic" type="int" value="103"/>
         <Property name="text" type="java.lang.String" value="Gravar Modifica&#xe7;&#xf5;es"/>
       </Properties>

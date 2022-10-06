@@ -90,6 +90,7 @@ public class frmMenu extends javax.swing.JFrame {
         Baixarchequesvencidos = new javax.swing.JMenuItem();
         Configuração = new javax.swing.JMenu();
         Bancodedados = new javax.swing.JMenuItem();
+        Saldobancário = new javax.swing.JMenuItem();
         Relatórios = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -353,6 +354,14 @@ public class frmMenu extends javax.swing.JFrame {
         });
         Configuração.add(Bancodedados);
 
+        Saldobancário.setText("Saldo Bancário");
+        Saldobancário.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaldobancárioActionPerformed(evt);
+            }
+        });
+        Configuração.add(Saldobancário);
+
         jMenuBar1.add(Configuração);
 
         Relatórios.setText("Relatórios");
@@ -456,6 +465,11 @@ public class frmMenu extends javax.swing.JFrame {
     frmcfg.setVisible(true);
     }//GEN-LAST:event_BancodedadosActionPerformed
 
+    private void SaldobancárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaldobancárioActionPerformed
+     frmSaldo frm = new frmSaldo();
+     frm.setVisible(true);
+    }//GEN-LAST:event_SaldobancárioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -501,13 +515,11 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu Configuração;
     private javax.swing.JMenu Lançamentos;
     private javax.swing.JMenu Relatórios;
+    private javax.swing.JMenuItem Saldobancário;
     private javax.swing.JMenu Vencidos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -518,27 +530,20 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblDiferencaTotal;
     private javax.swing.JLabel lblDiferencaVencidos;
-    private javax.swing.JLabel lblDiferencaVencidos1;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JLabel lblSubtotalTotal;
     private javax.swing.JLabel lblSubtotalVencidos;
-    private javax.swing.JLabel lblSubtotalVencidos1;
     private javax.swing.JLabel lbl_BoletosTotal;
     private javax.swing.JLabel lbl_BoletosVencidos;
-    private javax.swing.JLabel lbl_BoletosVencidos1;
     private javax.swing.JLabel lbl_ChequesTotal;
     private javax.swing.JLabel lbl_ChequesVencidos;
-    private javax.swing.JLabel lbl_ChequesVencidos1;
     // End of variables declaration//GEN-END:variables
 }
