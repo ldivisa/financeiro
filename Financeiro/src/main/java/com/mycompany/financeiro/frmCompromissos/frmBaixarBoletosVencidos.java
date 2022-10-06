@@ -8,23 +8,21 @@ import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.tipodespesa;
 import com.mycompany.financeiro.dao.utilidades.conexao;
-import com.sun.tools.javac.jvm.ByteCodes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
-import sun.security.jca.GetInstance;
-import sun.util.locale.provider.LocaleProviderAdapter;
-import sun.util.resources.LocaleData;
+
+
+
 
 
 /**
@@ -795,6 +793,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
                 
                fornecedores.add(fornecedor);
             }
+    rsFornecedor.close();
         }
     catch (Exception e )
         {
@@ -1006,6 +1005,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
                             System.out.print("\nAdicionando registro"+compromisso.getIdCompromissos()+" pois a data do registro ->"+compromisso.getDataVencimento()+" é mais antiga que hoje "+hoje);
                         }
                         }
+                    rsCompromissos.close();
                     }
                 
                 catch (Exception e)

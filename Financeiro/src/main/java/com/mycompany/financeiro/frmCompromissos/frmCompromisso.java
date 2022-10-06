@@ -777,6 +777,7 @@ public class frmCompromisso extends javax.swing.JFrame {
                 
                fornecedores.add(fornecedor);
             }
+    rsFornecedor.close();
         }
     catch (Exception e )
         {
@@ -805,6 +806,7 @@ public class frmCompromisso extends javax.swing.JFrame {
                 
                 tipoDespesa.add(tipodespesa);
             }
+    rstipoDespesa.close();
         }
     catch (Exception e )
         {
@@ -962,6 +964,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             
             compromissos.add(compromisso);
             }
+    rsCompromissos.close();
         }
      catch (Exception e)
         {

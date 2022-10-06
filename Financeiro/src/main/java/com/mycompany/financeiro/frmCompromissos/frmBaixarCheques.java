@@ -787,6 +787,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
                 
                fornecedores.add(fornecedor);
             }
+         rsFornecedor.close();
         }
     catch (Exception e )
         {
@@ -980,6 +981,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
             
             compromissos.add(compromisso);
             }
+        rsCompromissos.close();
         }
      catch (Exception e)
         {

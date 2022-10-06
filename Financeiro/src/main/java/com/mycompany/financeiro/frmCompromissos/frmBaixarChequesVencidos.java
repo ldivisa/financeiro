@@ -787,6 +787,7 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
                 
                fornecedores.add(fornecedor);
             }
+    rsFornecedor.close();
         }
     catch (Exception e )
         {
@@ -815,6 +816,7 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
                 
                 tipoDespesa.add(tipodespesa);
             }
+    rstipoDespesa.close();
         }
     catch (Exception e )
         {
@@ -995,6 +997,7 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
                         }
             
             }
+    rsCompromissos.close();
         }
      catch (Exception e)
         {

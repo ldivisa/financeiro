@@ -714,6 +714,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
             
     System.out.print ("\n"+SQL);
     con.executaUpdate(SQL);
+    
     btn_salvar.setEnabled(false);
     travarCamposCompromisso();
     }//GEN-LAST:event_btn_salvarActionPerformed
@@ -815,6 +816,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
                 
                 tipoDespesa.add(tipodespesa);
             }
+        rstipoDespesa.close();
         }
     catch (Exception e )
         {
@@ -980,6 +982,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
             
             compromissos.add(compromisso);
             }
+        rsCompromissos.close();
         }
      catch (Exception e)
         {
