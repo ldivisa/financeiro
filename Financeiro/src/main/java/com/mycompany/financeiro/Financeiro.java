@@ -6,7 +6,7 @@
 package com.mycompany.financeiro;
 
 
-import com.mycompany.financeiro.Configurações.frmConfigurações;
+import com.mycompany.financeiro.Configuracoes.frmConfiguracoes;
 import com.mycompany.financeiro.Menu.frmMenu;
 import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;

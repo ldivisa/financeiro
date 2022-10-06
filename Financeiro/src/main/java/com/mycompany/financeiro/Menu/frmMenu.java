@@ -4,7 +4,7 @@
  */
 package com.mycompany.financeiro.Menu;
 
-import com.mycompany.financeiro.Configurações.frmConfigurações;
+import com.mycompany.financeiro.Configuracoes.frmConfiguracoes;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletos;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletosVencidos;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarCheques;
@@ -452,7 +452,7 @@ public class frmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void BancodedadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BancodedadosActionPerformed
-    frmConfigurações frmcfg = new frmConfigurações();
+    frmConfiguracoes frmcfg = new frmConfiguracoes();
     frmcfg.setVisible(true);
     }//GEN-LAST:event_BancodedadosActionPerformed
 

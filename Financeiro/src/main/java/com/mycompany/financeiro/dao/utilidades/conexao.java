@@ -6,7 +6,7 @@ package com.mycompany.financeiro.dao.utilidades;
 
 
 
-import com.mycompany.financeiro.Configurações.frmConfigurações;
+import com.mycompany.financeiro.Configuracoes.frmConfiguracoes;
 import com.mycompany.financeiro.dao.fornecedores;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import com.mycompany.financeiro.Configurações.frmConfigurações;
+import com.mycompany.financeiro.Configuracoes.frmConfiguracoes;
 /**
  *
  * @author luiz.souza
@@ -50,6 +50,11 @@ public ResultSet executaConsulta(String SQL)
         try{
             conexao con = new conexao();
             url = configs.leBanco().getProperty("banco"); 
+            if (url.isBlank())
+            {
+                frmConfiguracoes fr = new frmConfiguracoes();
+                fr.setVisible(true);
+            }
             conectar = DriverManager.getConnection("jdbc:sqlite://"+url);
             //System.out.println("\nDriver manager conexao efetuada");
             statement =conectar.createStatement();
@@ -63,8 +68,6 @@ public ResultSet executaConsulta(String SQL)
         catch (SQLException e)
         {
             JOptionPane.showMessageDialog(null, e);
-            frmConfigurações fr = frmConfigurações();
-            fr.setVisible(true);
         }
         
         return resultado;

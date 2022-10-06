@@ -5,7 +5,7 @@
 package com.mycompany.financeiro.dao.utilidades;
 
 
-import com.mycompany.financeiro.Configurações.frmConfigurações;
+import com.mycompany.financeiro.Configuracoes.frmConfiguracoes;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.financeiro.Configurações;
+package com.mycompany.financeiro.Configuracoes;
 
 import com.mycompany.financeiro.dao.utilidades.configurações;
 import java.util.Properties;
@@ -11,13 +11,13 @@ import java.util.Properties;
  *
  * @author luiz
  */
-public class frmConfigurações extends javax.swing.JFrame {
+public class frmConfiguracoes extends javax.swing.JFrame {
     public Properties cfg;
     public configurações config = new configurações();
     /**
      * Creates new form frmCOnfigurações
      */
-    public frmConfigurações() {
+    public frmConfiguracoes() {
         initComponents();
         cfg = config.leBanco();
         tf_NomedoArquivo.setText(cfg.getProperty("banco"));
@@ -134,21 +134,23 @@ public class frmConfigurações extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmConfigurações.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConfiguracoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmConfigurações.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConfiguracoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmConfigurações.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConfiguracoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmConfigurações.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConfiguracoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmConfigurações().setVisible(true);
+                new frmConfiguracoes().setVisible(true);
             }
         });
     }
