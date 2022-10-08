@@ -133,7 +133,7 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
         lbl_Id1 = new javax.swing.JLabel();
         cb_tipo = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tf_Id.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tf_Id.setText("jTextField1");

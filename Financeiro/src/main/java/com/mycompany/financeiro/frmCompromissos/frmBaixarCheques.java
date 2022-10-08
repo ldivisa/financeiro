@@ -8,7 +8,6 @@ import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.tipodespesa;
 import com.mycompany.financeiro.dao.utilidades.conexao;
-import com.sun.tools.javac.main.OptionHelper;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
-import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 /**
@@ -100,8 +98,11 @@ public class frmBaixarCheques extends javax.swing.JFrame {
         btn_editar = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
         btn_gravarmodificacao = new javax.swing.JButton();
+        lblncheque = new javax.swing.JLabel();
+        tf_ncheque = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
@@ -354,6 +355,12 @@ public class frmBaixarCheques extends javax.swing.JFrame {
             }
         });
 
+        lblncheque.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        lblncheque.setText("NªCheque:");
+
+        tf_ncheque.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        tf_ncheque.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -363,7 +370,59 @@ public class frmBaixarCheques extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_observacao)
+                            .addComponent(sp_observacao, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cb_fornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_dataVencimento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_valor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lbl_documento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_documento, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbl_parcela)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_parcela))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_codigodeBarras)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_codigodeBarras))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_Id)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(lbl_DataCadastro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbl_tipodivida)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_boleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblncheque)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_ncheque, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -371,87 +430,35 @@ public class frmBaixarCheques extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tf_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cb_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(208, 208, 208))
-                            .addComponent(sp_observacao)
+                                .addComponent(cb_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_dataPagamento)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_dataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lbl_observacao)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_pagamentoEfetuado)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(chb_pagamentoEfetuado)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbl_dataVencimento)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbl_valor)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(tf_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbl_Id)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(12, 12, 12)
-                                    .addComponent(lbl_DataCadastro)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lbl_tipodivida)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(rb_boleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_documento)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_documento, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lbl_parcela)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_parcela))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(lbl_codigodeBarras)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_codigodeBarras)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(141, 141, 141)
-                                    .addComponent(btn_sair)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn_Primeiro)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn_Anterior)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn_Próximo)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn_Último))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(tf_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(cb_fornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(btn_novo)
-                            .addGap(12, 12, 12)
-                            .addComponent(btn_salvar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btn_editar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btn_gravarmodificacao))))
-                .addContainerGap())
+                                .addComponent(lbl_dataPagamento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_dataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_pagamentoEfetuado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chb_pagamentoEfetuado))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(150, 150, 150)
+                                .addComponent(btn_sair)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_Primeiro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_Anterior)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_Próximo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_Último))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_novo)
+                                .addGap(12, 12, 12)
+                                .addComponent(btn_salvar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_editar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_gravarmodificacao)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,7 +473,9 @@ public class frmBaixarCheques extends javax.swing.JFrame {
                     .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_tipodivida)
                     .addComponent(rb_boleto, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_ncheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblncheque))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_dataVencimento)
@@ -491,7 +500,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_observacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sp_observacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sp_observacao, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_dataPagamento)
@@ -518,7 +527,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
                     .addComponent(btn_Próximo)
                     .addComponent(btn_Último)
                     .addComponent(btn_sair))
-                .addGap(72, 72, 72))
+                .addGap(122, 122, 122))
         );
 
         pack();
@@ -604,7 +613,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_fornecedorActionPerformed
 
     private void tf_tipoDespesaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_tipoDespesaFocusLost
-        if (!tf_tipoDespesa.getText().isBlank())
+        if (!tf_tipoDespesa.getText().isEmpty())
         {
         carregarTipoDespesa();
     posicaoTipoDespesa=0;
@@ -711,7 +720,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     }//GEN-LAST:event_rb_chequeActionPerformed
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-    //definir qual o estado de tipodivida ->
+    /*//definir qual o estado de tipodivida ->
     boolean bolTipoDivida=false;
     if(rb_boleto.isSelected())
         bolTipoDivida= false; //false para boleto
@@ -720,10 +729,11 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     
     conexao con  = new conexao();
     con.conecta();
-    SQL=("insert into compromissos (idCompromisso,TipoDivida,DataCadastro,DataVencimento,Valor,IdFornecedor,Documento,Parcela,CodigoBarras,Observacao,TipoDespesa,DataPagamento,PagamentoEfetuado)"
+    SQL=("insert into compromissos (idCompromisso,TipoDivida,Ncheque,DataCadastro,DataVencimento,Valor,IdFornecedor,Documento,Parcela,CodigoBarras,Observacao,TipoDespesa,DataPagamento,PagamentoEfetuado)"
       +"values ("
       +(tf_Id.getText())+","
       +bolTipoDivida+",'"
+      +tf_ncheque.getText()+"','"
       +tf_dataCadastro.getText()+"','"
       +tf_dataVencimento.getText()+"','"
       +tf_valor.getText()+"',"
@@ -740,7 +750,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     System.out.print ("\n"+SQL);
     con.executaUpdate(SQL);
     btn_salvar.setEnabled(false);
-    travarCamposCompromisso();
+    travarCamposCompromisso();*/
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
@@ -768,6 +778,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
         SQL = "update compromissos set "+
             "idCompromisso = "+tf_Id.getText()+","+
             "TipoDivida = "+tipoDivida+","+
+            "Ncheque '= "+tf_ncheque.getText()+"',"+    
             "DataCadastro = '"+tf_dataCadastro.getText()+"',"+
             "DataVencimento = '"+tf_dataVencimento.getText()+"',"+
             "Valor = '"+tf_valor.getText()+"',"+
@@ -872,6 +883,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     
     public void pesquisaNomeTipoDespesaporID(int idTipoDespesa)
     {
+    posicaoTipoDespesa=0;
     carregarTipoDespesa();
     for (int i=0; i<=tipoDespesa.size()-1;i++)
         {
@@ -881,13 +893,14 @@ public class frmBaixarCheques extends javax.swing.JFrame {
             }
             else
             {
-            posicaoFornecedor=posicaoFornecedor+1;
+            posicaoTipoDespesa=posicaoTipoDespesa+1;
             }
         }
     }
     
     public void pesquisaNomeFornecedorporID(int idFornecedor)
     {
+        posicaoFornecedor=0;
     carregarFornecedor();
     for (int i=0; i<=fornecedores.size()-1;i++)
         {
@@ -909,6 +922,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     tf_dataCadastro.setText("");
     rb_boleto.setSelected(false);
     rb_cheque.setSelected(false);
+    tf_ncheque.setText("");
     tf_dataPagamento.setText("");
     tf_dataVencimento.setText("");
     tf_documento.setText("");
@@ -934,6 +948,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     tf_fornecedor.setEnabled(false);
     tf_parcela.setEnabled(false);
     tf_valor.setEnabled(false);
+    tf_ncheque.setEnabled(false);
     ta_observacao.setEnabled(false);
     cb_fornecedor.setEnabled(false);
     cb_tipoDespesa.setEnabled(false);
@@ -950,6 +965,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     tf_Id.setEnabled(true);
     GrupoTipoDívida.clearSelection();
     tf_codigodeBarras.setEnabled(true);
+    tf_ncheque.setEnabled(true);
     //tf_dataCadastro.setEnabled(true);
     //tf_dataPagamento.setEnabled(true);
     tf_dataVencimento.setEnabled(true);
@@ -973,7 +989,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     rsCompromissos=null;    
     conexao con = new conexao();
     con.conecta();
-    SQL  = "select * from compromissos where PagamentoEfetuado = '0' and TipoDivida='1'";
+    SQL  = "select * from compromissos where PagamentoEfetuado = '0' and TipoDivida='1' order by Ncheque";
     rsCompromissos = con.executaConsulta(SQL);
     compromissos.clear();
     
@@ -992,6 +1008,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
             compromissos compromisso = new compromissos();
             compromisso.setCodigodeBarras(rsCompromissos.getString("codigoBarras"));
             compromisso.settipoDivida(rsCompromissos.getBoolean("TipoDivida"));
+            compromisso.setNCheque(rsCompromissos.getString("Ncheque"));
             compromisso.setDataCadastro(rsCompromissos.getString("DataCadastro"));
             compromisso.setDataPagamento(rsCompromissos.getString("DataPagamento"));
             compromisso.setDataVencimento(rsCompromissos.getString("DataVencimento"));
@@ -1021,6 +1038,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     tf_codigodeBarras.setText(compromissos.get(posicaoCompromissos).getCodigodeBarras());
     tf_Id.setText(String.valueOf(compromissos.get(posicaoCompromissos).getIdCompromissos()));
     tf_dataCadastro.setText(compromissos.get(posicaoCompromissos).getDataCadastro());
+    tf_ncheque.setText(compromissos.get(posicaoCompromissos).getNCheque());
     tf_dataPagamento.setText(compromissos.get(posicaoCompromissos).getDataPagamento());
     tf_dataVencimento.setText(compromissos.get(posicaoCompromissos).getDataVencimento());
     tf_documento.setText(compromissos.get(posicaoCompromissos).getDocumento());
@@ -1115,6 +1133,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_tipoDespesa;
     private javax.swing.JLabel lbl_tipodivida;
     private javax.swing.JLabel lbl_valor;
+    private javax.swing.JLabel lblncheque;
     private javax.swing.JRadioButton rb_boleto;
     private javax.swing.JRadioButton rb_cheque;
     private javax.swing.JScrollPane sp_observacao;
@@ -1126,6 +1145,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     private javax.swing.JTextField tf_dataVencimento;
     private javax.swing.JTextField tf_documento;
     private javax.swing.JTextField tf_fornecedor;
+    private javax.swing.JTextField tf_ncheque;
     private javax.swing.JTextField tf_parcela;
     private javax.swing.JTextField tf_tipoDespesa;
     private javax.swing.JTextField tf_valor;

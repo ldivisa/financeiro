@@ -13,6 +13,7 @@ package com.mycompany.financeiro.dao;
 public class compromissos {
     
 private int idCompromissos;
+private String NCheque;
 private boolean tipoDivida;
 private String dataCadastro;
 private String dataVencimento;
@@ -27,7 +28,15 @@ private int tipoDespesa;
 private String dataPagamento;
 private boolean pagamentoEfetuado;        
 
-    public boolean isTipoDivida() {
+    public String getNCheque() {
+        return NCheque;
+    }
+
+    public void setNCheque(String NCheque) {
+        this.NCheque = NCheque;
+    }
+
+public boolean isTipoDivida() {
         return tipoDivida;
     }
 

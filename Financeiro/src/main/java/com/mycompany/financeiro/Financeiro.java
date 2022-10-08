@@ -61,12 +61,12 @@ public class Financeiro {
             //System.out.print("\nData registro antes->"+dataregistro);
             dataregistro = dataregistro.substring(6,10)+dataregistro.substring(3,5)+dataregistro.substring(0,2);
             System.out.print("\nData registro ->"+dataregistro);
-            System.out.print("\nData hoje->"+datahoje);
+            System.out.print(" - Data hoje->"+datahoje);
             
             if(Integer.parseInt(dataregistro)<=Integer.parseInt(datahoje))
             {
                 boletosVencidos=boletosVencidos+Double.valueOf(rsBoletosVencidos.getString("Valor"));
-                System.out.print("\nAdicionando o valor de "+rsBoletosVencidos.getString("Valor")+" referente ao registro "+rsBoletosVencidos.getString("IdCompromisso"));
+                System.out.print("\nAdicionando o valor de "+rsBoletosVencidos.getString("Valor")+" referente ao registro "+rsBoletosVencidos.getString("IdCompromisso")+" somatorio:"+boletosVencidos);
             }
         }
     rsBoletosVencidos.close();
@@ -117,24 +117,28 @@ public class Financeiro {
         ResultSet rsChequesVencidos = con.executaConsulta("select * from compromissos where TipoDivida='1' and PagamentoEfetuado='0'");
         System.out.print("\nPegou resultset");
      if (rsChequesVencidos.isBeforeFirst()){
-         System.out.print("\ndeu nao isBeforefirst");
+         System.out.print("\n Há registros de cheques vencidos");
         while(rsChequesVencidos.next())
         {
             String dataregistro = (rsChequesVencidos.getString("DataVencimento"));
-            System.out.print("\nData registro antes->"+dataregistro);
+            //System.out.print("\nData registro antes->"+dataregistro);
             dataregistro = dataregistro.substring(6,10)+dataregistro.substring(3,5)+dataregistro.substring(0,2);
-            System.out.print("\nData registro depois->"+dataregistro);
-                if(Integer.parseInt(dataregistro)<=Integer.parseInt(datahoje));
+            System.out.print("\n Data registro ->"+dataregistro+" Data hoje: "+datahoje);
+            int intDataHoje=Integer.valueOf(datahoje);
+            int intDataRegistro=Integer.valueOf(dataregistro);
+            System.out.print("\n Data registro ->"+intDataRegistro+" Data hoje: "+intDataHoje);
+                if(intDataRegistro<=intDataHoje)
                 {
+                    System.out.print("\n * ");
                 chequesVencidos=chequesVencidos+Double.valueOf(rsChequesVencidos.getString("Valor"));
-                System.out.print("\nAdicionando o valor de "+rsChequesVencidos.getString("Valor")+" referente ao registro "+rsChequesVencidos.getString("IdCompromisso"));
+                System.out.print(" Adicionando o valor de "+rsChequesVencidos.getString("Valor")+" referente ao registro "+rsChequesVencidos.getString("IdCompromisso")+" somatorio:"+chequesVencidos);
                 }
         }
         
     }
          else
     {
-        JOptionPane.showMessageDialog(null, "Não há cheques a vencer encontrados");
+        JOptionPane.showMessageDialog(null, "Não há cheques vencidos encontrados");
     }
      rsChequesVencidos.close();
     }

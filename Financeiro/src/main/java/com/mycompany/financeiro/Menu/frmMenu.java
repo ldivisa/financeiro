@@ -11,6 +11,8 @@ import com.mycompany.financeiro.frmCompromissos.frmBaixarCheques;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarChequesVencidos;
 import com.mycompany.financeiro.frmCompromissos.frmCompromisso;
 import static com.mycompany.financeiro.Financeiro.*;
+import com.mycompany.financeiro.frmFornecedores.frmFornecedores;
+import com.mycompany.financeiro.frmTipoDespesa.frmTipoDespesa;
 import com.mycompany.financeiro.frmsaldo.frmSaldo;
 
 
@@ -53,6 +55,7 @@ public class frmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem3 = new javax.swing.JMenuItem();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblSaldo = new javax.swing.JLabel();
@@ -88,10 +91,15 @@ public class frmMenu extends javax.swing.JFrame {
         Vencidos = new javax.swing.JMenu();
         BaixarBoletosvencidos = new javax.swing.JMenuItem();
         Baixarchequesvencidos = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        mi_fornecedores = new javax.swing.JMenuItem();
+        tipodepesa = new javax.swing.JMenuItem();
         Configuração = new javax.swing.JMenu();
         Bancodedados = new javax.swing.JMenuItem();
         Saldobancário = new javax.swing.JMenuItem();
         Relatórios = new javax.swing.JMenu();
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -344,6 +352,26 @@ public class frmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(Lançamentos);
 
+        jMenu3.setText("Tabelas");
+
+        mi_fornecedores.setText("Fornecedores");
+        mi_fornecedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_fornecedoresActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mi_fornecedores);
+
+        tipodepesa.setText("Tipo de Despesa");
+        tipodepesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipodepesaActionPerformed(evt);
+            }
+        });
+        jMenu3.add(tipodepesa);
+
+        jMenuBar1.add(jMenu3);
+
         Configuração.setText("Configuração");
 
         Bancodedados.setText("Banco de dados");
@@ -470,6 +498,16 @@ public class frmMenu extends javax.swing.JFrame {
      frm.setVisible(true);
     }//GEN-LAST:event_SaldobancárioActionPerformed
 
+    private void mi_fornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_fornecedoresActionPerformed
+  frmFornecedores frm = new frmFornecedores();
+  frm.setVisible(true);
+    }//GEN-LAST:event_mi_fornecedoresActionPerformed
+
+    private void tipodepesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipodepesaActionPerformed
+        frmTipoDespesa frm = new frmTipoDespesa();
+  frm.setVisible(true);
+    }//GEN-LAST:event_tipodepesaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -532,8 +570,10 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblDiferencaTotal;
@@ -545,5 +585,7 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_BoletosVencidos;
     private javax.swing.JLabel lbl_ChequesTotal;
     private javax.swing.JLabel lbl_ChequesVencidos;
+    private javax.swing.JMenuItem mi_fornecedores;
+    private javax.swing.JMenuItem tipodepesa;
     // End of variables declaration//GEN-END:variables
 }
