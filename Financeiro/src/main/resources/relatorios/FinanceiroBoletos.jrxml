@@ -176,18 +176,24 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 			<band height="38">
 				<textField>
 					<reportElement x="700" y="20" width="100" height="18" printWhenGroupChanges="Dia" uuid="638efc9b-ec97-418c-ab42-b86e280db2f5"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$V{ValorAcumulado}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="550" y="20" width="150" height="18" uuid="20a2453b-de00-4d1e-b03a-1d22050f7016"/>
+					<reportElement x="527" y="20" width="173" height="18" uuid="20a2453b-de00-4d1e-b03a-1d22050f7016"/>
 					<text><![CDATA[Valor acumulado até esta data:]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="704" y="0" width="96" height="18" printWhenGroupChanges="Dia" uuid="3a5851cb-da39-44c3-9028-373c9d9348ea"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$V{SomaDia}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="550" y="1" width="150" height="15" uuid="a020480c-2e41-41e9-9f08-23c6405c0fba"/>
+					<reportElement x="529" y="1" width="171" height="15" uuid="a020480c-2e41-41e9-9f08-23c6405c0fba"/>
 					<text><![CDATA[Subtotal para o dia:]]></text>
 				</staticText>
 			</band>
