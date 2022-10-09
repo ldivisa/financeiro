@@ -648,9 +648,9 @@ public class frmCompromisso extends javax.swing.JFrame {
     private void btn_PrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PrimeiroActionPerformed
       posicaoCompromissos=0;
       carregarCompromissos();
-        mostrarCompromissos(compromissos);
-        travarCamposCompromisso();
-        btn_editar.setEnabled(true);
+      mostrarCompromissos(compromissos);
+      travarCamposCompromisso();
+      btn_editar.setEnabled(true);
     }//GEN-LAST:event_btn_PrimeiroActionPerformed
 
     private void btn_AnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AnteriorActionPerformed
@@ -785,6 +785,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             strvalor= strvalor.replace(",",".");
             tf_valor.setText(strvalor);
             tf_fornecedor.setEnabled(true);
+            tf_fornecedor.setEditable(true);
             cb_fornecedor.setEnabled(true);
             tf_fornecedor.requestFocus();
      }
@@ -807,6 +808,7 @@ public class frmCompromisso extends javax.swing.JFrame {
         }else
         {
         tf_valor.setEnabled(true);
+        tf_valor.setEditable(true);
         tf_valor.requestFocus();
         }
         
@@ -828,6 +830,7 @@ public class frmCompromisso extends javax.swing.JFrame {
 
     private void rb_chequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_chequeActionPerformed
          tf_ncheque.setEnabled(true);
+         tf_ncheque.setEditable(true);
          tf_ncheque.requestFocus();
     }//GEN-LAST:event_rb_chequeActionPerformed
 
@@ -881,6 +884,7 @@ public class frmCompromisso extends javax.swing.JFrame {
    liberarCamposCompromisso();
    btn_editar.setEnabled(false);
    btn_gravarmodificacao.setEnabled(true);
+   rb_boleto.requestFocus();
         
     }//GEN-LAST:event_btn_editarActionPerformed
 
@@ -924,6 +928,7 @@ public class frmCompromisso extends javax.swing.JFrame {
 
     private void rb_boletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_boletoActionPerformed
        tf_dataVencimento.setEnabled(true);
+       tf_dataVencimento.setEditable(true);
        tf_dataVencimento.requestFocus();
     }//GEN-LAST:event_rb_boletoActionPerformed
 
@@ -936,6 +941,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     else
     {
     tf_documento.setEnabled(true);
+    tf_documento.setEditable(true);
     tf_documento.requestFocus();
     }
     }//GEN-LAST:event_cb_fornecedorFocusLost
@@ -979,6 +985,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     {
         if(!pesquisarCheque())
         tf_dataVencimento.setEnabled(true);
+        tf_dataVencimento.setEditable(true);
         tf_dataVencimento.requestFocus();
     }
     }//GEN-LAST:event_tf_nchequeFocusLost
@@ -999,21 +1006,26 @@ public class frmCompromisso extends javax.swing.JFrame {
 
     private void tf_documentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_documentoFocusLost
     tf_parcela.setEnabled(true);
+    tf_parcela.setEditable(true);
     tf_parcela.requestFocus();
     }//GEN-LAST:event_tf_documentoFocusLost
 
     private void tf_parcelaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_parcelaFocusLost
     tf_codigodeBarras.setEnabled(true);
+    tf_codigodeBarras.setEditable(true);
+    
     tf_codigodeBarras.requestFocus();
     }//GEN-LAST:event_tf_parcelaFocusLost
 
     private void tf_codigodeBarrasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_codigodeBarrasFocusLost
         ta_observacao.setEnabled(true);
+        ta_observacao.setEditable(true);
         ta_observacao.requestFocus();
     }//GEN-LAST:event_tf_codigodeBarrasFocusLost
 
     private void ta_observacaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ta_observacaoFocusLost
 tf_tipoDespesa.setEnabled(true);
+tf_tipoDespesa.setEditable(true);
 cb_tipoDespesa.setEnabled(true);
 tf_tipoDespesa.requestFocus();
     }//GEN-LAST:event_ta_observacaoFocusLost
