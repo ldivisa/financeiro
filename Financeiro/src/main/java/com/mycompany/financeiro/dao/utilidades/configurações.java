@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 import javax.swing.JOptionPane;
+import org.apache.commons.lang.SystemUtils;
 
 /**
  *
@@ -22,12 +23,12 @@ import javax.swing.JOptionPane;
 public class configurações {
     public String url;
     public Properties prop = new Properties();
-    public String caminho ="config.properties";
-    public Path p1 = Paths.get(caminho);
+    public String caminho;
+    public Path p1 ;
     
     
     public void gravaBanco(String url){
-        
+            
 
         try {
         //definir as propriedades e valores
@@ -42,11 +43,15 @@ public class configurações {
     public Properties leBanco (){
     try {
     
-    
-    
+        if (SystemUtils.IS_OS_LINUX)
+                caminho = "config.properties.linux";
+            if (SystemUtils.IS_OS_WINDOWS)
+                caminho = "config.properties.windows";
+    p1 = Paths.get(caminho);
+    System.out.print("\nTentando ler "+caminho);
     if (!Files.exists(p1))
     {
-        System.out.print("\nNão achei o arquivo");
+        System.out.print("\nNão achei o arquivo "+caminho);
         frmConfiguracoes fr = new frmConfiguracoes();
         fr.setVisible(true);
     }
