@@ -117,6 +117,8 @@ public class frmMenu extends javax.swing.JFrame {
         Saldobancário = new javax.swing.JMenuItem();
         Relatórios = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -193,7 +195,7 @@ public class frmMenu extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSubtotalVencidos, javax.swing.GroupLayout.PREFERRED_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(lblSubtotalVencidos, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                             .addComponent(lblDiferencaVencidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -277,7 +279,7 @@ public class frmMenu extends javax.swing.JFrame {
                             .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSubtotalTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(lblSubtotalTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                             .addComponent(lblDiferencaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -421,6 +423,22 @@ public class frmMenu extends javax.swing.JFrame {
         });
         Relatórios.add(jMenuItem2);
 
+        jMenuItem4.setText("Apenas Cheques");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        Relatórios.add(jMenuItem4);
+
+        jMenuItem5.setText("Apenas Boletos");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        Relatórios.add(jMenuItem5);
+
         jMenuBar1.add(Relatórios);
 
         setJMenuBar(jMenuBar1);
@@ -544,7 +562,7 @@ public class frmMenu extends javax.swing.JFrame {
         
         configurações configs = new configurações();
         conexao con = new conexao();
-        String url ="jdbc:sqlite:/"+ configs.leBanco().getProperty("banco"); 
+        String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
         Connection conectar = DriverManager.getConnection(url);
          System.out.print("\nurl: "+url);
             
@@ -557,13 +575,69 @@ public class frmMenu extends javax.swing.JFrame {
         JasperPrint jp = JasperFillManager.fillReport(jr, null,conectar);
         System.out.print("- 2");
         JasperViewer.viewReport(jp, false);
-        //con.close();
+        conectar.close();
     }
     catch (Exception e)
             {
                 JOptionPane.showMessageDialog(null, e);
             }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+ try {
+        InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/FinanceiroCheques.jrxml");
+        JasperDesign jd;
+        
+        configurações configs = new configurações();
+        conexao con = new conexao();
+        String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
+        Connection conectar = DriverManager.getConnection(url);
+         System.out.print("\nurl: "+url);
+            
+        //Connection con = DriverManager.getConnection("jdbc:sqlite:"+cfg.url.toString());
+        jd = JRXmlLoader.load(in);
+        //dsp.create(jr);
+         System.out.print("\n 0");
+        JasperReport jr = JasperCompileManager.compileReport(jd);
+        System.out.print(" -1 ");
+        JasperPrint jp = JasperFillManager.fillReport(jr, null,conectar);
+        System.out.print("- 2");
+        JasperViewer.viewReport(jp, false);
+        conectar.close();
+         }
+    catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+try {
+        InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/FinanceiroBoletos.jrxml");
+        JasperDesign jd;
+        
+        configurações configs = new configurações();
+        conexao con = new conexao();
+        String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
+        Connection conectar = DriverManager.getConnection(url);
+         System.out.print("\nurl: "+url);
+            
+        //Connection con = DriverManager.getConnection("jdbc:sqlite:"+cfg.url.toString());
+        jd = JRXmlLoader.load(in);
+        //dsp.create(jr);
+         System.out.print("\n 0");
+        JasperReport jr = JasperCompileManager.compileReport(jd);
+        System.out.print(" -1 ");
+        JasperPrint jp = JasperFillManager.fillReport(jr, null,conectar);
+        System.out.print("- 2");
+        JasperViewer.viewReport(jp, false);
+        conectar.close();
+         }
+    catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -632,6 +706,8 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblDiferencaTotal;
