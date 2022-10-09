@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.financeiro.Menu;
-
+import com.mycompany.financeiro.dao.utilidades.*;
 import com.mycompany.financeiro.Configuracoes.frmConfiguracoes;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletos;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletosVencidos;
@@ -14,6 +14,24 @@ import static com.mycompany.financeiro.Financeiro.*;
 import com.mycompany.financeiro.frmFornecedores.frmFornecedores;
 import com.mycompany.financeiro.frmTipoDespesa.frmTipoDespesa;
 import com.mycompany.financeiro.frmsaldo.frmSaldo;
+import java.io.InputStream;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRDataSourceProvider;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 /**
@@ -98,6 +116,7 @@ public class frmMenu extends javax.swing.JFrame {
         Bancodedados = new javax.swing.JMenuItem();
         Saldobancário = new javax.swing.JMenuItem();
         Relatórios = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -174,7 +193,7 @@ public class frmMenu extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSubtotalVencidos, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(lblSubtotalVencidos, javax.swing.GroupLayout.PREFERRED_SIZE, 106, Short.MAX_VALUE)
                             .addComponent(lblDiferencaVencidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -258,7 +277,7 @@ public class frmMenu extends javax.swing.JFrame {
                             .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSubtotalTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(lblSubtotalTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, Short.MAX_VALUE)
                             .addComponent(lblDiferencaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -393,6 +412,15 @@ public class frmMenu extends javax.swing.JFrame {
         jMenuBar1.add(Configuração);
 
         Relatórios.setText("Relatórios");
+
+        jMenuItem2.setText("Todas dívidas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        Relatórios.add(jMenuItem2);
+
         jMenuBar1.add(Relatórios);
 
         setJMenuBar(jMenuBar1);
@@ -508,6 +536,35 @@ public class frmMenu extends javax.swing.JFrame {
   frm.setVisible(true);
     }//GEN-LAST:event_tipodepesaActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+               
+    try {
+        InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/Financeiro.jrxml");
+        JasperDesign jd;
+        
+        configurações configs = new configurações();
+        conexao con = new conexao();
+        String url ="jdbc:sqlite:/"+ configs.leBanco().getProperty("banco"); 
+        Connection conectar = DriverManager.getConnection(url);
+         System.out.print("\nurl: "+url);
+            
+        //Connection con = DriverManager.getConnection("jdbc:sqlite:"+cfg.url.toString());
+        jd = JRXmlLoader.load(in);
+        //dsp.create(jr);
+         System.out.print("\n 0");
+        JasperReport jr = JasperCompileManager.compileReport(jd);
+        System.out.print(" -1 ");
+        JasperPrint jp = JasperFillManager.fillReport(jr, null,conectar);
+        System.out.print("- 2");
+        JasperViewer.viewReport(jp, false);
+        //con.close();
+    }
+    catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -573,6 +630,7 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
