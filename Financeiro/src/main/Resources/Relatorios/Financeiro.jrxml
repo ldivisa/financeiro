@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Financeiro" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fabb7b13-6cd0-42f2-8f34-d51fb3267e08">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Financeiro"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[
+select 
+
+c.idCompromisso,
+c.TipoDivida,
+c.DataCadastro,
+c.DataVencimento,
+c.valor,
+c.IdFornecedor,
+c.Documento,
+c.Parcela,
+c.CodigoBarras,
+c.Observacao,
+c.TipoDespesa,
+c.DataPagamento,
+c.PagamentoEfetuado,
+c.Ncheque,
+
+
+f.IdFornecedor,
+f.NomeFornecedor,
+
+
+t.tipoDespesa,
+t.NomeDespesa,
+
+substr(c.DataVencimento, 7, 4) AS ano,
+substr(c.DataVencimento, 4, 2) AS mes,
+substr(c.DataVencimento, 1, 2) AS dia
+
+
+from compromissos c
+
+inner join fornecedores f
+on f.IdFornecedor=c.IdFornecedor
+inner join tipoDespesa t
+on c.TipoDespesa=t.IdTipoDespesa
+
+where PagamentoEfetuado='0'
+order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
+	</queryString>
+	<field name="idCompromisso" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="idCompromisso"/>
+		<property name="com.jaspersoft.studio.field.label" value="idCompromisso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="TipoDivida" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="TipoDivida"/>
+		<property name="com.jaspersoft.studio.field.label" value="TipoDivida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="DataCadastro" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="DataCadastro"/>
+		<property name="com.jaspersoft.studio.field.label" value="DataCadastro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="DataVencimento" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="DataVencimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="DataVencimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="Valor" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="Valor"/>
+		<property name="com.jaspersoft.studio.field.label" value="Valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="IdFornecedor" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="IdFornecedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="IdFornecedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="Documento" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="Documento"/>
+		<property name="com.jaspersoft.studio.field.label" value="Documento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="Parcela" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="Parcela"/>
+		<property name="com.jaspersoft.studio.field.label" value="Parcela"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="CodigoBarras" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="CodigoBarras"/>
+		<property name="com.jaspersoft.studio.field.label" value="CodigoBarras"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="Observacao" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="Observacao"/>
+		<property name="com.jaspersoft.studio.field.label" value="Observacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="TipoDespesa" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="TipoDespesa"/>
+		<property name="com.jaspersoft.studio.field.label" value="TipoDespesa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="DataPagamento" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="DataPagamento"/>
+		<property name="com.jaspersoft.studio.field.label" value="DataPagamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="PagamentoEfetuado" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="PagamentoEfetuado"/>
+		<property name="com.jaspersoft.studio.field.label" value="PagamentoEfetuado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="Ncheque" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="Ncheque"/>
+		<property name="com.jaspersoft.studio.field.label" value="Ncheque"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
+	</field>
+	<field name="COLUMN_15" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="IdFornecedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="IdFornecedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedores"/>
+	</field>
+	<field name="NomeFornecedor" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="NomeFornecedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="NomeFornecedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedores"/>
+	</field>
+	<field name="COLUMN_17" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="TipoDespesa"/>
+		<property name="com.jaspersoft.studio.field.label" value="TipoDespesa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tipoDespesa"/>
+	</field>
+	<field name="NomeDespesa" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="NomeDespesa"/>
+		<property name="com.jaspersoft.studio.field.label" value="NomeDespesa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tipoDespesa"/>
+	</field>
+	<field name="ano" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="ano"/>
+		<property name="com.jaspersoft.studio.field.label" value="ano"/>
+	</field>
+	<field name="mes" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="mes"/>
+		<property name="com.jaspersoft.studio.field.label" value="mes"/>
+	</field>
+	<field name="dia" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="dia"/>
+		<property name="com.jaspersoft.studio.field.label" value="dia"/>
+	</field>
+	<variable name="idCompromisso1" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{idCompromisso}]]></variableExpression>
+	</variable>
+	<variable name="TipoDivida1" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{TipoDivida}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="54" height="30" uuid="7b302107-aef7-45de-8937-f8d275e540ca">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="303777cf-934a-4b10-a0b3-581cc00380f5"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[idCompromisso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="0" width="44" height="30" uuid="9a4f5777-6968-498c-b841-4298ca8560de">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02499218-fe36-4504-8ec7-9be1c0d2b362"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[TipoDivida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="2" width="44" height="30" uuid="ac7114f4-f51b-4dac-abf6-2a022025b1fa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="baaade29-6a4f-471f-af7b-aa64802fa847"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="1" width="44" height="30" uuid="2e19a660-9240-4d08-a395-a6e54134685b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0079a55-6d0f-4713-ac5b-6bff9a71534a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="1" width="44" height="30" uuid="633896e4-d113-4b7d-969e-01fc1fe8e405">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9c38e96f-c4ec-4966-942b-58f837130ea6"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Parcela]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="1" width="44" height="30" uuid="5c43fcd1-f7ea-450a-a82c-940858f6081c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7aa9a0f2-cd9d-409f-b699-0fc9f8e1a09c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CodigoBarras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="1" width="44" height="30" uuid="e972ac83-c345-4f62-87ef-0372ec788562">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82dd9005-5597-4857-885a-e0f2e0504ba9"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Observacao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="1" width="44" height="30" uuid="387b6a26-0026-437d-8652-498eed58c85d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="955d3de3-5ff6-479f-8853-cd4ea77f45c4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[TipoDespesa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="624" y="1" width="44" height="30" uuid="6c56ba38-219d-49f2-8d66-16fa11a27ccf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="35367e15-ba24-434e-8e84-cc2c9f33f2e5"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ncheque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="668" y="1" width="44" height="30" uuid="7371b36c-f95e-4b13-9166-5fa278fed5fa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="61b85a12-5cd9-466d-80fd-cf7c688f4880"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[IdFornecedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="712" y="1" width="44" height="30" uuid="1e859299-e0d7-4205-b14b-c42f367c49d0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21b624e5-c7fd-4f88-b6f0-c9f5acf2be94"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[NomeFornecedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="756" y="1" width="44" height="30" uuid="b864deb5-9e8b-48c4-adc5-10320e7d5437">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dae68441-f6e2-4607-a624-e9764e9e3be2"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[TipoDespesa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="542" y="2" width="44" height="30" uuid="5c19f015-55cc-450d-bb4a-36bde7e4616c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1579622-e28c-4024-bd8c-1715aa4c6166"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[NomeDespesa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="60" height="30" uuid="cd341568-e1ad-486e-8918-1bd9d6ac0209">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9996a39d-7a3a-4a37-87ff-4706afe74db6"/>
+				</reportElement>
+				<text><![CDATA[ano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="0" width="65" height="30" uuid="29ddde33-10f3-4053-8d1c-869b38502a62">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70309b4d-2918-4c45-8dc0-57670407348f"/>
+				</reportElement>
+				<text><![CDATA[mes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="2" width="56" height="30" uuid="d248eb73-d521-40cb-932f-1e931cd57b45">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3dd8adcf-912b-446c-9249-ce173b4f0633"/>
+				</reportElement>
+				<text><![CDATA[dia]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="54" height="30" uuid="0c1b363a-71be-4d90-8ac3-a1d14ef772ac">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="303777cf-934a-4b10-a0b3-581cc00380f5"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idCompromisso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="0" width="44" height="30" uuid="6771156b-d9c7-4b2a-b981-231fd1467561">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02499218-fe36-4504-8ec7-9be1c0d2b362"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TipoDivida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="2" width="44" height="30" uuid="76dfaa25-1993-4ee7-8f6e-ffc16d025b88">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="baaade29-6a4f-471f-af7b-aa64802fa847"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="1" width="44" height="30" uuid="646fecfc-f440-430c-ae3b-8a92f7961cb0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0079a55-6d0f-4713-ac5b-6bff9a71534a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="1" width="44" height="30" uuid="d39049d1-5fb0-46fe-977d-49a570134504">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9c38e96f-c4ec-4966-942b-58f837130ea6"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Parcela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="1" width="44" height="30" uuid="0e97facd-b9e5-46bf-a698-248d73e2dce7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7aa9a0f2-cd9d-409f-b699-0fc9f8e1a09c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CodigoBarras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="1" width="44" height="30" uuid="c03ba3db-2ad4-4fc4-b438-106cfbf95127">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82dd9005-5597-4857-885a-e0f2e0504ba9"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Observacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="1" width="44" height="30" uuid="4d457011-a463-4a72-b509-74a066ee7fd0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="955d3de3-5ff6-479f-8853-cd4ea77f45c4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TipoDespesa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="624" y="1" width="44" height="30" uuid="a6d751f8-7605-4ce1-a49e-e7872af21e91">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="35367e15-ba24-434e-8e84-cc2c9f33f2e5"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Ncheque}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="668" y="1" width="44" height="30" uuid="a8ad8b2f-4c99-4a0c-9e55-118c210280ea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="61b85a12-5cd9-466d-80fd-cf7c688f4880"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{COLUMN_15}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="712" y="1" width="44" height="30" uuid="48d5393b-7fce-47b9-b0b6-79391b508b23">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21b624e5-c7fd-4f88-b6f0-c9f5acf2be94"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NomeFornecedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="756" y="1" width="44" height="30" uuid="f9f2573d-a2a2-4857-b7e5-9746736c6a02">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dae68441-f6e2-4607-a624-e9764e9e3be2"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{COLUMN_17}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="542" y="2" width="44" height="30" uuid="581af9fb-9729-4fa0-9bdc-be424ae8186f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1579622-e28c-4024-bd8c-1715aa4c6166"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NomeDespesa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="1" width="60" height="30" uuid="8e6fc0a7-bc22-411f-b3a6-aa2798c68514">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9996a39d-7a3a-4a37-87ff-4706afe74db6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="1" width="60" height="30" uuid="d7641142-8127-4ecc-b3f7-1354e3becf64">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70309b4d-2918-4c45-8dc0-57670407348f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="223" y="0" width="47" height="30" uuid="e1f7af05-a028-4229-81f8-411443678e09">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3dd8adcf-912b-446c-9249-ce173b4f0633"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{dia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
