@@ -170,7 +170,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 	<variable name="ValorAcumulado" class="java.lang.Double" calculation="Sum">
 		<variableExpression><![CDATA[$F{Valor}]]></variableExpression>
 	</variable>
-	<group name="Dia" isStartNewColumn="true" keepTogether="true">
+	<group name="Dia" keepTogether="true">
 		<groupExpression><![CDATA[$F{dia}]]></groupExpression>
 		<groupFooter>
 			<band height="38">

@@ -50,60 +50,60 @@ on f.IdFornecedor=c.IdFornecedor
 inner join tipoDespesa t
 on c.TipoDespesa=t.IdTipoDespesa
 
-where PagamentoEfetuado='0'
+where PagamentoEfetuado='0' and TipoDivida='1'
 order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 	</queryString>
-	<field name="idCompromisso" class="java.lang.Object">
+	<field name="idCompromisso" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="idCompromisso"/>
 		<property name="com.jaspersoft.studio.field.label" value="idCompromisso"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="TipoDivida" class="java.lang.Object">
+	<field name="TipoDivida" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="TipoDivida"/>
 		<property name="com.jaspersoft.studio.field.label" value="TipoDivida"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="DataCadastro" class="java.lang.Object">
+	<field name="DataCadastro" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="DataCadastro"/>
 		<property name="com.jaspersoft.studio.field.label" value="DataCadastro"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="DataVencimento" class="java.lang.Object">
+	<field name="DataVencimento" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="DataVencimento"/>
 		<property name="com.jaspersoft.studio.field.label" value="DataVencimento"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="Valor" class="java.lang.Object">
+	<field name="Valor" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.name" value="Valor"/>
 		<property name="com.jaspersoft.studio.field.label" value="Valor"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="IdFornecedor" class="java.lang.Object">
+	<field name="IdFornecedor" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="IdFornecedor"/>
 		<property name="com.jaspersoft.studio.field.label" value="IdFornecedor"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="Documento" class="java.lang.Object">
+	<field name="Documento" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="Documento"/>
 		<property name="com.jaspersoft.studio.field.label" value="Documento"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="Parcela" class="java.lang.Object">
+	<field name="Parcela" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="Parcela"/>
 		<property name="com.jaspersoft.studio.field.label" value="Parcela"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="CodigoBarras" class="java.lang.Object">
+	<field name="CodigoBarras" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="CodigoBarras"/>
 		<property name="com.jaspersoft.studio.field.label" value="CodigoBarras"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="Observacao" class="java.lang.Object">
+	<field name="Observacao" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="Observacao"/>
 		<property name="com.jaspersoft.studio.field.label" value="Observacao"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="TipoDespesa" class="java.lang.Object">
+	<field name="TipoDespesa" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="TipoDespesa"/>
 		<property name="com.jaspersoft.studio.field.label" value="TipoDespesa"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
@@ -113,45 +113,45 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 		<property name="com.jaspersoft.studio.field.label" value="DataPagamento"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="PagamentoEfetuado" class="java.lang.Object">
+	<field name="PagamentoEfetuado" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="PagamentoEfetuado"/>
 		<property name="com.jaspersoft.studio.field.label" value="PagamentoEfetuado"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="Ncheque" class="java.lang.Object">
+	<field name="Ncheque" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="Ncheque"/>
 		<property name="com.jaspersoft.studio.field.label" value="Ncheque"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="compromissos"/>
 	</field>
-	<field name="COLUMN_15" class="java.lang.Object">
+	<field name="COLUMN_15" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="IdFornecedor"/>
 		<property name="com.jaspersoft.studio.field.label" value="IdFornecedor"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedores"/>
 	</field>
-	<field name="NomeFornecedor" class="java.lang.Object">
+	<field name="NomeFornecedor" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="NomeFornecedor"/>
 		<property name="com.jaspersoft.studio.field.label" value="NomeFornecedor"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedores"/>
 	</field>
-	<field name="COLUMN_17" class="java.lang.Object">
+	<field name="COLUMN_17" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="TipoDespesa"/>
 		<property name="com.jaspersoft.studio.field.label" value="TipoDespesa"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tipoDespesa"/>
 	</field>
-	<field name="NomeDespesa" class="java.lang.Object">
+	<field name="NomeDespesa" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="NomeDespesa"/>
 		<property name="com.jaspersoft.studio.field.label" value="NomeDespesa"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tipoDespesa"/>
 	</field>
-	<field name="ano" class="java.lang.Object">
+	<field name="ano" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="ano"/>
 		<property name="com.jaspersoft.studio.field.label" value="ano"/>
 	</field>
-	<field name="mes" class="java.lang.Object">
+	<field name="mes" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="mes"/>
 		<property name="com.jaspersoft.studio.field.label" value="mes"/>
 	</field>
-	<field name="dia" class="java.lang.Object">
+	<field name="dia" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="dia"/>
 		<property name="com.jaspersoft.studio.field.label" value="dia"/>
 	</field>
@@ -205,7 +205,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="25"/>
 				</textElement>
-				<text><![CDATA[Relatório Financeiro Geral de Dívidas]]></text>
+				<text><![CDATA[Relatório Financeiro - Cheques]]></text>
 			</staticText>
 			<textField pattern="MMMMM dd, yyyy">
 				<reportElement x="610" y="0" width="184" height="20" uuid="67aa3e6b-52ab-4beb-915c-544585ef9ea2"/>
