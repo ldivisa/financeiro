@@ -786,6 +786,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             tf_valor.setText(strvalor);
             tf_fornecedor.setEnabled(true);
             tf_fornecedor.setEditable(true);
+            //cb_fornecedor.setEditable(true);
             cb_fornecedor.setEnabled(true);
             tf_fornecedor.requestFocus();
      }
