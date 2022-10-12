@@ -564,16 +564,16 @@ public class frmMenu extends javax.swing.JFrame {
         conexao con = new conexao();
         String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
         Connection conectar = DriverManager.getConnection(url);
-         System.out.print("\nurl: "+url);
+         //System.out.print("\nurl: "+url);
             
         //Connection con = DriverManager.getConnection("jdbc:sqlite:"+cfg.url.toString());
         jd = JRXmlLoader.load(in);
         //dsp.create(jr);
-         System.out.print("\n 0");
+         //System.out.print("\n 0");
         JasperReport jr = JasperCompileManager.compileReport(jd);
-        System.out.print(" -1 ");
+        //System.out.print(" -1 ");
         JasperPrint jp = JasperFillManager.fillReport(jr, null,conectar);
-        System.out.print("- 2");
+        //System.out.print("- 2");
         JasperViewer.viewReport(jp, false);
         conectar.close();
     }
@@ -592,16 +592,16 @@ public class frmMenu extends javax.swing.JFrame {
         conexao con = new conexao();
         String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
         Connection conectar = DriverManager.getConnection(url);
-         System.out.print("\nurl: "+url);
+         //System.out.print("\nurl: "+url);
             
         //Connection con = DriverManager.getConnection("jdbc:sqlite:"+cfg.url.toString());
         jd = JRXmlLoader.load(in);
         //dsp.create(jr);
-         System.out.print("\n 0");
+         //System.out.print("\n 0");
         JasperReport jr = JasperCompileManager.compileReport(jd);
-        System.out.print(" -1 ");
+        //System.out.print(" -1 ");
         JasperPrint jp = JasperFillManager.fillReport(jr, null,conectar);
-        System.out.print("- 2");
+        //System.out.print("- 2");
         JasperViewer.viewReport(jp, false);
         conectar.close();
          }
@@ -620,16 +620,16 @@ try {
         conexao con = new conexao();
         String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
         Connection conectar = DriverManager.getConnection(url);
-         System.out.print("\nurl: "+url);
+         //System.out.print("\nurl: "+url);
             
         //Connection con = DriverManager.getConnection("jdbc:sqlite:"+cfg.url.toString());
         jd = JRXmlLoader.load(in);
         //dsp.create(jr);
-         System.out.print("\n 0");
+         //System.out.print("\n 0");
         JasperReport jr = JasperCompileManager.compileReport(jd);
-        System.out.print(" -1 ");
+        //System.out.print(" -1 ");
         JasperPrint jp = JasperFillManager.fillReport(jr, null,conectar);
-        System.out.print("- 2");
+        //System.out.print("- 2");
         JasperViewer.viewReport(jp, false);
         conectar.close();
          }

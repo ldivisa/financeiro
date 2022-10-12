@@ -42,13 +42,13 @@ public List<fornecedores> carregaFornecedores(){
         conexao con = new conexao();
         con.conecta();
         resultado = con.executaConsulta("select * from fornecedores order by NomeFornecedor ");
-        //System.out.print("\nEntrei no carregaFornecedores() \n");
+        ////System.out.print("\nEntrei no carregaFornecedores() \n");
         fornecedores.clear();
         try
         {
         while (resultado.next())
         {
-          //  System.out.print("\n Entrei no while do carregaFornecedores()\n");
+          //  //System.out.print("\n Entrei no while do carregaFornecedores()\n");
             
             fornecedores atual = new fornecedores();
             atual.setEnderecoFornecedor(resultado.getString("EnderecoFornecedor"));
@@ -57,16 +57,16 @@ public List<fornecedores> carregaFornecedores(){
             atual.setFoneFornecedor(resultado.getString("FoneFornecedor"));
             atual.setObservacoesfornecedor(resultado.getString("Observacoesfornecedor"));
         fornecedores.add(atual);
-        //System.out.print("\nLendo registros: "+fornecedores.size());
+        ////System.out.print("\nLendo registros: "+fornecedores.size());
         }
-        //System.out.print("\nSaindo do while: ");
+        ////System.out.print("\nSaindo do while: ");
         }
     catch (SQLException e)
     {
         JOptionPane.showMessageDialog(null, e);
     }
      posicaoFornecedores=0;
-     //System.out.print("\nRegistros lidos: "+fornecedores.size());
+     ////System.out.print("\nRegistros lidos: "+fornecedores.size());
      return fornecedores;
         }
 public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoFornecedores)
@@ -77,7 +77,7 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
     }
     else
     {
-    //System.out.print("\nposicao:"+posicaoFornecedores+"\n");
+    ////System.out.print("\nposicao:"+posicaoFornecedores+"\n");
     tf_Id.setText(String.valueOf(fornecedores.get(posicaoFornecedores).getIdFornecedor()));
     tf_Nome.setText(fornecedores.get(posicaoFornecedores).getNomeFornecedor());
     tf_Endereco.setText(fornecedores.get(posicaoFornecedores).getEnderecoFornecedor());
@@ -381,7 +381,7 @@ if (posicaoFornecedores>0)
     if (tf_Id.getText().isEmpty())
     {
         codigo= pegaUltimoCodigoFornecedores()+1;
-    //System.out.print("\nBotao 1 codigo:"+codigo+"\n");
+    ////System.out.print("\nBotao 1 codigo:"+codigo+"\n");
         String SQL = "Insert into fornecedores (IdFornecedor,NomeFornecedor,FoneFornecedor,EnderecoFornecedor,ObservacoesFornecedor) values ("+codigo+",'"+
             tf_Nome.getText()+"','"+tf_Fone.getText()+"','"+tf_Endereco.getText()+"','"+tf_Observacao.getText()+"')";
     
@@ -404,7 +404,7 @@ if (posicaoFornecedores>0)
               "',ObservacoesFornecedor='"+tf_Observacao.getText()+
               "' where IdFornecedor="+Integer.valueOf(tf_Id.getText());
            
-      System.out.print("\nSQL UPDATE:"+SQL);
+      //System.out.print("\nSQL UPDATE:"+SQL);
     
     conexao con = new conexao();
     con.conecta();
@@ -427,8 +427,8 @@ if (posicaoFornecedores>0)
             
             for (int i=0;i<=fornecedores.size()-1;i++)
             {
-            //System.out.print("\nFornecedores: "+cb_fornecedores.getSelectedItem().toString());
-            //System.out.print("\nCB: "+cb_fornecedores.getSelectedItem().toString());
+            ////System.out.print("\nFornecedores: "+cb_fornecedores.getSelectedItem().toString());
+            ////System.out.print("\nCB: "+cb_fornecedores.getSelectedItem().toString());
             if (fornecedores.get(i).getNomeFornecedor().equals(cb_fornecedores.getSelectedItem()))    
             {cbFornecedorMapa.put("Nome", fornecedores.get(i).getNomeFornecedor());
             cbFornecedorMapa.put("Id",i);
@@ -437,7 +437,7 @@ if (posicaoFornecedores>0)
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        //System.out.print("\nChave ID: "+cbFornecedorMapa.get("Id").toString());
+        ////System.out.print("\nChave ID: "+cbFornecedorMapa.get("Id").toString());
         posicaoFornecedores = Integer.parseUnsignedInt(cbFornecedorMapa.get("Id").toString());
             mostrarFornecedores(fornecedores,posicaoFornecedores);
     }//GEN-LAST:event_cb_fornecedoresActionPerformed
@@ -464,7 +464,7 @@ if (posicaoFornecedores>0)
         
         fornecedores = carregaFornecedores();
         cb_fornecedores.removeAllItems();
-        //System.out.print("\n total de itens na array: "+fornecedores.size());
+        ////System.out.print("\n total de itens na array: "+fornecedores.size());
         for (int i =0; i<=fornecedores.size()-1;i++)
         {
         cb_fornecedores.addItem(fornecedores.get(i).getNomeFornecedor());
@@ -480,14 +480,14 @@ if (posicaoFornecedores>0)
          {
          codigo = (resultado.getInt("IdFornecedor")+1);
              
-         //System.out.print("\n Ultimo codigo:"+codigo);
+         ////System.out.print("\n Ultimo codigo:"+codigo);
          con.resultado.close();
          }
          catch (Exception e)
          {
          JOptionPane.showMessageDialog(null, e);
          }
-        //System.out.print("\npegaUltimoCodigoForenecedores: "+codigo+"\n");
+        ////System.out.print("\npegaUltimoCodigoForenecedores: "+codigo+"\n");
          return codigo;
         }
     /**

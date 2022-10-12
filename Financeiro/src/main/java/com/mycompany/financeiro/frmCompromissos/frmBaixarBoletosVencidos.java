@@ -607,7 +607,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     posicaoFornecedor=0;
     for (int i=0; i<=fornecedores.size()-1;i++)
         {
-            System.out.print("\n combo fornecedor:"+cb_fornecedor.getSelectedItem().toString());
+            //System.out.print("\n combo fornecedor:"+cb_fornecedor.getSelectedItem().toString());
             if (fornecedores.get(posicaoFornecedor).getNomeFornecedor().equals(cb_fornecedor.getSelectedItem().toString()))
             {
                 tf_fornecedor.setText(String.valueOf(fornecedores.get(posicaoFornecedor).getIdFornecedor()));
@@ -615,7 +615,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
             else
             {
             posicaoFornecedor=posicaoFornecedor+1;
-            System.out.print("\nPassando...");
+            //System.out.print("\nPassando...");
             }
         }
     }//GEN-LAST:event_cb_fornecedorItemStateChanged
@@ -710,7 +710,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
      /*//if(!(rb_boleto.isSelected()||!rb_cheque.isSelected())){
      if(rb_boleto.isSelected()||rb_boleto.isSelected())
      {
-     System.out.print("\n Selecionada opcao de tipo de divida");
+     //System.out.print("\n Selecionada opcao de tipo de divida");
      }
      else
      {
@@ -722,7 +722,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     private void rb_chequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_chequeActionPerformed
           if(rb_boleto.isSelected()||rb_boleto.isSelected())
      {
-     System.out.print("\n Selecionada opcao de tipo de divida");
+     //System.out.print("\n Selecionada opcao de tipo de divida");
      }
      else
      {
@@ -758,7 +758,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
       +null+
       ")");
             
-    System.out.print ("\n"+SQL);
+    //System.out.print ("\n"+SQL);
     con.executaUpdate(SQL);
     btn_salvar.setEnabled(false);
     travarCamposCompromisso();
@@ -784,7 +784,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
         Date data = new Date();
         SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM/yyyy");
         String datahoje = formatodata.format(data);
-        System.out.print("\n Hoje é:"+datahoje);
+        //System.out.print("\n Hoje é:"+datahoje);
         
         SQL = "update compromissos set "+
             "idCompromisso = "+tf_Id.getText()+","+
@@ -801,7 +801,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
             "DataPagamento = '"+datahoje+"',"+
             "PagamentoEfetuado = '1'"+    
             "where idCompromisso ="+tf_Id.getText();
-        System.out.print("\nSQL="+SQL);
+        //System.out.print("\nSQL="+SQL);
         conexao con = new conexao();
         con.conecta();
         con.executaUpdate(SQL);
@@ -819,7 +819,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
 
     public void carregarFornecedor()
     {
-        System.out.print("\nEntrou em carregarfornecedores");
+        //System.out.print("\nEntrou em carregarfornecedores");
     conexao con =new conexao();
     con.conecta();
     rsFornecedor = null;
@@ -880,10 +880,10 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     public int pegaultimoIdCompromisso()
     {
     posicaoUltimoCompromisso=0;
-    System.out.print("\nTamanho do array de compromissos: "+compromissos.size());
+    //System.out.print("\nTamanho do array de compromissos: "+compromissos.size());
     for (int i = 0; i<=compromissos.size()-1 ;i++)
     {
-        System.out.print("\nComparando Valor na posicao:"+posicaoCompromissos+" de compromissos <LIST>: "+ compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" com  IdUltimoCompromisso:"+IdUltimoCompromisso);
+        //System.out.print("\nComparando Valor na posicao:"+posicaoCompromissos+" de compromissos <LIST>: "+ compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" com  IdUltimoCompromisso:"+IdUltimoCompromisso);
      if (compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()>IdUltimoCompromisso)
         {
         IdUltimoCompromisso=compromissos.get(posicaoUltimoCompromisso).getIdCompromissos();
@@ -998,7 +998,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     
     public List<compromissos> carregarCompromissos()
     {
-        System.out.print("\nEntrou em carregarcompromissos");
+        //System.out.print("\nEntrou em carregarcompromissos");
     rsCompromissos=null;    
     conexao con = new conexao();
     con.conecta();
@@ -1021,14 +1021,14 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
                     {
                         String hoje;
                         Date datahoje = new Date();
-                        System.out.print("\nhoje:"+datahoje);
+                        //System.out.print("\nhoje:"+datahoje);
                         SimpleDateFormat formatodata = new SimpleDateFormat("YYYYMMdd");
-                        System.out.print("\nData:"+formatodata.format(datahoje));
+                        //System.out.print("\nData:"+formatodata.format(datahoje));
                         hoje = formatodata.format(datahoje);
                         String dataoriginal = rsCompromissos.getString("DataVencimento");
                         String dataok = dataoriginal.substring(6,10)+dataoriginal.substring(3,5)+dataoriginal.substring(0,2);
-                        System.out.print("\nData Original:"+dataoriginal);
-                        System.out.print("\nData ok:"+dataok);
+                        //System.out.print("\nData Original:"+dataoriginal);
+                        //System.out.print("\nData ok:"+dataok);
                         compromissos compromisso = new compromissos();
                         compromisso.setDataVencimentoPesquisavel(dataok);
                         compromisso.setCodigodeBarras(rsCompromissos.getString("codigoBarras"));
@@ -1044,12 +1044,12 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
                         compromisso.setParcela(rsCompromissos.getString("Parcela"));
                         compromisso.setTipoDespesa(rsCompromissos.getInt("TipoDespesa"));
                         compromisso.setValor(rsCompromissos.getDouble("Valor"));
-                            System.out.print("\nAdicionando registro "+compromisso.getIdCompromissos()+" pois a data do registro ->"+compromisso.getDataVencimentoPesquisavel()+" é mais antiga que hoje "+hoje);
+                            //System.out.print("\nAdicionando registro "+compromisso.getIdCompromissos()+" pois a data do registro ->"+compromisso.getDataVencimentoPesquisavel()+" é mais antiga que hoje "+hoje);
                         if (Integer.parseInt(compromisso.getDataVencimentoPesquisavel())<=Integer.parseInt(hoje))
                         {
                             compromissos.add(compromisso);
                             
-                            System.out.print("\nAdicionando registro"+compromisso.getIdCompromissos()+" pois a data do registro ->"+compromisso.getDataVencimento()+" é mais antiga que hoje "+hoje);
+                            //System.out.print("\nAdicionando registro"+compromisso.getIdCompromissos()+" pois a data do registro ->"+compromisso.getDataVencimento()+" é mais antiga que hoje "+hoje);
                         }
                         }
                     rsCompromissos.close();
@@ -1071,7 +1071,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     carregarCompromissos();
     if (compromissos.size()>0)
     {
-    System.out.print("\nPosicao Atual Compromissos: "+posicaoCompromissos);
+    //System.out.print("\nPosicao Atual Compromissos: "+posicaoCompromissos);
     tf_codigodeBarras.setText(compromissos.get(posicaoCompromissos).getCodigodeBarras());
     tf_Id.setText(String.valueOf(compromissos.get(posicaoCompromissos).getIdCompromissos()));
     tf_dataCadastro.setText(compromissos.get(posicaoCompromissos).getDataCadastro());
@@ -1088,7 +1088,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
         {
             chb_pagamentoEfetuado.setSelected(false);
         }
-    System.out.print("\nPosicao: "+posicaoCompromissos+" tipo divida: "+compromissos.get(posicaoCompromissos).gettipoDivida());
+    //System.out.print("\nPosicao: "+posicaoCompromissos+" tipo divida: "+compromissos.get(posicaoCompromissos).gettipoDivida());
     if(compromissos.get(posicaoCompromissos).gettipoDivida())
     {
        GrupoTipoDívida.clearSelection();

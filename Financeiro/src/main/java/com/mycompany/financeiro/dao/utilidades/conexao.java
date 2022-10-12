@@ -35,7 +35,7 @@ public boolean conecta()
     try
     {
     Class.forName("org.sqlite.JDBC");
-        //System.out.println("\nClasse carregada");
+        ////System.out.println("\nClasse carregada");
     }
     catch (ClassNotFoundException e)
     {
@@ -51,13 +51,13 @@ public ResultSet executaConsulta(String SQL)
             conexao con = new conexao();
             url = configs.leBanco().getProperty("banco"); 
             conectar = DriverManager.getConnection("jdbc:sqlite://"+url);
-            //System.out.println("\nDriver manager conexao efetuada");
+            ////System.out.println("\nDriver manager conexao efetuada");
             statement =conectar.createStatement();
-            //System.out.println("\nStatement criado");
-            System.out.println("\nSQL:"+SQL);
+            ////System.out.println("\nStatement criado");
+            //System.out.println("\nSQL:"+SQL);
             resultado = statement.executeQuery(SQL);
             //statement.close();
-            //System.out.println("\nresultset preenchido");
+            ////System.out.println("\nresultset preenchido");
             return resultado;
             }
         catch (SQLException e)
@@ -75,12 +75,12 @@ public void executaUpdate(String SQL)
             conexao con = new conexao();
             url = configs.leBanco().getProperty("banco"); 
             conectar = DriverManager.getConnection("jdbc:sqlite://"+url);
-            System.out.println("\nDriver manager conexao efetuada");
+            //System.out.println("\nDriver manager conexao efetuada");
             statement =conectar.createStatement();
-            System.out.println("\nStatement criado");
-            System.out.println("\nSQL:"+SQL);
+            //System.out.println("\nStatement criado");
+            //System.out.println("\nSQL:"+SQL);
             statement.executeUpdate(SQL);
-            System.out.println("\nresultset preenchido");
+            //System.out.println("\nresultset preenchido");
             statement.close();
             }
         catch (SQLException e)

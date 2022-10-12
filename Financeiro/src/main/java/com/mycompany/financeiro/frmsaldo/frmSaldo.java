@@ -111,7 +111,7 @@ public class frmSaldo extends javax.swing.JFrame {
         while (rs.next())
         {
         saldo = rs.getDouble("saldo");
-        System.out.print(saldo);
+        //System.out.print(saldo);
         tf_saldo.setText(String.valueOf(saldo));
         }
     rs.close();    

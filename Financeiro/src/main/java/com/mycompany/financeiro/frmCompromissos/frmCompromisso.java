@@ -28,6 +28,8 @@ public class frmCompromisso extends javax.swing.JFrame {
     public List<compromissos> compromissos = new ArrayList<>();
     public List<fornecedores> fornecedores = new ArrayList<>();
     public List<tipodespesa> tipoDespesa = new ArrayList<>();
+    public boolean modoEdicao=false;
+    public boolean modoNovo=false;
     /**
      * Creates new form frmCompromisso
      */
@@ -645,17 +647,22 @@ public class frmCompromisso extends javax.swing.JFrame {
 
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
     
+    modoNovo=true;
+    modoEdicao=false;
+    btn_novo.setEnabled(false);
+    chb_pagamentoEfetuado.setSelected(false);
     limparCamposCompromisso();
     liberarCamposCompromisso();
     tf_Id.setText(String.valueOf(pegaultimoIdCompromisso()));
     tf_dataCadastro.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/YYYY")));
-    btn_salvar.setEnabled(true);
+    btn_salvar.setEnabled(false);
     btn_editar.setEnabled(false);
     btn_gravarmodificacao.setEnabled(false);
     GrupoTipoDívida.clearSelection();
     
     rb_boleto.setToolTipText("Defina se é um boleto ou cheque");
     rb_boleto.requestFocus();
+  
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void btn_PrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PrimeiroActionPerformed
@@ -664,6 +671,7 @@ public class frmCompromisso extends javax.swing.JFrame {
       mostrarCompromissos(compromissos);
       travarCamposCompromisso();
       btn_editar.setEnabled(true);
+      btn_novo.setEnabled(true);
     }//GEN-LAST:event_btn_PrimeiroActionPerformed
 
     private void btn_AnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AnteriorActionPerformed
@@ -674,6 +682,7 @@ public class frmCompromisso extends javax.swing.JFrame {
         mostrarCompromissos(compromissos);
         travarCamposCompromisso();
         btn_editar.setEnabled(true);
+        btn_novo.setEnabled(true);
         }
     
     }//GEN-LAST:event_btn_AnteriorActionPerformed
@@ -686,6 +695,7 @@ public class frmCompromisso extends javax.swing.JFrame {
         mostrarCompromissos(compromissos);
         travarCamposCompromisso();
         btn_editar.setEnabled(true);
+        btn_novo.setEnabled(true);
         }
     }//GEN-LAST:event_btn_PróximoActionPerformed
 
@@ -695,6 +705,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     mostrarCompromissos(compromissos);
     travarCamposCompromisso();
     btn_editar.setEnabled(true);
+    btn_novo.setEnabled(true);
     }//GEN-LAST:event_btn_ÚltimoActionPerformed
 
     private void tf_fornecedorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_fornecedorFocusLost
@@ -727,7 +738,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     private void cb_fornecedorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_fornecedorItemStateChanged
     if("".equals(cb_fornecedor.getSelectedItem())||cb_fornecedor.getSelectedItem()==null)
             {
-            System.out.print("\nCb+fornecedor vazio");
+            //System.out.print("\nCb+fornecedor vazio");
             }
     else
     {
@@ -735,7 +746,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     
     for (int i=0; i<=fornecedores.size()-1;i++)
         {
-            //System.out.print("\n ->combo fornecedor:"+cb_fornecedor.getSelectedItem().toString());
+            ////System.out.print("\n ->combo fornecedor:"+cb_fornecedor.getSelectedItem().toString());
             if (fornecedores.get(posicaoFornecedor).getNomeFornecedor().equals(cb_fornecedor.getSelectedItem().toString()))
             {
                 tf_fornecedor.setText(String.valueOf(fornecedores.get(posicaoFornecedor).getIdFornecedor()));
@@ -743,7 +754,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             else
             {
             posicaoFornecedor=posicaoFornecedor+1;
-            //System.out.print("\nPassando...");
+            ////System.out.print("\nPassando...");
             }
         }
     }
@@ -777,7 +788,7 @@ public class frmCompromisso extends javax.swing.JFrame {
  posicaoTipoDespesa=0;
     for (int i=0; i<=tipoDespesa.size()-1;i++)
         {
-         //System.out.print("\n->combo Despesa:"+cb_tipoDespesa.getSelectedItem().toString());   
+         ////System.out.print("\n->combo Despesa:"+cb_tipoDespesa.getSelectedItem().toString());   
             if (tipoDespesa.get(posicaoTipoDespesa).getNomeDespesa().equals(cb_tipoDespesa.getSelectedItem().toString()))
             {
                 tf_tipoDespesa.setText(String.valueOf(tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()));
@@ -785,7 +796,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             else
             {
             posicaoTipoDespesa=posicaoTipoDespesa+1;
-            //System.out.print("\nPassando CB TIPO DESPESA...");
+            ////System.out.print("\nPassando CB TIPO DESPESA...");
             }
         }
     }//GEN-LAST:event_cb_tipoDespesaActionPerformed
@@ -794,7 +805,7 @@ public class frmCompromisso extends javax.swing.JFrame {
     posicaoTipoDespesa=0;
     for (int i=0; i<=tipoDespesa.size()-1;i++)
         {
-         //System.out.print("\n->combo Despesa:"+cb_tipoDespesa.getSelectedItem().toString());   
+         ////System.out.print("\n->combo Despesa:"+cb_tipoDespesa.getSelectedItem().toString());   
             if (tipoDespesa.get(posicaoTipoDespesa).getNomeDespesa().equals(cb_tipoDespesa.getSelectedItem().toString()))
             {
                 tf_tipoDespesa.setText(String.valueOf(tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()));
@@ -802,7 +813,7 @@ public class frmCompromisso extends javax.swing.JFrame {
             else
             {
             posicaoTipoDespesa=posicaoTipoDespesa+1;
-            //System.out.print("\nPassando CB TIPO DESPESA...");
+            ////System.out.print("\nPassando CB TIPO DESPESA...");
             }
         }
     }//GEN-LAST:event_cb_tipoDespesaItemStateChanged
@@ -814,26 +825,55 @@ public class frmCompromisso extends javax.swing.JFrame {
     private void tf_valorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_valorFocusLost
     
     String strvalor = (tf_valor.getText());
-    /*System.out.print("\nStrvalor"+strvalor);
+    /*//System.out.print("\nStrvalor"+strvalor);
     if (strvalor==null)
-    System.out.print("\nNulo!");
+    //System.out.print("\nNulo!");
     if (strvalor.isEmpty())
-    System.out.print("\nVazio");    
+    //System.out.print("\nVazio");    
     if(strvalor.isBlank())
-    System.out.print("\nEmbranco!");
+    //System.out.print("\nEmbranco!");
     */
-     if (!"".equals(strvalor)&&!(strvalor==null)&&Pattern.matches("^([1-9]{1}[\\d]{0,2}(\\.[\\d]{3})*(\\,[\\d]{0,2})?|[1-9]{1}[\\d]{0,}(\\,[\\d]{0,2})?|0(\\,[\\d]{0,2})?|(\\,[\\d]{1,2})?)$",strvalor))
+     
+    //if (!"".equals(strvalor)&&!(strvalor==null)&&Pattern.matches("^([1-9]{1}[\\d]{0,2}(\\.[\\d]{3})*(\\,[\\d]{0,2})?|[1-9]{1}[\\d]{0,}(\\,[\\d]{0,2})?|0(\\,[\\d]{0,2})?|(\\,[\\d]{1,2})?)$",strvalor))
+    if (!"".equals(strvalor)&&!(strvalor==null)&&Pattern.matches("(\\d{1,5}.)?\\d{1,3}?\\d{0,2}$|(\\d{1,5},)?\\d{1,3}.\\d{0,2}$",strvalor))
      {
-            
-            strvalor= strvalor.replace(",",".");
-            tf_valor.setText(strvalor);
-            tf_fornecedor.setEnabled(true);
-            tf_fornecedor.setEditable(true);
-            //cb_fornecedor.setEditable(true);
-            cb_fornecedor.setEnabled(true);
-            cb_fornecedor.requestFocus();
-            cb_fornecedor.addItem("Selecione aqui o fornecedor");
-            cb_fornecedor.setSelectedItem("Selecione aqui o fornecedor");
+         strvalor= strvalor.replace(",",".");
+         tf_valor.setText(strvalor);
+            //aprovou o valor, agora vamos redirecionar o usuario para o cb_fornecedor caso seja um novo registro
+            //ou para o dataPagamento caso seja edicao
+            //if(tf_dataPagamento==null||"".equals(tf_dataPagamento.getText()))
+            //se for o caso de registro novo, vamos para o fornecedor, pulando o datapagamento   
+            //System.out.print("\n ModoNovo: "+modoNovo);
+            //System.out.print("\n ModoEdicao: "+modoEdicao);
+            if(modoNovo)
+              {
+                //System.out.print("\nRegistro novo");
+                    tf_fornecedor.setEnabled(true);
+                    tf_fornecedor.setEditable(true);
+                    //cb_fornecedor.setEditable(true);
+                    cb_fornecedor.setEnabled(true);
+                    cb_fornecedor.requestFocus();
+                        if (tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText()))
+                            //se nao foi escolhido fornecedor, faca escolher um
+                                {
+                                    cb_fornecedor.addItem("Selecione aqui o fornecedor");
+                                    cb_fornecedor.setSelectedItem("Selecione aqui o fornecedor");
+                                }
+                        else
+                            //se ja tiver, busque qual foi
+                                {
+                                    pesquisaNomeFornecedorporID(Integer.valueOf(tf_fornecedor.getText()));
+                                }
+               } 
+            else if(modoEdicao)
+            //caso seja registro existente, em edicao:
+                {
+                //System.out.println("\nRegistro em edição");
+                            
+                    tf_dataPagamento.setEnabled(true);
+                    tf_dataPagamento.setEditable(true);
+                    tf_dataPagamento.requestFocus();
+                }
      }
      else
      {
@@ -863,7 +903,7 @@ public class frmCompromisso extends javax.swing.JFrame {
 
     private void tf_dataPagamentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_dataPagamentoFocusLost
     String DataPagamento = tf_dataPagamento.getText();
-        if (!Pattern.matches("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((?:19|20)[0-9][0-9])", DataPagamento))
+        if (!(DataPagamento==null||"".equals(DataPagamento))&&!Pattern.matches("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((?:19|20)[0-9][0-9])", DataPagamento))
         {
             JOptionPane.showMessageDialog(null,"Há problema no valor digitado no campo de Data de Pagamento, refaça com atenção!");
             tf_dataPagamento.setText("");
@@ -871,7 +911,20 @@ public class frmCompromisso extends javax.swing.JFrame {
         }
         else
         {
-        cb_fornecedor.requestFocus();
+            tf_fornecedor.setEnabled(true);
+            tf_fornecedor.setEditable(true);
+            //cb_fornecedor.setEditable(true);
+            cb_fornecedor.setEnabled(true);
+            cb_fornecedor.requestFocus();
+                if (tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText()))
+                        {
+                            cb_fornecedor.addItem("Selecione aqui o fornecedor");
+                            cb_fornecedor.setSelectedItem("Selecione aqui o fornecedor");
+                        }
+                else
+                {
+                    pesquisaNomeFornecedorporID(Integer.valueOf(tf_fornecedor.getText()));
+                }
         }
     }//GEN-LAST:event_tf_dataPagamentoFocusLost
 
@@ -899,9 +952,11 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
     //if (!(tf_ncheque.getText()==null))
     if (!("".equals(strncheque))&&!(strncheque==null))
         {
-            System.out.print("\nEstou no botao salvar - o tf_cheque não é vazio, vou pesquisar para saber se existe já o registro ncheque "+tf_ncheque.getText());
+            //System.out.print("\nEstou no botao salvar - o tf_cheque não é vazio, vou pesquisar para saber se existe já o registro ncheque "+tf_ncheque.getText());
              if (!pesquisarCheque())
                     {    
+                  if(checaCamposPraGravar())
+                  {
                   SQL=("insert into compromissos (idCompromisso,TipoDivida,Ncheque,DataCadastro,DataVencimento,Valor,IdFornecedor,Documento,Parcela,CodigoBarras,Observacao,TipoDespesa,DataPagamento,PagamentoEfetuado)"
                   +"values ("
                   +(tf_Id.getText())+","
@@ -919,12 +974,16 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
                   +null+","
                   +false+
                   ")");
-                    System.out.print ("\n"+SQL);
+                    //System.out.print ("\n"+SQL);
                     con.executaUpdate(SQL);
                     btn_salvar.setEnabled(false);
                     travarCamposCompromisso();
                     mostrarCompromissos(compromissos);
+                    btn_editar.setEnabled(true);
                     JOptionPane.showMessageDialog(null, "Registro gravado");
+                    modoEdicao=false;
+                    modoNovo=false;
+            }
             }
              else
                  
@@ -934,6 +993,8 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
         }
     else
     {
+        if (checaCamposPraGravar())
+        {
     SQL=("insert into compromissos (idCompromisso,TipoDivida,Ncheque,DataCadastro,DataVencimento,Valor,IdFornecedor,Documento,Parcela,CodigoBarras,Observacao,TipoDespesa,DataPagamento,PagamentoEfetuado)"
                   +"values ("
                   +(tf_Id.getText())+","
@@ -951,12 +1012,13 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
                   +null+","
                   +false+
                   ")");
-                    System.out.print ("\n"+SQL);
+                    //System.out.print ("\n"+SQL);
                     con.executaUpdate(SQL);
                     btn_salvar.setEnabled(false);
                     travarCamposCompromisso();
                     mostrarCompromissos(compromissos);
                     JOptionPane.showMessageDialog(null, "Registro gravado");
+        }
     }
     
     }//GEN-LAST:event_btn_salvarActionPerformed
@@ -965,10 +1027,15 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
    dispose();
     }//GEN-LAST:event_btn_sairActionPerformed
 
+    
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+   modoEdicao=true;
+   modoNovo=false;
    liberarCamposCompromisso();
    btn_editar.setEnabled(false);
+   btn_novo.setEnabled(false);
    btn_gravarmodificacao.setEnabled(true);
+   btn_salvar.setEnabled(false);
    rb_boleto.requestFocus();
         
     }//GEN-LAST:event_btn_editarActionPerformed
@@ -983,10 +1050,10 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
         String strncheque=tf_ncheque.getText().trim();
             if (!"".equals(strncheque)&&!(strncheque==null))
             {
-                System.out.print("\nstrncheque não é vazio");
+                //System.out.print("\nstrncheque não é vazio");
                 
                     if(!pesquisarCheque()){  
-                        System.out.print("\npesquisando o cheque voltou que não é true");
+                        //System.out.print("\npesquisando o cheque voltou que não é true");
                                                 boolean tipoDivida;
                                                     if (rb_boleto.isSelected())
                                                         tipoDivida=false;
@@ -995,8 +1062,22 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
                                             }
             }
             
-            
-                                                SQL = "update compromissos set "+
+            if (checaCamposPraGravar())
+            {
+                                                SQL = "update compromissos set ";
+                                                if(!(tf_dataPagamento.getText()==null||"".equals(tf_dataPagamento.getText())))
+                                                {
+                                                SQL = SQL+"DataPagamento = '"+tf_dataPagamento.getText()+"',";
+                                                }
+                                                if (chb_pagamentoEfetuado.isSelected())
+                                                {
+                                                SQL = SQL +"PagamentoEfetuado = true, ";
+                                                }
+                                                else
+                                                {
+                                                SQL = SQL +"PagamentoEfetuado = false, ";
+                                                }
+                                                SQL=SQL+
                                                     "idCompromisso = "+tf_Id.getText()+","+
                                                     "TipoDivida = "+bolTipoDivida+","+
                                                     "DataCadastro = '"+tf_dataCadastro.getText()+"',"+
@@ -1008,16 +1089,21 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
                                                     "CodigoBarras = '"+tf_codigodeBarras.getText()+"',"+
                                                     "Observacao = ' "+ta_observacao.getText()+"',"+
                                                     "TipoDespesa = '" +tf_tipoDespesa.getText()+"', "+
-                                                    "Ncheque = '" +tf_ncheque.getText()+"' "+    
+                                                    "Ncheque = '" +tf_ncheque.getText()+"' "+
+                                                    //datapagamento
+                                                    //PagamentoEfetuado
                                                     "where idCompromisso ="+tf_Id.getText();
-                                                System.out.print("\nSQL="+SQL);
+                                                //System.out.print("\nSQL="+SQL);
                                                 conexao con = new conexao();
                                                 con.conecta();
                                                 con.executaUpdate(SQL);
                                                 travarCamposCompromisso();
                                                 btn_gravarmodificacao.setEnabled(false);
-                                                btn_editar.setEnabled(true);
-                                            
+                                                btn_novo.setEnabled(true);
+                                                modoEdicao=false;
+                                                modoNovo=false;
+                                                JOptionPane.showMessageDialog(null,"Atualizações gravadas");
+            }
                 
     }//GEN-LAST:event_btn_gravarmodificacaoActionPerformed
 
@@ -1027,6 +1113,52 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
        tf_dataVencimento.requestFocus();
     }//GEN-LAST:event_rb_boletoActionPerformed
 
+    private boolean checaCamposPraGravar(){
+    if(!rb_boleto.isSelected()&&!rb_cheque.isSelected())
+    {
+    JOptionPane.showMessageDialog(null, "É preciso selecionar o tipo de dívida: boleto ou cheque");
+    rb_boleto.requestFocus();
+    return false;
+    }
+    
+    if((rb_cheque.isSelected())&&(tf_ncheque.getText()==null||"".equals(tf_ncheque.getText())))
+    {
+    JOptionPane.showMessageDialog(null, "É preciso digitar o número do cheque");
+    tf_ncheque.requestFocus();        
+    return false;
+    }
+    if(tf_dataVencimento.getText()==null||"".equals(tf_dataVencimento.getText()))
+    {
+    JOptionPane.showMessageDialog(null, "É preciso selecionar a data de vencimento");
+    tf_ncheque.requestFocus();        
+    return false;
+    }
+    if(chb_pagamentoEfetuado.isSelected()&&(tf_dataPagamento.getText()==null||"".equals(tf_dataPagamento.getText())))
+    {
+    JOptionPane.showMessageDialog(null,"O registro está marcado como pago, porém não há data de pagamento registrada");
+    tf_dataPagamento.setEnabled(true);
+    tf_dataPagamento.setEditable(true);
+    tf_dataPagamento.requestFocus();
+    return false;
+    }
+    if(!(chb_pagamentoEfetuado.isSelected())&&(!((tf_dataPagamento.getText()==null)||"".equals(tf_dataPagamento.getText()))))
+    {
+    JOptionPane.showMessageDialog(null,"O registro tem data de pagamento, porém não está checado com pago");
+    chb_pagamentoEfetuado.setEnabled(true);
+    chb_pagamentoEfetuado.requestFocus();
+    return false;
+    }
+    
+    if(tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText()))
+    {
+    JOptionPane.showMessageDialog(null, "É preciso selecionar o tipo de despesa");
+    cb_tipoDespesa.requestFocus();        
+    return false;
+    }
+    
+    return true;
+    }
+    
     private void cb_fornecedorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cb_fornecedorFocusLost
     //if (tf_fornecedor.getText().isBlank())
     if("".equals(tf_fornecedor.getText())||(tf_fornecedor.getText()==null))
@@ -1045,7 +1177,7 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
     private void rb_chequeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rb_chequeFocusLost
          if(rb_boleto.isSelected()||rb_cheque.isSelected())
      {
-     //System.out.print("\n Selecionada opcao de tipo de divida");
+     ////System.out.print("\n Selecionada opcao de tipo de divida");
      }
      else
      {
@@ -1057,7 +1189,7 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
     private void tf_dataVencimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_dataVencimentoFocusGained
     /* if(rb_boleto.isSelected()||rb_cheque.isSelected())
      {
-     System.out.print("\n Selecionada opcao de tipo de divida");
+     //System.out.print("\n Selecionada opcao de tipo de divida");
      }
      else
      {
@@ -1074,8 +1206,16 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
         JOptionPane.showMessageDialog(null, "Atenção: Escolha um tipo de depesa!");
         cb_tipoDespesa.requestFocus();
     }
-        System.out.print("\ncbtipodespesa focus lost - "+cb_tipoDespesa.getSelectedItem().toString());
-        System.out.print("\n Conteudo de tf_tipodepsesa - "+tf_tipoDespesa.getText());
+        
+        if(modoEdicao){
+            chb_pagamentoEfetuado.setEnabled(true);
+            chb_pagamentoEfetuado.requestFocus();
+        }        
+        ////System.out.print("\ncbtipodespesa focus lost - "+cb_tipoDespesa.getSelectedItem().toString());
+        ////System.out.print("\n Conteudo de tf_tipodepsesa - "+tf_tipoDespesa.getText());
+        if(modoNovo)
+        {btn_salvar.setEnabled(true);
+        btn_salvar.requestFocus();}
     }//GEN-LAST:event_cb_tipoDespesaFocusLost
 
     private void tf_nchequeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_nchequeFocusLost
@@ -1128,9 +1268,15 @@ tf_tipoDespesa.setEnabled(true);
 tf_tipoDespesa.setEditable(true);
 cb_tipoDespesa.setEnabled(true);
 cb_tipoDespesa.requestFocus();
-cb_tipoDespesa.addItem("Selecione aqui o tipo de despesa");
-cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
-
+if (tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText()))
+        {
+        cb_tipoDespesa.addItem("Selecione aqui o tipo de despesa");
+        cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
+        }
+else
+        {
+            pesquisaNomeTipoDespesaporID(Integer.valueOf(tf_tipoDespesa.getText()));
+        }
 
 
     }//GEN-LAST:event_ta_observacaoFocusLost
@@ -1207,10 +1353,10 @@ cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
     public int pegaultimoIdCompromisso()
     {
     posicaoUltimoCompromisso=0;
-    System.out.print("\nTamanho do array de compromissos: "+compromissos.size());
+    //System.out.print("\nTamanho do array de compromissos: "+compromissos.size());
     for (int i = 0; i<=compromissos.size()-1 ;i++)
     {
-        System.out.print("\nComparando Valor na posicao:"+posicaoCompromissos+" de compromissos <LIST>: "+ compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" com  IdUltimoCompromisso:"+IdUltimoCompromisso);
+        //System.out.print("\nComparando Valor na posicao:"+posicaoCompromissos+" de compromissos <LIST>: "+ compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" com  IdUltimoCompromisso:"+IdUltimoCompromisso);
      if (compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()>IdUltimoCompromisso)
         {
         IdUltimoCompromisso=compromissos.get(posicaoUltimoCompromisso).getIdCompromissos();
@@ -1229,14 +1375,14 @@ cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
     
     for (int i = 0; i<=compromissos.size()-1 ;i++)
     {
-     System.out.print("\nRegistro: "+compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" tem o valor de ncheque: "+compromissos.get(posicaoUltimoCompromisso).getNCheque());    
+     //System.out.print("\nRegistro: "+compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" tem o valor de ncheque: "+compromissos.get(posicaoUltimoCompromisso).getNCheque());    
     String strncheques = (compromissos.get(posicaoUltimoCompromisso).getNCheque().trim());
     
     //if (!strncheques.isEmpty())
     if(strncheques !=null && !"".equals(strncheques))
         // if (!"".equals(strncheque)&&!(strncheque==null))
         {
-        System.out.print(" -> ID:"+compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" tem o valor de ncheque: "+compromissos.get(posicaoUltimoCompromisso).getNCheque());
+        //System.out.print(" -> ID:"+compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" tem o valor de ncheque: "+compromissos.get(posicaoUltimoCompromisso).getNCheque());
         
         if (strncheques.equals(tf_ncheque.getText().trim())&&compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()!=(Integer.valueOf(tf_Id.getText())))
             {
@@ -1244,14 +1390,14 @@ cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
              JOptionPane.showMessageDialog(null,"O cheque nº "+tf_ncheque.getText()+" já foi registrado antes,com o ID: "+ compromissos.get(posicaoUltimoCompromisso).getIdCompromissos()+" se necessário utilize o recurso de edição.");
              tf_ncheque.requestFocus();
              btn_gravarmodificacao.setEnabled(false);
-             System.out.print(" Achei cheque igual! - Vou retornar TRUE");
+             //System.out.print(" Achei cheque igual! - Vou retornar TRUE");
              return true;
             }
         }
     if (posicaoUltimoCompromisso<compromissos.size()-1)
         posicaoUltimoCompromisso=posicaoUltimoCompromisso+1;
     }
-    System.out.print(" NÃO achei cheque igual! - Vou retornar FALSE");
+    //System.out.print(" NÃO achei cheque igual! - Vou retornar FALSE");
     return false;
     }
     
@@ -1316,7 +1462,7 @@ cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
     public void travarCamposCompromisso()
     {
     tf_Id.setEnabled(false);
-    GrupoTipoDívida.clearSelection();
+    //GrupoTipoDívida.clearSelection();
     tf_codigodeBarras.setEnabled(false);
     tf_dataCadastro.setEnabled(false);
     tf_dataPagamento.setEnabled(false);
@@ -1340,7 +1486,7 @@ cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
     public void liberarCamposCompromisso()
     {
     //tf_Id.setEnabled(true);
-    GrupoTipoDívida.clearSelection();
+    //GrupoTipoDívida.clearSelection();
     //tf_codigodeBarras.setEnabled(true);
     //tf_dataCadastro.setEnabled(true);
     //tf_dataPagamento.setEnabled(true);
@@ -1405,7 +1551,7 @@ cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
     public void mostrarCompromissos(List<compromissos> compromissos)
     {
     carregarCompromissos();
-    //System.out.print("\nPosicao Atual Compromissos: "+posicaoCompromissos);
+    ////System.out.print("\nPosicao Atual Compromissos: "+posicaoCompromissos);
     tf_codigodeBarras.setText(compromissos.get(posicaoCompromissos).getCodigodeBarras());
     tf_Id.setText(String.valueOf(compromissos.get(posicaoCompromissos).getIdCompromissos()));
     tf_dataCadastro.setText(compromissos.get(posicaoCompromissos).getDataCadastro());
@@ -1423,17 +1569,19 @@ cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
         {
             chb_pagamentoEfetuado.setSelected(false);
         }
-    //System.out.print("\nPosicao: "+posicaoCompromissos+" tipo divida: "+compromissos.get(posicaoCompromissos).gettipoDivida());
+    ////System.out.print("\nPosicao: "+posicaoCompromissos+" tipo divida: "+compromissos.get(posicaoCompromissos).gettipoDivida());
     if(compromissos.get(posicaoCompromissos).gettipoDivida())
     {
-       GrupoTipoDívida.clearSelection();
+         //GrupoTipoDívida.clearSelection();
         //GrupoTipoDívida.setSelected(rb_cheque,true);
         rb_cheque.setSelected(true);
+        rb_boleto.setSelected(false);
     }
     else
     {
-       GrupoTipoDívida.clearSelection();
+       //GrupoTipoDívida.clearSelection();
         rb_boleto.setSelected(true);
+        rb_cheque.setSelected(false);
     }
     tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
     tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));

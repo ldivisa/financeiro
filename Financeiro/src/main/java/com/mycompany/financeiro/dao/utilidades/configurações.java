@@ -48,16 +48,16 @@ public class configurações {
             if (SystemUtils.IS_OS_WINDOWS)
                 caminho = "config.properties.windows";
     p1 = Paths.get(caminho);
-    System.out.print("\nTentando ler "+caminho);
+    //System.out.print("\nTentando ler "+caminho);
     if (!Files.exists(p1))
     {
-        System.out.print("\nNão achei o arquivo "+caminho);
+        //System.out.print("\nNão achei o arquivo "+caminho);
         frmConfiguracoes fr = new frmConfiguracoes();
         fr.setVisible(true);
     }
     else
     {
-    System.out.print("\nO arquivo "+p1.toString()+" foi encontrado");
+    //System.out.print("\nO arquivo "+p1.toString()+" foi encontrado");
     }
     prop.load(new FileInputStream(p1.toString()));
     } catch (IOException ex) {

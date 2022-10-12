@@ -44,13 +44,13 @@ public List<tipodespesa> carregaDespesas(){
         conexao con = new conexao();
         con.conecta();
         resultado = con.executaConsulta("select * from tipodespesa order by NomeDespesa");
-        //System.out.print("\nEntrei no carregaFornecedores() \n");
+        ////System.out.print("\nEntrei no carregaFornecedores() \n");
         despesas.clear();
         try
         {
         while (resultado.next())
         {
-          //  System.out.print("\n Entrei no while do carregaFornecedores()\n");
+          //  //System.out.print("\n Entrei no while do carregaFornecedores()\n");
             
             tipodespesa atual = new tipodespesa();
             atual.setIdTipoDespesa(resultado.getInt("IdTipoDespesa"));
@@ -58,16 +58,16 @@ public List<tipodespesa> carregaDespesas(){
             atual.setObservaçãoDespesa(resultado.getString("ObservacaoDespesa"));
             atual.setTipoDespesa(resultado.getString("TipoDespesa"));
             despesas.add(atual);
-        //System.out.print("\nLendo registros: "+fornecedores.size());
+        ////System.out.print("\nLendo registros: "+fornecedores.size());
         }
-        //System.out.print("\nSaindo do while: ");
+        ////System.out.print("\nSaindo do while: ");
         }
     catch (SQLException e)
     {
         JOptionPane.showMessageDialog(null, e);
     }
      posicaoDespesas=0;
-     //System.out.print("\nRegistros lidos: "+fornecedores.size());
+     ////System.out.print("\nRegistros lidos: "+fornecedores.size());
      return despesas;
         }
 public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
@@ -78,7 +78,7 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
     }
     else
     {
-    //System.out.print("\nposicao:"+posicaoFornecedores+"\n");
+    ////System.out.print("\nposicao:"+posicaoFornecedores+"\n");
     tf_Id.setText(String.valueOf(despesas.get(posicaoDespesas).getIdTipoDespesa()));
     tf_Nome.setText(despesas.get(posicaoDespesas).getNomeDespesa());
     tf_Observacao.setText(despesas.get(posicaoDespesas).getObservaçãoDespesa());
@@ -384,7 +384,7 @@ if (posicaoDespesas>0)
     if (tf_Id.getText().isEmpty())
     {
       codigo= pegaUltimoCodigoDespesas()+1;
-      //System.out.print("\nBotao 1 codigo:"+codigo+"\n");
+      ////System.out.print("\nBotao 1 codigo:"+codigo+"\n");
       String strTipoDespesa="";
       if (cb_tipo.getSelectedIndex()==0)
           strTipoDespesa="C";
@@ -423,7 +423,7 @@ if (posicaoDespesas>0)
               "',TipoDespesa='"+strTipoDespesa+
               "' where IdTipoDespesa="+Integer.valueOf(tf_Id.getText());
            
-      System.out.print("\nSQL UPDATE:"+SQL);
+      //System.out.print("\nSQL UPDATE:"+SQL);
     
     conexao con = new conexao();
     con.conecta();
@@ -446,8 +446,8 @@ if (posicaoDespesas>0)
             
             for (int i=0;i<=despesas.size()-1;i++)
             {
-            //System.out.print("\nFornecedores: "+cb_fornecedores.getSelectedItem().toString());
-            //System.out.print("\nCB: "+cb_fornecedores.getSelectedItem().toString());
+            ////System.out.print("\nFornecedores: "+cb_fornecedores.getSelectedItem().toString());
+            ////System.out.print("\nCB: "+cb_fornecedores.getSelectedItem().toString());
                 if (despesas.get(i).getNomeDespesa().equals(cb_despesas.getSelectedItem()))    
                         {
                             cbDespesaMapa.put("Nome", despesas.get(i).getNomeDespesa());
@@ -457,7 +457,7 @@ if (posicaoDespesas>0)
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        //System.out.print("\nChave ID: "+cbFornecedorMapa.get("Id").toString());
+        ////System.out.print("\nChave ID: "+cbFornecedorMapa.get("Id").toString());
         //posicaoDespesas = Integer.parseUnsignedInt(cbDespesaMapa.get("Id").toString());
         posicaoDespesas = Integer.valueOf(cbDespesaMapa.get("Id").toString());
             mostrarDespesas(despesas,posicaoDespesas);
@@ -498,16 +498,16 @@ if (posicaoDespesas>0)
          
          try
          {
-         //System.out.print("\nIdTipoDespesa: "+resultado.getInt("IdTipoDespesa"));
+         ////System.out.print("\nIdTipoDespesa: "+resultado.getInt("IdTipoDespesa"));
          codigo = (resultado.getInt("IdTipoDespesa")+1);
-         //System.out.print("\n Ultimo codigo:"+codigo);
+         ////System.out.print("\n Ultimo codigo:"+codigo);
          con.resultado.close();
          }
          catch (Exception e)
          {
          JOptionPane.showMessageDialog(null, e);
          }
-        //System.out.print("\npegaUltimoCodigoForenecedores: "+codigo+"\n");
+        ////System.out.print("\npegaUltimoCodigoForenecedores: "+codigo+"\n");
          return codigo;
         }
     /**
