@@ -882,6 +882,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     public void pesquisaNomeTipoDespesaporID(int idTipoDespesa)
     {
     carregarTipoDespesa();
+    posicaoTipoDespesa=0;
     for (int i=0; i<=tipoDespesa.size()-1;i++)
         {
             if (tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()==Integer.valueOf(tf_tipoDespesa.getText()))
@@ -890,7 +891,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
             }
             else
             {
-            posicaoFornecedor=posicaoFornecedor+1;
+            posicaoTipoDespesa=posicaoTipoDespesa+1;
             }
         }
     }
@@ -898,6 +899,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     public void pesquisaNomeFornecedorporID(int idFornecedor)
     {
     carregarFornecedor();
+    posicaoFornecedor=0;
     for (int i=0; i<=fornecedores.size()-1;i++)
         {
             if (fornecedores.get(posicaoFornecedor).getIdFornecedor()==Integer.valueOf(tf_fornecedor.getText()))

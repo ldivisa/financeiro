@@ -1065,10 +1065,10 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
             if (checaCamposPraGravar())
             {
                                                 SQL = "update compromissos set ";
-                                                if(!(tf_dataPagamento.getText()==null||"".equals(tf_dataPagamento.getText())))
-                                                {
+                                                //if(!(tf_dataPagamento.getText()==null||"".equals(tf_dataPagamento.getText())))
+                                                //{
                                                 SQL = SQL+"DataPagamento = '"+tf_dataPagamento.getText()+"',";
-                                                }
+                                                //}
                                                 if (chb_pagamentoEfetuado.isSelected())
                                                 {
                                                 SQL = SQL +"PagamentoEfetuado = true, ";

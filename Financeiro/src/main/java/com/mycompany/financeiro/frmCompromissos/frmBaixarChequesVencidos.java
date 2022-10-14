@@ -104,8 +104,6 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
         tf_ncheque = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
         DescritivoDoFormulário.setForeground(new java.awt.Color(255, 0, 0));
@@ -466,17 +464,18 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(DescritivoDoFormulário)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Id)
-                    .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_DataCadastro)
-                    .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbl_tipodivida)
                         .addComponent(rb_boleto, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblncheque)
-                        .addComponent(tf_ncheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tf_ncheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_Id)
+                        .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_DataCadastro)
+                        .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -886,6 +885,7 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
     public void pesquisaNomeTipoDespesaporID(int idTipoDespesa)
     {
     carregarTipoDespesa();
+    posicaoTipoDespesa=0;
     for (int i=0; i<=tipoDespesa.size()-1;i++)
         {
             if (tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()==Integer.valueOf(tf_tipoDespesa.getText()))
@@ -894,7 +894,7 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
             }
             else
             {
-            posicaoFornecedor=posicaoFornecedor+1;
+            posicaoTipoDespesa=posicaoTipoDespesa+1;
             }
         }
     }
@@ -902,6 +902,7 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
     public void pesquisaNomeFornecedorporID(int idFornecedor)
     {
     carregarFornecedor();
+    posicaoFornecedor=0;
     for (int i=0; i<=fornecedores.size()-1;i++)
         {
             if (fornecedores.get(posicaoFornecedor).getIdFornecedor()==Integer.valueOf(tf_fornecedor.getText()))

@@ -111,7 +111,6 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
         DescritivoDoFormulário.setForeground(new java.awt.Color(255, 0, 0));
@@ -901,6 +900,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     public void pesquisaNomeTipoDespesaporID(int idTipoDespesa)
     {
     carregarTipoDespesa();
+    posicaoTipoDespesa=0;
     for (int i=0; i<=tipoDespesa.size()-1;i++)
         {
             if (tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()==Integer.valueOf(tf_tipoDespesa.getText()))
@@ -909,7 +909,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
             }
             else
             {
-            posicaoFornecedor=posicaoFornecedor+1;
+            posicaoTipoDespesa=posicaoTipoDespesa+1;
             }
         }
     }
@@ -917,6 +917,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     public void pesquisaNomeFornecedorporID(int idFornecedor)
     {
     carregarFornecedor();
+    posicaoFornecedor=0;
     for (int i=0; i<=fornecedores.size()-1;i++)
         {
             if (fornecedores.get(posicaoFornecedor).getIdFornecedor()==Integer.valueOf(tf_fornecedor.getText()))
@@ -1079,6 +1080,10 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     tf_dataVencimento.setText(compromissos.get(posicaoCompromissos).getDataVencimento());
     tf_documento.setText(compromissos.get(posicaoCompromissos).getDocumento());
     tf_fornecedor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getIdFornecedor()));
+    if (!(tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText())))
+    {
+        pesquisaNomeFornecedorporID(Integer.valueOf(tf_fornecedor.getText()));
+    }
     ta_observacao.setText(compromissos.get(posicaoCompromissos).getObservacao());
     if(compromissos.get(posicaoCompromissos).isPagamentoEfetuado())
         {
@@ -1103,6 +1108,10 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     }
     tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
     tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));
+    if (!(tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText())))
+    {
+        pesquisaNomeTipoDespesaporID(Integer.valueOf(tf_tipoDespesa.getText()));
+    }
     tf_valor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getValor()));
     }
     else
