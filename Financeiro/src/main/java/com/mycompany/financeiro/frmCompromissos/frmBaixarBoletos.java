@@ -879,17 +879,15 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     
     public void pesquisaNomeTipoDespesaporID(int idTipoDespesa)
     {
-        cb_tipoDespesa.setEnabled(true);
-        
+    cb_tipoDespesa.setEnabled(true);
     carregarTipoDespesa();
     posicaoTipoDespesa=0;
     for (int i=0; i<=tipoDespesa.size()-1;i++)
         {
             if (tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()==Integer.valueOf(tf_tipoDespesa.getText()))
             {
-                
                 cb_tipoDespesa.setSelectedIndex(posicaoTipoDespesa);            
-               //System.out.print("\nNº"+tf_Id.getText()+" Chave procurada: "+Integer.valueOf(tf_tipoDespesa.getText()) +" Posicao:"+posicaoTipoDespesa+" codigo: "+tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()+" Valor:"+cb_tipoDespesa.getSelectedItem().toString());
+             //  System.out.print("\nNº"+tf_Id.getText()+" Chave procurada: "+Integer.valueOf(tf_tipoDespesa.getText()) +" Posicao:"+posicaoTipoDespesa+" codigo: "+tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()+" Valor:"+cb_tipoDespesa.getSelectedItem().toString());
             }
             else
             {
@@ -1039,38 +1037,40 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     tf_documento.setText(compromissos.get(posicaoCompromissos).getDocumento());
     tf_fornecedor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getIdFornecedor()));
     ta_observacao.setText(compromissos.get(posicaoCompromissos).getObservacao());
-    if (!(tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText())))
-    {
-        pesquisaNomeFornecedorporID(Integer.valueOf(tf_fornecedor.getText()));
-    }
-    if (!(tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText())))
-    {
-        pesquisaNomeTipoDespesaporID(Integer.valueOf(tf_tipoDespesa.getText()));
-    }
-    if(compromissos.get(posicaoCompromissos).isPagamentoEfetuado())
-        {
-            chb_pagamentoEfetuado.setSelected(true);
-        }
-    else
-        {
-            chb_pagamentoEfetuado.setSelected(false);
-        }
-    //System.out.print("\nPosicao: "+posicaoCompromissos+" tipo divida: "+compromissos.get(posicaoCompromissos).gettipoDivida());
-    if(compromissos.get(posicaoCompromissos).gettipoDivida())
-    {
-       GrupoTipoDívida.clearSelection();
-        //GrupoTipoDívida.setSelected(rb_cheque,true);
-        rb_cheque.setSelected(true);
-        
-    }
-    else
-    {
-       GrupoTipoDívida.clearSelection();
-        rb_boleto.setSelected(true);
-    }
     tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
     tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));
     tf_valor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getValor()));
+    if (!(tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText())))
+                {
+                    pesquisaNomeFornecedorporID(Integer.valueOf(tf_fornecedor.getText()));
+                }
+    if (!(tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText())))
+                {
+                    pesquisaNomeTipoDespesaporID(Integer.valueOf(tf_tipoDespesa.getText()));
+                    
+                  //System.out.print("\nPosicao: "+posicaoCompromissos+" tipo divida: "+compromissos.get(posicaoCompromissos).gettipoDivida());
+                }
+    if(compromissos.get(posicaoCompromissos).isPagamentoEfetuado())
+                {
+                    chb_pagamentoEfetuado.setSelected(true);
+                }
+    else
+                {
+                    chb_pagamentoEfetuado.setSelected(false);
+                }
+    
+    if(compromissos.get(posicaoCompromissos).gettipoDivida())
+                {
+                   GrupoTipoDívida.clearSelection();
+                    //GrupoTipoDívida.setSelected(rb_cheque,true);
+                    rb_cheque.setSelected(true);
+                }
+    else
+                {
+                   GrupoTipoDívida.clearSelection();
+                    rb_boleto.setSelected(true);
+                }
+    
         
     }
     /**
