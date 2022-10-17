@@ -879,7 +879,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     
     public void pesquisaNomeTipoDespesaporID(int idTipoDespesa)
     {
-    cb_tipoDespesa.setEnabled(true);
+    //cb_tipoDespesa.setEnabled(true);
     carregarTipoDespesa();
     posicaoTipoDespesa=0;
     for (int i=0; i<=tipoDespesa.size()-1;i++)
