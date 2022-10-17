@@ -1062,6 +1062,15 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
     tf_documento.setText(compromissos.get(posicaoCompromissos).getDocumento());
     tf_fornecedor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getIdFornecedor()));
     ta_observacao.setText(compromissos.get(posicaoCompromissos).getObservacao());
+    
+    if (!(tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText())))
+    {
+        pesquisaNomeFornecedorporID(Integer.valueOf(tf_fornecedor.getText()));
+    }
+    if (!(tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText())))
+    {
+        pesquisaNomeTipoDespesaporID(Integer.valueOf(tf_tipoDespesa.getText()));
+    }
     if(compromissos.get(posicaoCompromissos).isPagamentoEfetuado())
         {
             chb_pagamentoEfetuado.setSelected(true);

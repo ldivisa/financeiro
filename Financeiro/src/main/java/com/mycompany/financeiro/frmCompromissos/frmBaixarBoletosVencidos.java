@@ -1084,6 +1084,11 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     {
         pesquisaNomeFornecedorporID(Integer.valueOf(tf_fornecedor.getText()));
     }
+    
+    if (!(tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText())))
+    {
+        pesquisaNomeTipoDespesaporID(Integer.valueOf(tf_tipoDespesa.getText()));
+    }
     ta_observacao.setText(compromissos.get(posicaoCompromissos).getObservacao());
     if(compromissos.get(posicaoCompromissos).isPagamentoEfetuado())
         {

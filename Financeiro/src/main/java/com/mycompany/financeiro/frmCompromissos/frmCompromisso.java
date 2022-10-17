@@ -1561,6 +1561,14 @@ else
     tf_ncheque.setText(compromissos.get(posicaoCompromissos).getNCheque());
     tf_fornecedor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getIdFornecedor()));
     ta_observacao.setText(compromissos.get(posicaoCompromissos).getObservacao());
+    if (!(tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText())))
+    {
+        pesquisaNomeFornecedorporID(Integer.valueOf(tf_fornecedor.getText()));
+    }
+    if (!(tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText())))
+    {
+        pesquisaNomeTipoDespesaporID(Integer.valueOf(tf_tipoDespesa.getText()));
+    }
     if(compromissos.get(posicaoCompromissos).isPagamentoEfetuado())
         {
             chb_pagamentoEfetuado.setSelected(true);
@@ -1586,8 +1594,7 @@ else
     tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
     tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));
     tf_valor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getValor()));
-    pesquisaNomeFornecedorporID(Integer.parseInt(tf_fornecedor.getText()));
-    pesquisaNomeTipoDespesaporID(Integer.parseInt(tf_tipoDespesa.getText()));
+    
     }
     /**
      * @param args the command line arguments
