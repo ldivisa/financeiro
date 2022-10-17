@@ -107,9 +107,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
         DescritivoDoFormulário.setForeground(new java.awt.Color(255, 0, 0));
@@ -121,19 +119,16 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
         lbl_Id.setText("Id:");
 
         tf_Id.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_Id.setText("jTextField1");
 
         lbl_DataCadastro.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         lbl_DataCadastro.setText("Data Cadastro:");
 
         tf_dataCadastro.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_dataCadastro.setText("jTextField1");
 
         lbl_dataVencimento.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         lbl_dataVencimento.setText("Data Vencimento:");
 
         tf_dataVencimento.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_dataVencimento.setText("jTextField1");
         tf_dataVencimento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tf_dataVencimentoFocusLost(evt);
@@ -144,7 +139,6 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
         lbl_valor.setText("Valor:");
 
         tf_valor.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_valor.setText("jTextField1");
         tf_valor.setAutoscrolls(false);
         tf_valor.setMinimumSize(new java.awt.Dimension(120, 39));
         tf_valor.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -169,7 +163,6 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
         });
 
         tf_fornecedor.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_fornecedor.setText("jTextField1");
         tf_fornecedor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tf_fornecedorFocusLost(evt);
@@ -186,20 +179,17 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
         lbl_documento.setToolTipText("Número do pedido ou nota fiscal que gerou a dívida");
 
         tf_documento.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_documento.setText("jTextField1");
 
         lbl_parcela.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         lbl_parcela.setText("Parcela:");
 
         tf_parcela.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_parcela.setText("jTextField1");
         tf_parcela.setToolTipText("número da parcela do boleto caso existam várias parcelas relacionadas à mesma nota fiscal ou pedido");
 
         lbl_codigodeBarras.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         lbl_codigodeBarras.setText("Código de barras:");
 
         tf_codigodeBarras.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_codigodeBarras.setText("jTextField1");
         tf_codigodeBarras.setToolTipText("Digite ou digitalize o código de barras do boleto se puder");
 
         lbl_observacao.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
@@ -218,7 +208,6 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
         lbl_pagamentoEfetuado.setText("Pagamento efetuado:");
 
         tf_dataPagamento.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_dataPagamento.setText("jTextField1");
         tf_dataPagamento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tf_dataPagamentoFocusLost(evt);
@@ -238,10 +227,14 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
         });
 
         tf_tipoDespesa.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        tf_tipoDespesa.setText("jTextField1");
         tf_tipoDespesa.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tf_tipoDespesaFocusLost(evt);
+            }
+        });
+        tf_tipoDespesa.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tf_tipoDespesaPropertyChange(evt);
             }
         });
 
@@ -799,6 +792,11 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     clipboard.setContents(CodigodeBarras, null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tf_tipoDespesaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tf_tipoDespesaPropertyChange
+        if (!(tf_tipoDespesa==null)&&!("".equals(tf_tipoDespesa.getText())))
+            pesquisaNomeTipoDespesaporID(posicaoTipoDespesa);
+    }//GEN-LAST:event_tf_tipoDespesaPropertyChange
+
     public void carregarFornecedor()
     {
     conexao con =new conexao();
@@ -881,13 +879,17 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     
     public void pesquisaNomeTipoDespesaporID(int idTipoDespesa)
     {
+        cb_tipoDespesa.setEnabled(true);
+        
     carregarTipoDespesa();
     posicaoTipoDespesa=0;
     for (int i=0; i<=tipoDespesa.size()-1;i++)
         {
             if (tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()==Integer.valueOf(tf_tipoDespesa.getText()))
             {
-            cb_tipoDespesa.setSelectedIndex(posicaoTipoDespesa);            
+                
+                cb_tipoDespesa.setSelectedIndex(posicaoTipoDespesa);            
+               //System.out.print("\nNº"+tf_Id.getText()+" Chave procurada: "+Integer.valueOf(tf_tipoDespesa.getText()) +" Posicao:"+posicaoTipoDespesa+" codigo: "+tipoDespesa.get(posicaoTipoDespesa).getIdTipoDespesa()+" Valor:"+cb_tipoDespesa.getSelectedItem().toString());
             }
             else
             {
@@ -1061,7 +1063,8 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
     tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));
     tf_valor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getValor()));
-     
+        pesquisaNomeTipoDespesaporID(posicaoTipoDespesa);
+        pesquisaNomeFornecedorporID(posicaoFornecedor);
     }
     /**
      * @param args the command line arguments
