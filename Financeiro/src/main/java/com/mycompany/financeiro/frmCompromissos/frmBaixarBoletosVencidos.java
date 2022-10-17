@@ -1080,6 +1080,10 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     tf_dataVencimento.setText(compromissos.get(posicaoCompromissos).getDataVencimento());
     tf_documento.setText(compromissos.get(posicaoCompromissos).getDocumento());
     tf_fornecedor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getIdFornecedor()));
+    tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
+    tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));
+    tf_valor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getValor()));
+    
     if (!(tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText())))
     {
         pesquisaNomeFornecedorporID(Integer.valueOf(tf_fornecedor.getText()));
@@ -1104,20 +1108,14 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
        GrupoTipoDívida.clearSelection();
         //GrupoTipoDívida.setSelected(rb_cheque,true);
         rb_cheque.setSelected(true);
-        
     }
     else
     {
        GrupoTipoDívida.clearSelection();
         rb_boleto.setSelected(true);
     }
-    tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
-    tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));
-    if (!(tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText())))
-    {
-        pesquisaNomeTipoDespesaporID(Integer.valueOf(tf_tipoDespesa.getText()));
-    }
-    tf_valor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getValor()));
+    
+
     }
     else
     {

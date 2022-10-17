@@ -1062,6 +1062,9 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
     tf_documento.setText(compromissos.get(posicaoCompromissos).getDocumento());
     tf_fornecedor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getIdFornecedor()));
     ta_observacao.setText(compromissos.get(posicaoCompromissos).getObservacao());
+    tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
+    tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));
+    tf_valor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getValor()));
     
     if (!(tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText())))
     {
@@ -1092,9 +1095,7 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
        GrupoTipoDívida.clearSelection();
         rb_boleto.setSelected(true);
     }
-    tf_parcela.setText(compromissos.get(posicaoCompromissos).getParcela());
-    tf_tipoDespesa.setText(String.valueOf(compromissos.get(posicaoCompromissos).getTipoDespesa()));
-    tf_valor.setText(String.valueOf(compromissos.get(posicaoCompromissos).getValor()));
+    
     }
      else
     {

@@ -104,8 +104,8 @@ public class frmMenu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         Avencer = new javax.swing.JMenu();
-        Baixarchequesnaovencidos = new javax.swing.JMenuItem();
         BaixarBoletosnaovencidos = new javax.swing.JMenuItem();
+        Baixarchequesnaovencidos = new javax.swing.JMenuItem();
         Vencidos = new javax.swing.JMenu();
         BaixarBoletosvencidos = new javax.swing.JMenuItem();
         Baixarchequesvencidos = new javax.swing.JMenuItem();
@@ -331,14 +331,6 @@ public class frmMenu extends javax.swing.JFrame {
 
         Avencer.setText("A vencer");
 
-        Baixarchequesnaovencidos.setText("Baixar Cheques não vencidos");
-        Baixarchequesnaovencidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BaixarchequesnaovencidosActionPerformed(evt);
-            }
-        });
-        Avencer.add(Baixarchequesnaovencidos);
-
         BaixarBoletosnaovencidos.setText("Baixar Boletos não vencidos");
         BaixarBoletosnaovencidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -346,6 +338,14 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
         Avencer.add(BaixarBoletosnaovencidos);
+
+        Baixarchequesnaovencidos.setText("Baixar Cheques não vencidos");
+        Baixarchequesnaovencidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BaixarchequesnaovencidosActionPerformed(evt);
+            }
+        });
+        Avencer.add(Baixarchequesnaovencidos);
 
         jMenu2.add(Avencer);
 
