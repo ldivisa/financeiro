@@ -239,7 +239,7 @@ public class frmMenu extends javax.swing.JFrame {
         lbl_BoletosTotal.setText("jLabel6");
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel16.setText("Subtotal Vencidos:");
+        jLabel16.setText("Subtotal Geral:");
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel17.setText("Diferença para o saldo declarado:");
