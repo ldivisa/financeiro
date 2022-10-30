@@ -1015,6 +1015,7 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
                     //System.out.print ("\n"+SQL);
                     con.executaUpdate(SQL);
                     btn_salvar.setEnabled(false);
+                    btn_novo.setEnabled(false);
                     travarCamposCompromisso();
                     mostrarCompromissos(compromissos);
                     JOptionPane.showMessageDialog(null, "Registro gravado");
