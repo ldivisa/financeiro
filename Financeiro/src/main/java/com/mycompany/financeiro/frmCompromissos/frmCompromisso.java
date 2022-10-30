@@ -103,7 +103,7 @@ public class frmCompromisso extends javax.swing.JFrame {
         btn_Próximo = new javax.swing.JButton();
         btn_Último = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         DescritivoDoFormulário.setForeground(new java.awt.Color(255, 0, 0));
@@ -207,7 +207,7 @@ public class frmCompromisso extends javax.swing.JFrame {
 
         tf_ncheque.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         tf_ncheque.setText("jTextField1");
-        tf_ncheque.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_ncheque.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tf_ncheque.setMinimumSize(new java.awt.Dimension(70, 26));
         tf_ncheque.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {

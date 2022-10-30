@@ -38,7 +38,7 @@ public class frmSaldo extends javax.swing.JFrame {
         tf_saldo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setMnemonic('s');
         jButton1.setText("Sair");

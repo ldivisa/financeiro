@@ -40,7 +40,7 @@ public class frmConfiguracoes extends javax.swing.JFrame {
         Sair = new javax.swing.JButton();
         tf_NomedoArquivo = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lbl_Titulo.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         lbl_Titulo.setForeground(new java.awt.Color(255, 0, 0));
