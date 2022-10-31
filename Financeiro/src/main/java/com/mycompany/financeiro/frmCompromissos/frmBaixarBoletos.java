@@ -984,9 +984,9 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     rsCompromissos=null;    
     conexao con = new conexao();
     con.conecta();
-    SQL  = "select * from compromissos,substr(c.DataVencimento, 7, 4) AS ano," +
+    SQL  = "select * from compromissos ,substr(c.DataVencimento, 7, 4) AS ano," +
     "substr(c.DataVencimento, 4, 2) AS mes," +
-    "substr(c.DataVencimento, 1, 2) AS dia  where PagamentoEfetuado = '0' and TipoDivida='0' order by DataVencimento order by ano,mes,dia";
+    "substr(c.DataVencimento, 1, 2) AS dia  from compromissos where PagamentoEfetuado = '0' and TipoDivida='0' order by ano,mes,dia";
     rsCompromissos = con.executaConsulta(SQL);
     compromissos.clear();
     
