@@ -14,6 +14,7 @@ import com.mycompany.financeiro.dao.utilidades.*;
 import com.mycompany.financeiro.frmCompromissos.frmCompromisso;
 import com.mycompany.financeiro.frmFornecedores.frmFornecedores;
 import com.mycompany.financeiro.frmsaldo.frmSaldo;
+import com.mypackage.financeiro.login.frmLogin;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,7 +39,7 @@ public class Financeiro {
         pegarValorBoletosVencidos();
         pegarValorChequesVencer();
         pegarValorChequesVencidos();
-        frmMenu frm = new frmMenu();
+        frmLogin frm = new frmLogin();
         frm.setVisible(true);
         
         
