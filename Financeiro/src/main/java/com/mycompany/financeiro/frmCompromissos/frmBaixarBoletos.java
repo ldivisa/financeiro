@@ -515,7 +515,8 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
                 .addGap(96, 96, 96))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(810, 625));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed

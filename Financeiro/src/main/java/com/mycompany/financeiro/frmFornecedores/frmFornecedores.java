@@ -345,7 +345,8 @@ public void mostrarFornecedores(List<fornecedores> fornecedores,int posicaoForne
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(899, 511));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProximoActionPerformed

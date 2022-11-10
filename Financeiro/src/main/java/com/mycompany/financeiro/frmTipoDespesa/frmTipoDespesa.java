@@ -348,7 +348,8 @@ public void mostrarDespesas(List<tipodespesa> despesas,int posicaoDespesas)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(932, 420));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProximoActionPerformed

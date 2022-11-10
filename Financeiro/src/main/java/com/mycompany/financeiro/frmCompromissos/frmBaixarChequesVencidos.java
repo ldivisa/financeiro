@@ -530,7 +530,8 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
                 .addGap(99, 99, 99))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(759, 589));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed

@@ -99,7 +99,8 @@ public class frmSaldo extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(525, 132));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     public Double pegarSaldo()

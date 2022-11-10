@@ -642,7 +642,8 @@ public class frmCompromisso extends javax.swing.JFrame {
         tf_fornecedor.getAccessibleContext().setAccessibleName("dt_fornecedor");
         cb_fornecedor.getAccessibleContext().setAccessibleName("cb_fornecedor");
 
-        pack();
+        setSize(new java.awt.Dimension(813, 626));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
