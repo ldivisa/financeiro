@@ -101,10 +101,10 @@ public class frmConfiguracoes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Gravar)
                     .addComponent(Sair))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(454, 172));
+        setSize(new java.awt.Dimension(454, 193));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
