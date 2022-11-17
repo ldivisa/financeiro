@@ -365,7 +365,7 @@ public class frmConsulta extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Data", "Fornecedor", "Valor", "Documento", "Parcela", "Observação", "Pago"
+                "Codigo", "Data Vencimento", "Fornecedor", "Valor", "Documento", "Parcela", "Observação", "Pago"
             }
         ) {
             Class[] types = new Class [] {
@@ -1182,6 +1182,7 @@ public class frmConsulta extends javax.swing.JFrame {
                         "b.NomeFornecedor,"+
                         "c.IdTipoDespesa ,"+
                         "c.NomeDespesa "+
+                         //"a.DataVencimento"   
                         "from compromissos a INNER JOIN fornecedores b ON a.IdFornecedor = b.IdFornecedor " +
                         "INNER JOIN tipodespesa c ON a.TipoDespesa = c.IdTipoDespesa");
 
@@ -1224,7 +1225,11 @@ public class frmConsulta extends javax.swing.JFrame {
                             modelo.addRow(new Object[]{
                             ListagemJtable.get(i).getIdCompromisso(),
                             ListagemJtable.get(i).getDataVencimento(),
-                            ListagemJtable.get(i).getIdTipoDespesa()
+                            ListagemJtable.get(i).getNomeFornecedor(),
+                            ListagemJtable.get(i).getValor()
+                            //ListagemJtable.get(i).getIdFornecedor(),
+                            //ListagemJtable.get(i).getIdFornecedor(),
+                            //ListagemJtable.get(i).getIdTipoDespesa()
                             //ListagemJtable.get(i).getTipoDivida(),
                             //ListagemJtable.get(i).getNomeDespesa()
                                     });
