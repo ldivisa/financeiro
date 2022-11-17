@@ -1201,7 +1201,7 @@ public class frmConsulta extends javax.swing.JFrame {
                         registroAtual.setNomeDespesa(rs_Jtable.getString("NomeDespesa"));
                         registroAtual.setNomeFornecedor(rs_Jtable.getString("NomeFornecedor"));
                         registroAtual.setObservacao(rs_Jtable.getString("Observacao"));
-                        registroAtual.setPagamentoEfetuado(rs_Jtable.getInt("PagamentoEfetuado"));
+                        registroAtual.setPagamentoEfetuado(rs_Jtable.getBoolean("PagamentoEfetuado"));
                         registroAtual.setParcela(rs_Jtable.getString("Parcela"));
                         registroAtual.setTipoDespesa(rs_Jtable.getInt("TipoDespesa"));
                         registroAtual.setTipoDivida(rs_Jtable.getInt("TipoDivida"));
@@ -1226,7 +1226,11 @@ public class frmConsulta extends javax.swing.JFrame {
                             ListagemJtable.get(i).getIdCompromisso(),
                             ListagemJtable.get(i).getDataVencimento(),
                             ListagemJtable.get(i).getNomeFornecedor(),
-                            ListagemJtable.get(i).getValor()
+                            ListagemJtable.get(i).getValor(),
+                            ListagemJtable.get(i).getDocumento(),
+                            ListagemJtable.get(i).getParcela(),
+                            ListagemJtable.get(i).getObservacao(),
+                            ListagemJtable.get(i).getPagamentoEfetuado()
                             //ListagemJtable.get(i).getIdFornecedor(),
                             //ListagemJtable.get(i).getIdFornecedor(),
                             //ListagemJtable.get(i).getIdTipoDespesa()

@@ -20,7 +20,7 @@ public class Consulta {
     private String Observacao;
     private int TipoDespesa;
     private String DataPagamento;
-    private int PagamentoEfetuado;
+    private boolean PagamentoEfetuado;
     private int NCheque;
     private int IdFornecedorb;
     private String NomeFornecedor;
@@ -115,11 +115,11 @@ public class Consulta {
         this.DataPagamento = DataPagamento;
     }
 
-    public int getPagamentoEfetuado() {
+    public boolean getPagamentoEfetuado() {
         return PagamentoEfetuado;
     }
 
-    public void setPagamentoEfetuado(int PagamentoEfetuado) {
+    public void setPagamentoEfetuado(boolean PagamentoEfetuado) {
         this.PagamentoEfetuado = PagamentoEfetuado;
     }
 
