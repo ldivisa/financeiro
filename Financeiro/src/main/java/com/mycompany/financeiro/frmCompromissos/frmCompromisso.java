@@ -30,6 +30,9 @@ public class frmCompromisso extends javax.swing.JFrame {
     public List<tipodespesa> tipoDespesa = new ArrayList<>();
     public boolean modoEdicao=false;
     public boolean modoNovo=false;
+    public boolean cb_TipoDespesaControle=false;
+    public boolean cb_FornecedorControle=false;
+    
     /**
      * Creates new form frmCompromisso
      */
@@ -369,6 +372,9 @@ public class frmCompromisso extends javax.swing.JFrame {
             }
         });
         cb_tipoDespesa.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cb_tipoDespesaFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 cb_tipoDespesaFocusLost(evt);
             }
@@ -857,7 +863,10 @@ public class frmCompromisso extends javax.swing.JFrame {
                         if (tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText()))
                             //se nao foi escolhido fornecedor, faca escolher um
                                 {
-                                    cb_fornecedor.addItem("Selecione aqui o fornecedor");
+                                    if (cb_FornecedorControle==false)                     
+                                    {cb_fornecedor.addItem("Selecione aqui o fornecedor");
+                                    cb_FornecedorControle=true;}
+                                    
                                     cb_fornecedor.setSelectedItem("Selecione aqui o fornecedor");
                                 }
                         else
@@ -919,7 +928,9 @@ public class frmCompromisso extends javax.swing.JFrame {
             cb_fornecedor.requestFocus();
                 if (tf_fornecedor.getText()==null||"".equals(tf_fornecedor.getText()))
                         {
+                            if (cb_FornecedorControle==false){
                             cb_fornecedor.addItem("Selecione aqui o fornecedor");
+                            cb_FornecedorControle=true;}
                             cb_fornecedor.setSelectedItem("Selecione aqui o fornecedor");
                         }
                 else
@@ -1272,7 +1283,9 @@ cb_tipoDespesa.setEnabled(true);
 cb_tipoDespesa.requestFocus();
 if (tf_tipoDespesa.getText()==null||"".equals(tf_tipoDespesa.getText()))
         {
+        if(cb_TipoDespesaControle==false){
         cb_tipoDespesa.addItem("Selecione aqui o tipo de despesa");
+        cb_TipoDespesaControle=true;}
         cb_tipoDespesa.setSelectedItem("Selecione aqui o tipo de despesa");
         }
 else
@@ -1290,6 +1303,10 @@ else
     private void rb_boletoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rb_boletoFocusGained
      rb_boleto.setBackground(Color.yellow);
     }//GEN-LAST:event_rb_boletoFocusGained
+
+    private void cb_tipoDespesaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cb_tipoDespesaFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_tipoDespesaFocusGained
 
     public void carregarFornecedor()
     {

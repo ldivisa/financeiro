@@ -10,7 +10,7 @@ package com.mycompany.consultas;
  */
 public class Consulta {
     private int idCompromisso;
-    private int TipoDivida;
+    private boolean TipoDivida;
     private String DataVencimento;
     private double Valor;
     private int IdFornecedor;
@@ -35,11 +35,11 @@ public class Consulta {
         this.idCompromisso = idCompromisso;
     }
 
-    public int getTipoDivida() {
+    public boolean getTipoDivida() {
         return TipoDivida;
     }
 
-    public void setTipoDivida(int TipoDivida) {
+    public void setTipoDivida(boolean TipoDivida) {
         this.TipoDivida = TipoDivida;
     }
 

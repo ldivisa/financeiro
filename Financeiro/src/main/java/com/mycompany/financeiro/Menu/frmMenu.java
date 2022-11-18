@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.financeiro.Menu;
+import com.mycompany.consultas.frmConsultaBoletos;
+import com.mycompany.consultas.frmConsultaCheques;
 import com.mycompany.financeiro.dao.utilidades.*;
 import com.mycompany.financeiro.Configuracoes.frmConfiguracoes;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletos;
@@ -74,6 +76,8 @@ public class frmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblSaldo = new javax.swing.JLabel();
@@ -112,6 +116,9 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         mi_fornecedores = new javax.swing.JMenuItem();
         tipodepesa = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         Configuração = new javax.swing.JMenu();
         Bancodedados = new javax.swing.JMenuItem();
         Saldobancário = new javax.swing.JMenuItem();
@@ -121,6 +128,10 @@ public class frmMenu extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
+
+        jMenuItem6.setText("jMenuItem6");
+
+        jMenuItem7.setText("jMenuItem7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -393,6 +404,26 @@ public class frmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setText("Consultas");
+
+        jMenuItem9.setText("Cheques");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem9);
+
+        jMenuItem8.setText("Boletos");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu4);
+
         Configuração.setText("Configuração");
 
         Bancodedados.setText("Banco de dados");
@@ -640,6 +671,17 @@ try {
             }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+     frmConsultaBoletos frm = new frmConsultaBoletos();
+     frm.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+     frmConsultaCheques frm = new frmConsultaCheques();
+     frm.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -703,12 +745,17 @@ try {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblDiferencaTotal;
