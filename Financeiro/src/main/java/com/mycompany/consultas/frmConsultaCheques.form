@@ -105,7 +105,7 @@
                 <Column editable="true" title="Codigo" type="java.lang.Integer"/>
                 <Column editable="true" title="Data Vencimento" type="java.lang.String"/>
                 <Column editable="true" title="Fornecedor" type="java.lang.String"/>
-                <Column editable="true" title="Valor" type="java.lang.Double"/>
+                <Column editable="true" title="Valor" type="java.lang.String"/>
                 <Column editable="true" title="Documento" type="java.lang.String"/>
                 <Column editable="true" title="Parcela" type="java.lang.String"/>
                 <Column editable="true" title="Observa&#xe7;&#xe3;o" type="java.lang.String"/>
