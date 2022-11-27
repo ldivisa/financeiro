@@ -6,32 +6,26 @@
 package com.mycompany.financeiro;
 
 
-import com.mycompany.financeiro.Configuracoes.frmConfiguracoes;
-import com.mycompany.financeiro.Menu.frmMenu;
-import com.mycompany.financeiro.dao.compromissos;
-import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.utilidades.*;
-import com.mycompany.financeiro.frmCompromissos.frmCompromisso;
-import com.mycompany.financeiro.frmFornecedores.frmFornecedores;
 import com.mycompany.financeiro.frmsaldo.frmSaldo;
 import com.mypackage.financeiro.login.frmLogin;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.text.NumberFormat;
+
 /**
  *
  * @author luiz.souza
  */
 public class Financeiro {
     public static double saldo,boletosVencidos,chequesVencidos,boletosVencer,chequesVencer;
-
+    
+    
+    
+    
     public static void main(String[] args) {
         frmSaldo frms = new frmSaldo();
         saldo= frms.pegarSaldo();
@@ -43,9 +37,11 @@ public class Financeiro {
         frm.setVisible(true);
         
         
+        
 }
     
     public static double pegarValorBoletosVencidos(){
+    
         boletosVencidos=0;
    
     try{
@@ -66,7 +62,8 @@ public class Financeiro {
             
             if(Integer.parseInt(dataregistro)<=Integer.parseInt(datahoje))
             {
-                boletosVencidos=boletosVencidos+Double.valueOf(rsBoletosVencidos.getString("Valor"));
+                boletosVencidos= (boletosVencidos+Double.valueOf(rsBoletosVencidos.getString("Valor")));
+                //boletosVencidos= NumberFormat.getCurrencyInstance().format(boletosVencidos);
                 //System.out.print("\nAdicionando o valor de "+rsBoletosVencidos.getString("Valor")+" referente ao registro "+rsBoletosVencidos.getString("IdCompromisso")+" somatorio:"+boletosVencidos);
             }
         }

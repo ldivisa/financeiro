@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Financeiro" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fabb7b13-6cd0-42f2-8f34-d51fb3267e08">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\main\Resources\Relatorios\Financeiro.jrdax"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
@@ -176,10 +176,10 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 			<band height="38">
 				<textField>
 					<reportElement x="700" y="20" width="100" height="18" printWhenGroupChanges="Dia" uuid="638efc9b-ec97-418c-ab42-b86e280db2f5"/>
-					<textElement>
+					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$V{ValorAcumulado}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[NumberFormat.getCurrencyInstance().format($V{ValorAcumulado})]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="527" y="20" width="173" height="18" uuid="20a2453b-de00-4d1e-b03a-1d22050f7016"/>
@@ -187,10 +187,10 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				</staticText>
 				<textField>
 					<reportElement x="704" y="0" width="96" height="18" printWhenGroupChanges="Dia" uuid="3a5851cb-da39-44c3-9028-373c9d9348ea"/>
-					<textElement>
+					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$V{SomaDia}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[NumberFormat.getCurrencyInstance().format($V{SomaDia})]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="529" y="1" width="171" height="15" uuid="a020480c-2e41-41e9-9f08-23c6405c0fba"/>
@@ -236,7 +236,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 	<columnHeader>
 		<band height="28" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="54" height="18" uuid="7b302107-aef7-45de-8937-f8d275e540ca">
+				<reportElement x="0" y="0" width="40" height="18" uuid="7b302107-aef7-45de-8937-f8d275e540ca">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="303777cf-934a-4b10-a0b3-581cc00380f5"/>
 				</reportElement>
 				<box>
@@ -249,7 +249,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<text><![CDATA[Id]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="141" y="0" width="60" height="18" uuid="9a4f5777-6968-498c-b841-4298ca8560de">
+				<reportElement x="126" y="0" width="60" height="18" uuid="9a4f5777-6968-498c-b841-4298ca8560de">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02499218-fe36-4504-8ec7-9be1c0d2b362"/>
 				</reportElement>
 				<box>
@@ -262,7 +262,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<text><![CDATA[Tipo Dívida]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="483" y="0" width="44" height="18" uuid="ac7114f4-f51b-4dac-abf6-2a022025b1fa">
+				<reportElement x="434" y="0" width="66" height="18" uuid="ac7114f4-f51b-4dac-abf6-2a022025b1fa">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="baaade29-6a4f-471f-af7b-aa64802fa847"/>
 				</reportElement>
 				<box>
@@ -275,7 +275,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<text><![CDATA[Valor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="251" y="0" width="60" height="18" uuid="2e19a660-9240-4d08-a395-a6e54134685b">
+				<reportElement x="237" y="0" width="60" height="18" uuid="2e19a660-9240-4d08-a395-a6e54134685b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0079a55-6d0f-4713-ac5b-6bff9a71534a"/>
 				</reportElement>
 				<box>
@@ -288,7 +288,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<text><![CDATA[Documento]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="439" y="0" width="44" height="18" uuid="633896e4-d113-4b7d-969e-01fc1fe8e405">
+				<reportElement x="390" y="0" width="44" height="18" uuid="633896e4-d113-4b7d-969e-01fc1fe8e405">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9c38e96f-c4ec-4966-942b-58f837130ea6"/>
 				</reportElement>
 				<box>
@@ -314,7 +314,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<text><![CDATA[Observação]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="201" y="0" width="50" height="18" uuid="6c56ba38-219d-49f2-8d66-16fa11a27ccf">
+				<reportElement x="186" y="0" width="50" height="18" uuid="6c56ba38-219d-49f2-8d66-16fa11a27ccf">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="35367e15-ba24-434e-8e84-cc2c9f33f2e5"/>
 				</reportElement>
 				<box>
@@ -327,7 +327,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<text><![CDATA[Nº Cheque]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="527" y="0" width="52" height="18" uuid="1e859299-e0d7-4205-b14b-c42f367c49d0">
+				<reportElement x="500" y="0" width="79" height="18" uuid="1e859299-e0d7-4205-b14b-c42f367c49d0">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21b624e5-c7fd-4f88-b6f0-c9f5acf2be94"/>
 				</reportElement>
 				<box>
@@ -340,7 +340,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<text><![CDATA[Fornecedor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="311" y="0" width="128" height="18" uuid="5c19f015-55cc-450d-bb4a-36bde7e4616c">
+				<reportElement x="297" y="0" width="93" height="18" uuid="5c19f015-55cc-450d-bb4a-36bde7e4616c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1579622-e28c-4024-bd8c-1715aa4c6166"/>
 				</reportElement>
 				<box>
@@ -353,7 +353,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<text><![CDATA[Tipo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="54" y="0" width="86" height="18" uuid="cd341568-e1ad-486e-8918-1bd9d6ac0209">
+				<reportElement x="40" y="0" width="86" height="18" uuid="cd341568-e1ad-486e-8918-1bd9d6ac0209">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9996a39d-7a3a-4a37-87ff-4706afe74db6"/>
 				</reportElement>
 				<box>
@@ -370,7 +370,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 	<detail>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="54" height="19" uuid="0c1b363a-71be-4d90-8ac3-a1d14ef772ac">
+				<reportElement x="0" y="0" width="40" height="19" uuid="0c1b363a-71be-4d90-8ac3-a1d14ef772ac">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="303777cf-934a-4b10-a0b3-581cc00380f5"/>
 				</reportElement>
 				<box>
@@ -383,7 +383,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textFieldExpression><![CDATA[$F{idCompromisso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="141" y="0" width="60" height="19" uuid="6771156b-d9c7-4b2a-b981-231fd1467561">
+				<reportElement x="126" y="0" width="60" height="19" uuid="6771156b-d9c7-4b2a-b981-231fd1467561">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02499218-fe36-4504-8ec7-9be1c0d2b362"/>
 				</reportElement>
 				<box>
@@ -396,7 +396,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textFieldExpression><![CDATA[$F{TipoDivida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="483" y="0" width="44" height="19" uuid="76dfaa25-1993-4ee7-8f6e-ffc16d025b88">
+				<reportElement x="434" y="0" width="66" height="19" uuid="76dfaa25-1993-4ee7-8f6e-ffc16d025b88">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="baaade29-6a4f-471f-af7b-aa64802fa847"/>
 				</reportElement>
 				<box>
@@ -406,10 +406,10 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{Valor}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[NumberFormat.getCurrencyInstance().format($F{Valor})]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="251" y="0" width="60" height="19" uuid="646fecfc-f440-430c-ae3b-8a92f7961cb0">
+				<reportElement x="237" y="0" width="60" height="19" uuid="646fecfc-f440-430c-ae3b-8a92f7961cb0">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0079a55-6d0f-4713-ac5b-6bff9a71534a"/>
 				</reportElement>
 				<box>
@@ -422,7 +422,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textFieldExpression><![CDATA[$F{Documento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="439" y="0" width="44" height="19" uuid="d39049d1-5fb0-46fe-977d-49a570134504">
+				<reportElement x="390" y="0" width="44" height="19" uuid="d39049d1-5fb0-46fe-977d-49a570134504">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9c38e96f-c4ec-4966-942b-58f837130ea6"/>
 				</reportElement>
 				<box>
@@ -448,7 +448,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textFieldExpression><![CDATA[$F{Observacao}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="201" y="0" width="50" height="19" uuid="a6d751f8-7605-4ce1-a49e-e7872af21e91">
+				<reportElement x="186" y="0" width="50" height="19" uuid="a6d751f8-7605-4ce1-a49e-e7872af21e91">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="35367e15-ba24-434e-8e84-cc2c9f33f2e5"/>
 				</reportElement>
 				<box>
@@ -461,7 +461,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textFieldExpression><![CDATA[$F{Ncheque}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="529" y="0" width="50" height="19" uuid="48d5393b-7fce-47b9-b0b6-79391b508b23">
+				<reportElement x="500" y="0" width="79" height="19" uuid="48d5393b-7fce-47b9-b0b6-79391b508b23">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21b624e5-c7fd-4f88-b6f0-c9f5acf2be94"/>
 				</reportElement>
 				<box>
@@ -474,7 +474,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textFieldExpression><![CDATA[$F{NomeFornecedor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="311" y="0" width="128" height="19" uuid="581af9fb-9729-4fa0-9bdc-be424ae8186f">
+				<reportElement x="297" y="0" width="93" height="19" uuid="581af9fb-9729-4fa0-9bdc-be424ae8186f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1579622-e28c-4024-bd8c-1715aa4c6166"/>
 				</reportElement>
 				<box>
@@ -487,7 +487,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textFieldExpression><![CDATA[$F{NomeDespesa}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="0" width="40" height="19" uuid="8e6fc0a7-bc22-411f-b3a6-aa2798c68514">
+				<reportElement x="86" y="0" width="40" height="19" uuid="8e6fc0a7-bc22-411f-b3a6-aa2798c68514">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9996a39d-7a3a-4a37-87ff-4706afe74db6"/>
 				</reportElement>
 				<box>
@@ -500,7 +500,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="80" y="0" width="20" height="19" uuid="d7641142-8127-4ecc-b3f7-1354e3becf64">
+				<reportElement x="66" y="0" width="20" height="19" uuid="d7641142-8127-4ecc-b3f7-1354e3becf64">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70309b4d-2918-4c45-8dc0-57670407348f"/>
 				</reportElement>
 				<box>
@@ -513,7 +513,7 @@ order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="0" width="26" height="19" uuid="e1f7af05-a028-4229-81f8-411443678e09">
+				<reportElement x="40" y="0" width="26" height="19" uuid="e1f7af05-a028-4229-81f8-411443678e09">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3dd8adcf-912b-446c-9249-ce173b4f0633"/>
 				</reportElement>
 				<box>

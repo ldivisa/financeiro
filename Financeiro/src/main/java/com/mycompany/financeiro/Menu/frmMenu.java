@@ -17,16 +17,9 @@ import com.mycompany.financeiro.frmFornecedores.frmFornecedores;
 import com.mycompany.financeiro.frmTipoDespesa.frmTipoDespesa;
 import com.mycompany.financeiro.frmsaldo.frmSaldo;
 import java.io.InputStream;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JRDataSourceProvider;
-import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -34,6 +27,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
+import java.text.NumberFormat;
 
 
 /**
@@ -47,23 +41,25 @@ public class frmMenu extends javax.swing.JFrame {
      */
     public frmMenu() {
         initComponents();
+        
+        
         frmSaldo frms = new frmSaldo();
         saldo= frms.pegarSaldo();
         pegarValorBoletosVencer();
         pegarValorBoletosVencidos();
         pegarValorChequesVencer();
         pegarValorChequesVencidos();
-        lblSaldo.setText(String.valueOf(saldo));
+        lblSaldo.setText(NumberFormat.getCurrencyInstance().format((saldo)));
         Double DiferencaVencidos =boletosVencidos+chequesVencidos-saldo;
-        lblDiferencaVencidos.setText(String.valueOf(DiferencaVencidos));
+        lblDiferencaVencidos.setText(NumberFormat.getCurrencyInstance().format((DiferencaVencidos)));
         Double SubtotalVencidos = boletosVencidos+chequesVencidos;
-        lblSubtotalVencidos.setText(String.valueOf(SubtotalVencidos));
-        lbl_ChequesVencidos.setText(String.valueOf(chequesVencidos));
-        lbl_BoletosVencidos.setText(String.valueOf(boletosVencidos));
-        lbl_BoletosTotal.setText(String.valueOf(boletosVencer));
-        lbl_ChequesTotal.setText(String.valueOf(chequesVencer));
-        lblSubtotalTotal.setText(String.valueOf(boletosVencer+chequesVencer));
-        lblDiferencaTotal.setText(String.valueOf(chequesVencer+boletosVencer-saldo));
+        lblSubtotalVencidos.setText(NumberFormat.getCurrencyInstance().format((SubtotalVencidos)));
+        lbl_ChequesVencidos.setText(NumberFormat.getCurrencyInstance().format((chequesVencidos)));
+        lbl_BoletosVencidos.setText(NumberFormat.getCurrencyInstance().format((boletosVencidos)));
+        lbl_BoletosTotal.setText(NumberFormat.getCurrencyInstance().format((boletosVencer)));
+        lbl_ChequesTotal.setText(NumberFormat.getCurrencyInstance().format((chequesVencer)));
+        lblSubtotalTotal.setText(NumberFormat.getCurrencyInstance().format((boletosVencer+chequesVencer)));
+        lblDiferencaTotal.setText(NumberFormat.getCurrencyInstance().format((chequesVencer+boletosVencer-saldo)));
     }
 
     /**
@@ -548,22 +544,23 @@ public class frmMenu extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         frmSaldo fsaldo = new frmSaldo();
+        
         saldo= fsaldo.pegarSaldo();
         pegarValorBoletosVencer();
         pegarValorBoletosVencidos();
         pegarValorChequesVencer();
         pegarValorChequesVencidos();
-        lblSaldo.setText(String.valueOf(saldo));
+        lblSaldo.setText(NumberFormat.getCurrencyInstance().format((saldo)));
         Double DiferencaVencidos =boletosVencidos+chequesVencidos-saldo;
-        lblDiferencaVencidos.setText(String.valueOf(DiferencaVencidos));
+        lblDiferencaVencidos.setText(NumberFormat.getCurrencyInstance().format((DiferencaVencidos)));
         Double SubtotalVencidos = boletosVencidos+chequesVencidos;
-        lblSubtotalVencidos.setText(String.valueOf(SubtotalVencidos));
-        lbl_ChequesVencidos.setText(String.valueOf(chequesVencidos));
-        lbl_BoletosVencidos.setText(String.valueOf(boletosVencidos));
-        lbl_BoletosTotal.setText(String.valueOf(boletosVencer));
-        lbl_ChequesTotal.setText(String.valueOf(chequesVencer));
-        lblSubtotalTotal.setText(String.valueOf(boletosVencer+chequesVencer));
-        lblDiferencaTotal.setText(String.valueOf(chequesVencer+boletosVencer-saldo));
+        lblSubtotalVencidos.setText(NumberFormat.getCurrencyInstance().format((SubtotalVencidos)));
+        lbl_ChequesVencidos.setText(NumberFormat.getCurrencyInstance().format((chequesVencidos)));
+        lbl_BoletosVencidos.setText(NumberFormat.getCurrencyInstance().format((boletosVencidos)));
+        lbl_BoletosTotal.setText(NumberFormat.getCurrencyInstance().format((boletosVencer)));
+        lbl_ChequesTotal.setText(NumberFormat.getCurrencyInstance().format((chequesVencer)));
+        lblSubtotalTotal.setText(NumberFormat.getCurrencyInstance().format((boletosVencer+chequesVencer)));
+        lblDiferencaTotal.setText(NumberFormat.getCurrencyInstance().format((chequesVencer+boletosVencer-saldo)));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void BancodedadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BancodedadosActionPerformed
@@ -589,7 +586,7 @@ public class frmMenu extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
                
     try {
-        InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/Financeiro.jrxml");
+        InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/FinanceiroGeral.jrxml");
         JasperDesign jd;
         
         configurações configs = new configurações();

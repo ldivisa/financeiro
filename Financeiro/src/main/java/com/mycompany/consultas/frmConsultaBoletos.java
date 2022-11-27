@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import static javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS;
 import javax.swing.table.DefaultTableModel;
+import java.text.NumberFormat;
 
 /**
  *
@@ -81,7 +82,7 @@ public class frmConsultaBoletos extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -234,7 +235,7 @@ public class frmConsultaBoletos extends javax.swing.JFrame {
                     }
                                         
                     //System.out.print(rs_Jtable.getString(17)+" \n");
-                    System.out.print(ListagemJtable.size());
+                    //System.out.print(ListagemJtable.size());
 
                         
                       //while(!ListagemJtable.isAfterLast()){
@@ -244,7 +245,7 @@ public class frmConsultaBoletos extends javax.swing.JFrame {
                             ListagemJtable.get(i).getIdCompromisso(),
                             ListagemJtable.get(i).getDataVencimento(),
                             ListagemJtable.get(i).getNomeFornecedor(),
-                            ListagemJtable.get(i).getValor(),
+                            NumberFormat.getCurrencyInstance().format(ListagemJtable.get(i).getValor()),
                             ListagemJtable.get(i).getDocumento(),
                             ListagemJtable.get(i).getParcela(),
                             ListagemJtable.get(i).getObservacao(),

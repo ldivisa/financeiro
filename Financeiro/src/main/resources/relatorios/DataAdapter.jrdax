@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl">
+  <name>Financeiro</name>
+  <driver>org.sqlite.JDBC</driver>
+  <username></username>
+  <password></password>
+  <url>jdbc:sqlite:G:/Meu Drive/SistemasJava/financeiro</url>
+  <database></database>
+  <savePassword>true</savePassword>
+  <serverAddress></serverAddress>
+</jdbcDataAdapter>

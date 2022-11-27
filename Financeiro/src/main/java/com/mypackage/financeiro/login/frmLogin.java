@@ -143,7 +143,7 @@ public class frmLogin extends javax.swing.JFrame {
       if ((Usuario.equals("FINANCEIRO")) && (Senha.equals("Caralho@financeiro1")))              
       {
           
-          System.out.print("saenha ok");
+          //System.out.print("saenha ok");
           dispose();
           frmMenu frm = new frmMenu();
           frm.setVisible(true);
