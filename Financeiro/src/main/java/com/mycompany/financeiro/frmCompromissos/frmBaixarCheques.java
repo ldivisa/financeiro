@@ -965,6 +965,20 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     {
     tf_Id.setEnabled(true);
     GrupoTipoDívida.clearSelection();
+        boolean rbcheque_state=false,rbboleto_state=false;
+    if (rb_boleto.isSelected())
+        rbboleto_state=true;
+    if (rb_cheque.isSelected())
+        rbcheque_state=true;
+    rb_boleto.setEnabled(true);
+    if (rbboleto_state==true)
+        rb_boleto.setSelected(true);
+    rb_cheque.setEnabled(true);
+    if (rbcheque_state==true)
+        rb_cheque.setSelected(true);
+    rb_boleto.requestFocus();
+    tf_Id.setEnabled(true);
+    
     tf_codigodeBarras.setEnabled(true);
     tf_ncheque.setEnabled(true);
     //tf_dataCadastro.setEnabled(true);
@@ -980,9 +994,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     //chb_pagamentoEfetuado.setEnabled(true);
     tf_tipoDespesa.setEnabled(true);
     ta_observacao.setEnabled(true);
-    rb_boleto.setEnabled(true);
-    rb_cheque.setEnabled(true);
-    rb_boleto.requestFocus();
+    
     }
     
     public List<compromissos> carregarCompromissos()

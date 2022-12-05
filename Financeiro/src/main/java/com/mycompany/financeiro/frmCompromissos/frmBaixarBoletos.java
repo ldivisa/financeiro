@@ -100,7 +100,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
         rb_boleto = new javax.swing.JRadioButton();
         rb_cheque = new javax.swing.JRadioButton();
         btn_salvar = new javax.swing.JButton();
-        btn_editar = new javax.swing.JButton();
+        btn_baixar = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
         btn_gravarmodificacao = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -322,11 +322,11 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
             }
         });
 
-        btn_editar.setMnemonic('b');
-        btn_editar.setText("Baixar");
-        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+        btn_baixar.setMnemonic('b');
+        btn_baixar.setText("Baixar");
+        btn_baixar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_editarActionPerformed(evt);
+                btn_baixarActionPerformed(evt);
             }
         });
 
@@ -381,6 +381,24 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
                                 .addComponent(cb_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_Id)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl_DataCadastro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_tipodivida)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rb_boleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(lbl_dataVencimento)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -388,27 +406,9 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btn_salvar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_editar)
+                                .addComponent(btn_baixar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_gravarmodificacao))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_Id)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tf_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbl_DataCadastro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_tipodivida)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rb_boleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rb_cheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbl_dataVencimento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tf_dataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbl_valor)
                                 .addGap(33, 33, 33)
@@ -498,11 +498,11 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_pagamentoEfetuado)
                     .addComponent(chb_pagamentoEfetuado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_novo)
                     .addComponent(btn_salvar)
-                    .addComponent(btn_editar)
+                    .addComponent(btn_baixar)
                     .addComponent(btn_gravarmodificacao))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -706,7 +706,10 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     }//GEN-LAST:event_rb_chequeActionPerformed
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-    //definir qual o estado de tipodivida ->
+if(!rb_boleto.isSelected()&&!rb_cheque.isSelected())
+    JOptionPane.showMessageDialog(null,"Não é nem boleto nem cheque");
+            
+//definir qual o estado de tipodivida ->
     boolean bolTipoDivida=false;
     if(rb_boleto.isSelected())
         bolTipoDivida= false; //false para boleto
@@ -743,15 +746,19 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
    dispose();
     }//GEN-LAST:event_btn_sairActionPerformed
 
-    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+    private void btn_baixarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_baixarActionPerformed
    liberarCamposCompromisso();
-   btn_editar.setEnabled(false);
+   btn_baixar.setEnabled(false);
    btn_gravarmodificacao.setEnabled(true);
-        
-    }//GEN-LAST:event_btn_editarActionPerformed
+  
+      
+    }//GEN-LAST:event_btn_baixarActionPerformed
 
     private void btn_gravarmodificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarmodificacaoActionPerformed
-     boolean tipoDivida;
+   if(!rb_boleto.isSelected()&&!rb_cheque.isSelected())
+    JOptionPane.showMessageDialog(null,"Não é nem boleto nem cheque");
+
+        boolean tipoDivida;
         if (rb_boleto.isSelected())
         tipoDivida=false;
     else
@@ -781,7 +788,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
         con.conecta();
         con.executaUpdate(SQL);
         btn_gravarmodificacao.setEnabled(false);
-        btn_editar.setEnabled(true);
+        btn_baixar.setEnabled(true);
         carregarCompromissos();
         mostrarCompromissos(compromissos);
     }//GEN-LAST:event_btn_gravarmodificacaoActionPerformed
@@ -959,11 +966,24 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     
     public void liberarCamposCompromisso()
     {
-    tf_Id.setEnabled(true);
     GrupoTipoDívida.clearSelection();
+        boolean rbcheque_state=false,rbboleto_state=false;
+    if (rb_boleto.isSelected())
+        rbboleto_state=true;
+    if (rb_cheque.isSelected())
+        rbcheque_state=true;
+    rb_boleto.setEnabled(true);
+    if (rbboleto_state==true)
+        rb_boleto.setSelected(true);
+    rb_cheque.setEnabled(true);
+    if (rbcheque_state==true)
+        rb_cheque.setSelected(true);
+    rb_boleto.requestFocus();
+    tf_Id.setEnabled(true);
+    
     tf_codigodeBarras.setEnabled(true);
-    //tf_dataCadastro.setEnabled(true);
-    //tf_dataPagamento.setEnabled(true);
+    tf_dataCadastro.setEnabled(true);
+    tf_dataPagamento.setEnabled(true);
     tf_dataVencimento.setEnabled(true);
     tf_documento.setEnabled(true);
     tf_fornecedor.setEnabled(true);
@@ -975,9 +995,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     //chb_pagamentoEfetuado.setEnabled(true);
     tf_tipoDespesa.setEnabled(true);
     ta_observacao.setEnabled(true);
-    rb_boleto.setEnabled(true);
-    rb_cheque.setEnabled(true);
-    rb_boleto.requestFocus();
+    
     }
     
     public List<compromissos> carregarCompromissos()
@@ -1117,7 +1135,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     private javax.swing.JButton btn_Anterior;
     private javax.swing.JButton btn_Primeiro;
     private javax.swing.JButton btn_Próximo;
-    private javax.swing.JButton btn_editar;
+    private javax.swing.JButton btn_baixar;
     private javax.swing.JButton btn_gravarmodificacao;
     private javax.swing.JButton btn_novo;
     private javax.swing.JButton btn_sair;

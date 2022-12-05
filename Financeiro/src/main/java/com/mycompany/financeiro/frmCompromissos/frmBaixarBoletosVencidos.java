@@ -977,8 +977,21 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     
     public void liberarCamposCompromisso()
     {
+     
     tf_Id.setEnabled(true);
     GrupoTipoDívida.clearSelection();
+    boolean rbcheque_state=false,rbboleto_state=false;
+    if (rb_boleto.isSelected())
+        rbboleto_state=true;
+    if (rb_cheque.isSelected())
+        rbcheque_state=true;
+    rb_boleto.setEnabled(true);
+    if (rbboleto_state==true)
+        rb_boleto.setSelected(true);
+    rb_cheque.setEnabled(true);
+    if (rbcheque_state==true)
+        rb_cheque.setSelected(true);
+    rb_boleto.requestFocus();
     tf_codigodeBarras.setEnabled(true);
     //tf_dataCadastro.setEnabled(true);
     //tf_dataPagamento.setEnabled(true);
@@ -993,8 +1006,6 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     //chb_pagamentoEfetuado.setEnabled(true);
     tf_tipoDespesa.setEnabled(true);
     ta_observacao.setEnabled(true);
-    rb_boleto.setEnabled(true);
-    rb_cheque.setEnabled(true);
     rb_boleto.requestFocus();
     }
     
