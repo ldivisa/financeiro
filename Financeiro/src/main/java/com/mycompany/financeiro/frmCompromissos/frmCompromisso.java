@@ -830,20 +830,23 @@ public class frmCompromisso extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_valorActionPerformed
 
     private void tf_valorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_valorFocusLost
-    
+
     String strvalor = (tf_valor.getText());
-    /*//System.out.print("\nStrvalor"+strvalor);
-    if (strvalor==null)
+    //System.out.print("\nStrvalor"+strvalor);
+    //if (strvalor==null)
     //System.out.print("\nNulo!");
-    if (strvalor.isEmpty())
+    //if (strvalor.isEmpty())
     //System.out.print("\nVazio");    
-    if(strvalor.isBlank())
+    //if(strvalor.isBlank())
     //System.out.print("\nEmbranco!");
-    */
+    
      
     //if (!"".equals(strvalor)&&!(strvalor==null)&&Pattern.matches("^([1-9]{1}[\\d]{0,2}(\\.[\\d]{3})*(\\,[\\d]{0,2})?|[1-9]{1}[\\d]{0,}(\\,[\\d]{0,2})?|0(\\,[\\d]{0,2})?|(\\,[\\d]{1,2})?)$",strvalor))
-    if (!"".equals(strvalor)&&!(strvalor==null)&&Pattern.matches("(\\d{1,5}.)?\\d{1,3}?\\d{0,2}$|(\\d{1,5},)?\\d{1,3}.\\d{0,2}$",strvalor))
+    if (!strvalor.equals(""))
+    {
+    if (Pattern.matches("(\\d{1,5}.)?\\d{1,3}?\\d{0,2}$|(\\d{1,5},)?\\d{1,3}.\\d{0,2}$",strvalor))
      {
+        // System.out.print("\nNão é vazio e o padrao é numerico");
          strvalor= strvalor.replace(",",".");
          tf_valor.setText(strvalor);
             //aprovou o valor, agora vamos redirecionar o usuario para o cb_fornecedor caso seja um novo registro
@@ -891,12 +894,19 @@ public class frmCompromisso extends javax.swing.JFrame {
             //tf_valor.setText("");
             tf_valor.requestFocus();
      }
-     
+    }else
+    {
+               tf_dataPagamento.setEnabled(true);
+                    tf_dataPagamento.setEditable(true);
+                    tf_dataPagamento.requestFocus();
+    }
     }//GEN-LAST:event_tf_valorFocusLost
 
     private void tf_dataVencimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_dataVencimentoFocusLost
         String DataVencimento = tf_dataVencimento.getText();
-        if (!Pattern.matches("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((?:19|20)[0-9][0-9])", DataVencimento))
+        
+        
+        if (!DataVencimento.equals("")&&!Pattern.matches("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((?:19|20)[0-9][0-9])", DataVencimento))
         {
             JOptionPane.showMessageDialog(null,"Há problema no valor digitado no campo de Data de Vencimento, refaça com atenção!");
             tf_dataVencimento.setText("");
@@ -1212,14 +1222,14 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
     }//GEN-LAST:event_tf_dataVencimentoFocusGained
 
     private void cb_tipoDespesaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cb_tipoDespesaFocusLost
-        //if (tf_tipoDespesa.getText().isBlank())
+/*        //if (tf_tipoDespesa.getText().isBlank())
         String strtipodespesa= tf_tipoDespesa.getText();
         if("".equals(strtipodespesa)||(strtipodespesa==null))
     {
         JOptionPane.showMessageDialog(null, "Atenção: Escolha um tipo de depesa!");
         cb_tipoDespesa.requestFocus();
     }
-        
+      */  
         if(modoEdicao){
             chb_pagamentoEfetuado.setEnabled(true);
             chb_pagamentoEfetuado.requestFocus();
@@ -1229,6 +1239,7 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
         if(modoNovo)
         {btn_salvar.setEnabled(true);
         btn_salvar.requestFocus();}
+        
     }//GEN-LAST:event_cb_tipoDespesaFocusLost
 
     private void tf_nchequeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_nchequeFocusLost

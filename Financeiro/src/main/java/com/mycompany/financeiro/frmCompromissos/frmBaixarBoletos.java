@@ -599,7 +599,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_fornecedorActionPerformed
 
     private void tf_tipoDespesaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_tipoDespesaFocusLost
-        if (!tf_tipoDespesa.getText().isBlank())
+/*        if (!tf_tipoDespesa.getText().isBlank())
         {
         carregarTipoDespesa();
     posicaoTipoDespesa=0;
@@ -614,7 +614,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
             posicaoTipoDespesa=posicaoTipoDespesa+1;
             }
         }
-        }
+        }*/
     }//GEN-LAST:event_tf_tipoDespesaFocusLost
 
     private void cb_tipoDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoDespesaActionPerformed
