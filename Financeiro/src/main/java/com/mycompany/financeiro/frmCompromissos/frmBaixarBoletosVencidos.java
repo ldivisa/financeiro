@@ -979,12 +979,13 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     {
      
     tf_Id.setEnabled(true);
-    GrupoTipoDívida.clearSelection();
+    
     boolean rbcheque_state=false,rbboleto_state=false;
     if (rb_boleto.isSelected())
         rbboleto_state=true;
     if (rb_cheque.isSelected())
         rbcheque_state=true;
+    GrupoTipoDívida.clearSelection();
     rb_boleto.setEnabled(true);
     if (rbboleto_state==true)
         rb_boleto.setSelected(true);
