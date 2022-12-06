@@ -1194,7 +1194,7 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
     
         tf_documento.setEnabled(true);
         tf_documento.setEditable(true);
-        
+        tf_documento.requestFocus();
     
     
     }//GEN-LAST:event_cb_fornecedorFocusLost
