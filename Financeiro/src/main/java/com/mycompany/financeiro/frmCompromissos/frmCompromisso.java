@@ -1183,18 +1183,20 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
     }
     
     private void cb_fornecedorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cb_fornecedorFocusLost
-    //if (tf_fornecedor.getText().isBlank())
-    if("".equals(tf_fornecedor.getText())||(tf_fornecedor.getText()==null))
+    
+   /* if("".equals(tf_fornecedor.getText())||(tf_fornecedor.getText()==null))
     {
         JOptionPane.showMessageDialog(null, "Atenção: Escolha um fornecedor!");
         cb_fornecedor.requestFocus();
     } 
     else
-    {
-    tf_documento.setEnabled(true);
-    tf_documento.setEditable(true);
-    tf_documento.requestFocus();
-    }
+    */
+    
+        tf_documento.setEnabled(true);
+        tf_documento.setEditable(true);
+        
+    
+    
     }//GEN-LAST:event_cb_fornecedorFocusLost
 
     private void rb_chequeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rb_chequeFocusLost
