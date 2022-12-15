@@ -28,6 +28,8 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import java.text.NumberFormat;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 
 /**
@@ -118,6 +120,11 @@ public class frmMenu extends javax.swing.JFrame {
         Configuração = new javax.swing.JMenu();
         Bancodedados = new javax.swing.JMenuItem();
         Saldobancário = new javax.swing.JMenuItem();
+        jMenu_Temas = new javax.swing.JMenu();
+        mi_Metal = new javax.swing.JMenuItem();
+        mi_motif = new javax.swing.JMenuItem();
+        mi_gtk = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         Relatórios = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -438,6 +445,42 @@ public class frmMenu extends javax.swing.JFrame {
         });
         Configuração.add(Saldobancário);
 
+        jMenu_Temas.setText("Temas");
+
+        mi_Metal.setText("Metal");
+        mi_Metal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_MetalActionPerformed(evt);
+            }
+        });
+        jMenu_Temas.add(mi_Metal);
+
+        mi_motif.setText("Motif");
+        mi_motif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_motifActionPerformed(evt);
+            }
+        });
+        jMenu_Temas.add(mi_motif);
+
+        mi_gtk.setText("Windows");
+        mi_gtk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_gtkActionPerformed(evt);
+            }
+        });
+        jMenu_Temas.add(mi_gtk);
+
+        jMenuItem11.setText("Gtk");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu_Temas.add(jMenuItem11);
+
+        Configuração.add(jMenu_Temas);
+
         jMenuBar1.add(Configuração);
 
         Relatórios.setText("Relatórios");
@@ -679,6 +722,100 @@ try {
 
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void mi_MetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_MetalActionPerformed
+        try 
+        {
+         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        }
+        catch (ClassNotFoundException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (InstantiationException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (IllegalAccessException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (UnsupportedLookAndFeelException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        
+    }//GEN-LAST:event_mi_MetalActionPerformed
+
+    private void mi_motifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_motifActionPerformed
+  try 
+        {
+         UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+        }
+        catch (ClassNotFoundException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (InstantiationException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (IllegalAccessException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (UnsupportedLookAndFeelException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+    }//GEN-LAST:event_mi_motifActionPerformed
+
+    private void mi_gtkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_gtkActionPerformed
+ try 
+        {
+         UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        }
+        catch (ClassNotFoundException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (InstantiationException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (IllegalAccessException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (UnsupportedLookAndFeelException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+    }//GEN-LAST:event_mi_gtkActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+try 
+        {
+         UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+        }
+        catch (ClassNotFoundException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (InstantiationException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (IllegalAccessException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+        catch (UnsupportedLookAndFeelException ex)
+        {
+        JOptionPane.showMessageDialog(null,"Não achei o tema instalado "+ex);
+        }
+
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -745,6 +882,7 @@ try {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -753,6 +891,7 @@ try {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenu jMenu_Temas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblDiferencaTotal;
@@ -764,7 +903,10 @@ try {
     private javax.swing.JLabel lbl_BoletosVencidos;
     private javax.swing.JLabel lbl_ChequesTotal;
     private javax.swing.JLabel lbl_ChequesVencidos;
+    private javax.swing.JMenuItem mi_Metal;
     private javax.swing.JMenuItem mi_fornecedores;
+    private javax.swing.JMenuItem mi_gtk;
+    private javax.swing.JMenuItem mi_motif;
     private javax.swing.JMenuItem tipodepesa;
     // End of variables declaration//GEN-END:variables
 }
