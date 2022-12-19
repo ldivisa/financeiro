@@ -170,6 +170,7 @@ public class frmConsultaCheques extends javax.swing.JFrame {
     }
     public void preencher_Jtable(){
         List<Consulta> ListagemJtable = new ArrayList<>();
+        Consulta registroAtual=null;
         
                 
         DefaultTableModel modelo = (DefaultTableModel)tbl_Boletos.getModel();
@@ -207,9 +208,13 @@ public class frmConsultaCheques extends javax.swing.JFrame {
                         "where TipoDivida=true " + 
                         "order by Ano,Mes,Dia " );
 
+                    ListagemJtable.clear();
+                    //pula registro 0 para evitar duplicidade
+                    rs_Jtable.next();
                     
                     while(!rs_Jtable.isAfterLast()){
-                    Consulta registroAtual= new Consulta();    
+                    registroAtual = new Consulta();    
+                    System.out.print("\n"+rs_Jtable.getInt("IdCompromisso"));
                         registroAtual.setCodigoBarras(rs_Jtable.getString("CodigoBarras"));
                         registroAtual.setDataPagamento(rs_Jtable.getString("DataPagamento"));
                         registroAtual.setDataVencimento(rs_Jtable.getString("DataVencimento"));
@@ -230,6 +235,7 @@ public class frmConsultaCheques extends javax.swing.JFrame {
 
                      //System.out.print("\n"+registroAtual.getIdFornecedorb());
                     //int_Contador++;
+                    System.out.print(" "+registroAtual.getIdCompromisso());
                     ListagemJtable.add(registroAtual);
                     rs_Jtable.next();
                     }
@@ -239,7 +245,7 @@ public class frmConsultaCheques extends javax.swing.JFrame {
 
                         
                       //while(!ListagemJtable.isAfterLast()){
-                        for(int i=0;i<=ListagemJtable.size()-1;i++)
+                        for(int i=0;i<=ListagemJtable.size()-1;++i)
                             {
                     //System.out.print("\n"+registroAtual.getIdFornecedorb());
                     //int_Contador++;

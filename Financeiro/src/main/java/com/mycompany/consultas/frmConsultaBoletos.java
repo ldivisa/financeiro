@@ -206,8 +206,8 @@ public class frmConsultaBoletos extends javax.swing.JFrame {
                         "INNER JOIN tipodespesa c ON a.TipoDespesa = c.IdTipoDespesa "+
                         "where TipoDivida=false "+
                         "order by Ano,Mes,Dia "  );
-
-                    
+                     //pula registro 0 para evitar duplicidade   
+                    rs_Jtable.next();
                     while(!rs_Jtable.isAfterLast()){
                     Consulta registroAtual= new Consulta();    
                         registroAtual.setCodigoBarras(rs_Jtable.getString("CodigoBarras"));
