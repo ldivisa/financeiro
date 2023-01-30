@@ -538,10 +538,10 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
                     .addComponent(btn_Próximo)
                     .addComponent(btn_Anterior)
                     .addComponent(btn_Primeiro))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(826, 473));
+        setSize(new java.awt.Dimension(826, 496));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -807,6 +807,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
         con.executaUpdate(SQL);
         btn_gravarmodificacao.setEnabled(false);
         btn_editar.setEnabled(true);
+        travarCamposCompromisso();
         //carregarCompromissos();
         mostrarCompromissos(compromissos);
     }//GEN-LAST:event_btn_gravarmodificacaoActionPerformed
