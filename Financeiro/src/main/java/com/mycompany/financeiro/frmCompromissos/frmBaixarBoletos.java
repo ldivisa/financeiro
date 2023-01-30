@@ -789,6 +789,7 @@ if(!rb_boleto.isSelected()&&!rb_cheque.isSelected())
         con.executaUpdate(SQL);
         btn_gravarmodificacao.setEnabled(false);
         btn_baixar.setEnabled(true);
+        travarCamposCompromisso();
         carregarCompromissos();
         mostrarCompromissos(compromissos);
     }//GEN-LAST:event_btn_gravarmodificacaoActionPerformed
