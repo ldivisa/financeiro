@@ -632,7 +632,7 @@ public class frmMenu extends javax.swing.JFrame {
         InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/FinanceiroGeral.jrxml");
         JasperDesign jd;
         
-        configurações configs = new configurações();
+        configuracoes configs = new configuracoes();
         conexao con = new conexao();
         String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
         Connection conectar = DriverManager.getConnection(url);
@@ -660,7 +660,7 @@ public class frmMenu extends javax.swing.JFrame {
         InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/FinanceiroCheques.jrxml");
         JasperDesign jd;
         
-        configurações configs = new configurações();
+        configuracoes configs = new configuracoes();
         conexao con = new conexao();
         String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
         Connection conectar = DriverManager.getConnection(url);
@@ -688,7 +688,7 @@ try {
         InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/FinanceiroBoletos.jrxml");
         JasperDesign jd;
         
-        configurações configs = new configurações();
+        configuracoes configs = new configuracoes();
         conexao con = new conexao();
         String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
         Connection conectar = DriverManager.getConnection(url);

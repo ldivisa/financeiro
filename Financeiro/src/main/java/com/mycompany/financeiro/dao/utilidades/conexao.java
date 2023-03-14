@@ -27,7 +27,7 @@ public class conexao {
     public ResultSet resultado;
     public String SQL;
     public String url;
-    public configurações configs = new configurações();    
+    public configuracoes configs = new configuracoes();    
            
     
 public boolean conecta()

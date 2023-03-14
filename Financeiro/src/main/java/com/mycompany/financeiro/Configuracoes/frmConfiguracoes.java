@@ -4,7 +4,7 @@
  */
 package com.mycompany.financeiro.Configuracoes;
 
-import com.mycompany.financeiro.dao.utilidades.configurações;
+import com.mycompany.financeiro.dao.utilidades.configuracoes;
 import java.util.Properties;
 
 /**
@@ -13,7 +13,7 @@ import java.util.Properties;
  */
 public class frmConfiguracoes extends javax.swing.JFrame {
     public Properties cfg;
-    public configurações config = new configurações();
+    public configuracoes config = new configuracoes();
     /**
      * Creates new form frmCOnfigurações
      */
