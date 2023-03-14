@@ -84,7 +84,7 @@ public class frmLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+                    .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -126,7 +126,7 @@ public class frmLogin extends javax.swing.JFrame {
                 .addGap(91, 91, 91))
         );
 
-        setSize(new java.awt.Dimension(641, 360));
+        setSize(new java.awt.Dimension(659, 360));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
