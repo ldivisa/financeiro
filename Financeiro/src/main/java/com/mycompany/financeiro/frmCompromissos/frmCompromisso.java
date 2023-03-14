@@ -4,6 +4,7 @@
  */
 package com.mycompany.financeiro.frmCompromissos;
 
+import com.mycompany.financeiro.Financeiro;
 import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.tipodespesa;
@@ -107,6 +108,11 @@ public class frmCompromisso extends javax.swing.JFrame {
         btn_Último = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
 
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         DescritivoDoFormulário.setForeground(new java.awt.Color(255, 0, 0));
@@ -1321,6 +1327,10 @@ else
     private void cb_tipoDespesaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cb_tipoDespesaFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_tipoDespesaFocusGained
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        Financeiro.atualizartela(this);        // TODO add your handling code here:
+    }//GEN-LAST:event_formFocusGained
 
     public void carregarFornecedor()
     {

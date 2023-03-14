@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import java.text.NumberFormat;
+import javax.swing.JFrame;
 
 /**
  *
@@ -174,5 +175,10 @@ public class Financeiro {
         
         return chequesVencer;    
 }
-
+    public static void atualizartela(JFrame frame){
+    frame.repaint();
+    }
+    public static void nada(){
+    System.out.print("função nada \n");
+    }
 }

@@ -4,6 +4,7 @@
  */
 package com.mycompany.financeiro.frmCompromissos;
 
+import com.mycompany.financeiro.Financeiro;
 import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.tipodespesa;
@@ -104,6 +105,11 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
         tf_ncheque = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
 
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
         DescritivoDoFormulário.setForeground(new java.awt.Color(255, 0, 0));
@@ -510,7 +516,7 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
                     .addComponent(lbl_tipoDespesa)
                     .addComponent(tf_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_pagamentoEfetuado)
                     .addComponent(chb_pagamentoEfetuado))
@@ -801,6 +807,10 @@ public class frmBaixarChequesVencidos extends javax.swing.JFrame {
         carregarCompromissos();
         mostrarCompromissos(compromissos);
     }//GEN-LAST:event_btn_gravarmodificacaoActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        Financeiro.atualizartela(this);        // TODO add your handling code here:
+    }//GEN-LAST:event_formFocusGained
 
     public void carregarFornecedor()
     {

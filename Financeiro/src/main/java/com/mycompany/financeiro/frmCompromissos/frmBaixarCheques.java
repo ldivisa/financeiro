@@ -4,6 +4,7 @@
  */
 package com.mycompany.financeiro.frmCompromissos;
 
+import com.mycompany.financeiro.Financeiro;
 import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.tipodespesa;
@@ -104,6 +105,11 @@ public class frmBaixarCheques extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
 
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
         DescritivoDoFormulário.setForeground(new java.awt.Color(255, 0, 0));
@@ -801,6 +807,10 @@ public class frmBaixarCheques extends javax.swing.JFrame {
         carregarCompromissos();
         mostrarCompromissos(compromissos);
     }//GEN-LAST:event_btn_gravarmodificacaoActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        Financeiro.atualizartela(this);        // TODO add your handling code here:
+    }//GEN-LAST:event_formFocusGained
 
     public void carregarFornecedor()
     {

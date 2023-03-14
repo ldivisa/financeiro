@@ -4,6 +4,7 @@
  */
 package com.mycompany.financeiro.frmCompromissos;
 
+import com.mycompany.financeiro.Financeiro;
 import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.tipodespesa;
@@ -111,6 +112,11 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
 
         DescritivoDoFormulário.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
         DescritivoDoFormulário.setForeground(new java.awt.Color(255, 0, 0));
@@ -538,10 +544,10 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
                     .addComponent(btn_Próximo)
                     .addComponent(btn_Anterior)
                     .addComponent(btn_Primeiro))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(826, 496));
+        setSize(new java.awt.Dimension(826, 516));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -817,6 +823,10 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
     clipboard.setContents(CodigodeBarras, null);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        Financeiro.atualizartela(this);
+    }//GEN-LAST:event_formFocusGained
 
     public void carregarFornecedor()
     {
