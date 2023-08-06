@@ -53,7 +53,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 51, 51));
         jLabel2.setText("Senha:");
 
-        btnEntrar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnEntrar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnEntrar.setMnemonic('E');
         btnEntrar.setText("Entrar");
         btnEntrar.setToolTipText("Clique para acessar o sistema");
@@ -63,7 +63,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        btnSair.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btnSair.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnSair.setMnemonic('S');
         btnSair.setText("Sair");
         btnSair.setToolTipText("Sair do sistema");
@@ -116,9 +116,7 @@ public class frmLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tf_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)))
+                    .addComponent(tf_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,8 +156,10 @@ public class frmLogin extends javax.swing.JFrame {
         
         
         tf_Senha.setText("");
-        tf_Usuario.setText("");
-        tf_Usuario.requestFocus();
+        //tf_Usuario.setText("");
+        //tf_Usuario.requestFocus();
+         tf_Senha.requestFocus();
+
       }
      
           
