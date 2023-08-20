@@ -106,20 +106,28 @@ public class frmSaldo extends javax.swing.JFrame {
     {
     conexao con = new conexao();
     con.conecta();
-    ResultSet rs = con.executaConsulta("select * from saldo");
+    
     try{
-        while (rs.next())
-        {
+        ResultSet rs = con.executaConsulta("select * from saldo");
         saldo = rs.getDouble("saldo");
-        //System.out.print(saldo);
         tf_saldo.setText(String.valueOf(saldo));
-        }
-    rs.close();    
+        rs.close();
     }
-     catch (SQLException e)
+    catch (Exception e)
         {
             JOptionPane.showMessageDialog(null, e);
+            System.exit(0);
         }
+    //finally{
+    //    while (rs.next())
+     //   {
+      //  saldo = rs.getDouble("saldo");
+        //System.out.print(saldo);
+       // tf_saldo.setText(String.valueOf(saldo));
+       // }
+      // rs.close();
+    
+        
     return saldo;        
     }
     

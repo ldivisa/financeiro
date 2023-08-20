@@ -9,12 +9,26 @@ package com.mycompany.financeiro;
 import com.mycompany.financeiro.dao.utilidades.*;
 import com.mycompany.financeiro.frmsaldo.frmSaldo;
 import com.mypackage.financeiro.login.frmLogin;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import java.text.NumberFormat;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -23,11 +37,12 @@ import javax.swing.JFrame;
  */
 public class Financeiro {
     public static double saldo,boletosVencidos,chequesVencidos,boletosVencer,chequesVencer;
-    
+    public static String strUltimaAcao;
     
     
     
     public static void main(String[] args) {
+        CarregarUltimoUso();
         frmSaldo frms = new frmSaldo();
         saldo= frms.pegarSaldo();
         pegarValorBoletosVencer();
@@ -181,4 +196,113 @@ public class Financeiro {
     public static void nada(){
     System.out.print("função nada \n");
     }
+public static String CarregarUltimoUso()
+    {
+               /* ArrayList<String> teste = new ArrayList<>();
+                   teste.add("Um");
+                   teste.add("Dois");
+                
+                //System.out.print(teste);
+                
+                for (String tst:teste){
+                    System.out.print("\n "+tst);
+                }
+                
+                    System.out.print("\n "+teste.get(1));
+                for (int i = 0; i<teste.size();i++){
+                    System.out.print("\n "+teste.get(i));
+                }
+                
+                /*
+                teste.forEach(tst ->{
+                    System.out.print("Percorrendo");
+                    System.out.print("\n "+tst);
+                });
+               
+                Collections.sort(teste);
+                    System.out.print("\n "+teste.get(1));
+                for (int i = 0; i<teste.size();i++){
+                    System.out.print("\n "+teste.get(i));
+                }
+                */
+       
+       try
+            {
+                FileInputStream arquivoLeitura = new FileInputStream("ultimologin.txt");
+                ObjectInputStream objLeitura = new ObjectInputStream(arquivoLeitura);
+                UltimoAcesso objeto = new UltimoAcesso();
+                objeto=(UltimoAcesso) objLeitura.readObject();
+                strUltimaAcao =objeto.getUltimoAcesso();
+                //System.out.print("\n  arquivo e vi que tem o seguinte conteudo: "+strUltimaAcao);
+                
+             }
+        catch (ClassNotFoundException erro)
+            {
+             JOptionPane.showMessageDialog(null, erro);
+             System.exit(0);
+            }
+        catch (FileNotFoundException erro)
+             {
+                JOptionPane.showMessageDialog(null,"Nao foi encontrado arquivo de ultimo login. Criando..."+erro);
+                gravaHora();
+                System.exit(0);
+                }
+        catch (IOException erro)
+            {
+                JOptionPane.showMessageDialog(null,"Erro ao gravar dados em arquivo: "+erro);
+                System.exit(0);
+            }
+            
+       return strUltimaAcao;
+    }
+        
+       
+        /*
+        try
+        {
+        Object[] ultimoLogin;
+        ultimoLogin = new Object[1];
+        FileOutputStream arquivoSaida;
+        arquivoSaida = new FileOutputStream(new File("login.log"));
+        }
+        catch (IOException erro)
+        {
+        JOptionPane.showMessageDialog(null, "Erro ao gravar arquivo "+erro);
+        }
+         */ 
+    
+   
+        /*
+try
+        {
+        Object[] ultimoLogin;
+        ultimoLogin = new Object[1];
+        
+        FileOutputStream arquivoSaida;
+        arquivoSaida = new FileOutputStream(new File("login.log"));
+        
+        
+        
+        }
+        catch (IOException erro)
+        {
+            JOptionPane.showMessageDialog(null, "Erro ao gravar arquivo "+erro);
+        }
+    */    
+     public static void gravaHora(){
+         String strAgora =LocalDateTime.now().toString();
+                UltimoAcesso objUltimoAcesso = new UltimoAcesso();
+                objUltimoAcesso.setUltimoAcesso(strAgora);
+                try {                
+                FileOutputStream arquivo = new FileOutputStream("ultimologin.txt");
+                ObjectOutputStream arquivoGravar = new ObjectOutputStream(arquivo);
+                arquivoGravar.writeObject(objUltimoAcesso);
+                arquivoGravar.flush();
+                arquivoGravar.close();
+     }
+                catch(Exception Erro){
+                JOptionPane.showMessageDialog(null, Erro);
+                }
+    }
+
 }
