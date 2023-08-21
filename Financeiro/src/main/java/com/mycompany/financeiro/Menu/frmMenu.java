@@ -213,7 +213,7 @@ public class frmMenu extends javax.swing.JFrame {
                                         .addComponent(lbl_ChequesVencidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 68, Short.MAX_VALUE)
+                        .addGap(0, 75, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5))
@@ -541,7 +541,7 @@ public class frmMenu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 44, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -562,7 +562,7 @@ public class frmMenu extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        setSize(new java.awt.Dimension(397, 419));
+        setSize(new java.awt.Dimension(456, 419));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
