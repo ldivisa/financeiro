@@ -16,8 +16,14 @@ import static com.mycompany.financeiro.Financeiro.*;
 import com.mycompany.financeiro.frmFornecedores.frmFornecedores;
 import com.mycompany.financeiro.frmTipoDespesa.frmTipoDespesa;
 import com.mycompany.financeiro.frmsaldo.frmSaldo;
+import com.mysql.cj.MysqlType;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.ObjectOutputStream;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -28,6 +34,7 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import java.text.NumberFormat;
+import java.time.LocalDateTime;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -42,7 +49,9 @@ public class frmMenu extends javax.swing.JFrame {
      * Creates new form frmMenu
      */
     public frmMenu() {
+                
         initComponents();
+
         
         
         frmSaldo frms = new frmSaldo();
@@ -51,6 +60,7 @@ public class frmMenu extends javax.swing.JFrame {
         pegarValorBoletosVencidos();
         pegarValorChequesVencer();
         pegarValorChequesVencidos();
+        
         lblSaldo.setText(NumberFormat.getCurrencyInstance().format((saldo)));
         Double DiferencaVencidos =boletosVencidos+chequesVencidos-saldo;
         lblDiferencaVencidos.setText(NumberFormat.getCurrencyInstance().format((DiferencaVencidos)));
@@ -209,7 +219,7 @@ public class frmMenu extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSubtotalVencidos, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(lblSubtotalVencidos, javax.swing.GroupLayout.PREFERRED_SIZE, 106, Short.MAX_VALUE)
                             .addComponent(lblDiferencaVencidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -293,7 +303,7 @@ public class frmMenu extends javax.swing.JFrame {
                             .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSubtotalTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(lblSubtotalTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, Short.MAX_VALUE)
                             .addComponent(lblDiferencaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -524,14 +534,14 @@ public class frmMenu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2)
-                        .addGap(36, 36, 36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 44, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -545,7 +555,7 @@ public class frmMenu extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -850,7 +860,16 @@ try
             }
         });
     }
-
+public void CarregarUltimoUso()
+    {
+        String Agora = LocalDateTime.now().toString();
+        JOptionPane.showMessageDialog(null, Agora);
+        /*
+FileOutputStream arquivoSaida = new FileOutputStream(File("ultimo.log"));
+        ObjectOutputStream arquivoSaida;
+        arquivoSaida = new Obj
+        (new File("Ultimo.log")));*/
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Avencer;
     private javax.swing.JMenuItem BaixarBoletosnaovencidos;
