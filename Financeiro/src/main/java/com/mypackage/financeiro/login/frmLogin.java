@@ -23,7 +23,7 @@ public class frmLogin extends javax.swing.JFrame {
         String strUltimoLogin=(Financeiro.CarregarUltimoUso());
         strUltimoLogin = strUltimoLogin.substring(0, 16);
         setTitle(strUltimoLogin);
-        Financeiro.gravaHora();
+
     }
 
     /**
@@ -153,6 +153,7 @@ public class frmLogin extends javax.swing.JFrame {
           dispose();
           frmMenu frm = new frmMenu();
           frm.setVisible(true);
+          Financeiro.gravaHora();
           
       }
         
