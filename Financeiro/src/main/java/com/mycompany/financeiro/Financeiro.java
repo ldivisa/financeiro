@@ -157,20 +157,13 @@ public class Financeiro {
             con.conecta();
             ResultSet rschequesvencer = con.executaConsulta("select sum(valor) as valor from compromissos where TipoDivida='1' and PagamentoEfetuado ='0'" );
             
-            if (rschequesvencer!=null){
-                System.out.println("\no rschequesvencer nao e nulo -");
+            System.out.println(rschequesvencer.getString("valor"));
             //System.out.print("\nPegarvalorchequesvencer->"+chequesVencer);
             //System.out.print("\nResultset size>"+rschequesvencer.getString("valor"));
-            if (rschequesvencer.isBeforeFirst())
-            {
+           if (rschequesvencer.getString("valor")!=null)
             chequesVencer =Double.parseDouble(rschequesvencer.getString("valor"));
             //System.out.print("\nTotal cheques a vencer: "+chequesVencer);
-            }
-            else
-            {
-            JOptionPane.showMessageDialog(null, "Não foram encontrados cheques a pagar");
-            }
-            rschequesvencer.close();}
+           rschequesvencer.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
