@@ -52,8 +52,8 @@ public class Financeiro {
     String datahoje = formatodata.format(hoje);
     //System.out.print("\n Hoje é:"+datahoje);
     ResultSet rsBoletosVencidos = con.executaConsulta("select * from compromissos where TipoDivida='0' and PagamentoEfetuado='0'");
-        while(rsBoletosVencidos.next())
-        {
+    if (rsBoletosVencidos!=null){
+        while(rsBoletosVencidos.next()){
             String dataregistro = (rsBoletosVencidos.getString("DataVencimento"));
             ////System.out.print("\nData registro antes->"+dataregistro);
             dataregistro = dataregistro.substring(6,10)+dataregistro.substring(3,5)+dataregistro.substring(0,2);
@@ -68,7 +68,7 @@ public class Financeiro {
             }
         }
     rsBoletosVencidos.close();
-    }
+    }}
     catch (SQLException e)
     {
     JOptionPane.showMessageDialog(null, e);
@@ -156,18 +156,21 @@ public class Financeiro {
             conexao con = new conexao();
             con.conecta();
             ResultSet rschequesvencer = con.executaConsulta("select sum(valor) as valor from compromissos where TipoDivida='1' and PagamentoEfetuado ='0'" );
+            
+            if (rschequesvencer!=null){
+                System.out.println("\no rschequesvencer nao e nulo -");
             //System.out.print("\nPegarvalorchequesvencer->"+chequesVencer);
             //System.out.print("\nResultset size>"+rschequesvencer.getString("valor"));
             if (rschequesvencer.isBeforeFirst())
             {
-            chequesVencer =Double.valueOf(rschequesvencer.getString("valor"));
+            chequesVencer =Double.parseDouble(rschequesvencer.getString("valor"));
             //System.out.print("\nTotal cheques a vencer: "+chequesVencer);
             }
             else
             {
             JOptionPane.showMessageDialog(null, "Não foram encontrados cheques a pagar");
             }
-            rschequesvencer.close();
+            rschequesvencer.close();}
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
