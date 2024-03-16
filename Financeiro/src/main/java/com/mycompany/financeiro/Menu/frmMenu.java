@@ -6,7 +6,7 @@ package com.mycompany.financeiro.Menu;
 import com.mycompany.consultas.frmConsultaBoletos;
 import com.mycompany.consultas.frmConsultaCheques;
 import com.mycompany.financeiro.dao.utilidades.*;
-import com.mycompany.financeiro.Configuracoes.frmConfiguracoes;
+
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletos;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarBoletosVencidos;
 import com.mycompany.financeiro.frmCompromissos.frmBaixarCheques;
@@ -607,8 +607,8 @@ public class frmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void BancodedadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BancodedadosActionPerformed
-    frmConfiguracoes frmcfg = new frmConfiguracoes();
-    frmcfg.setVisible(true);
+  
+  
     }//GEN-LAST:event_BancodedadosActionPerformed
 
     private void SaldobancárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaldobancárioActionPerformed
@@ -632,10 +632,9 @@ public class frmMenu extends javax.swing.JFrame {
         InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/FinanceiroGeral.jrxml");
         JasperDesign jd;
         
-        configurações configs = new configurações();
+    
         conexao con = new conexao();
-        String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
-        Connection conectar = DriverManager.getConnection(url);
+        Connection conectar = DriverManager.getConnection(con.URL,con.USUARIO,con.SENHA);
          //System.out.print("\nurl: "+url);
             
         //Connection con = DriverManager.getConnection("jdbc:sqlite:"+cfg.url.toString());
@@ -660,10 +659,10 @@ public class frmMenu extends javax.swing.JFrame {
         InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/FinanceiroCheques.jrxml");
         JasperDesign jd;
         
-        configurações configs = new configurações();
+
         conexao con = new conexao();
-        String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
-        Connection conectar = DriverManager.getConnection(url);
+        Connection conectar = DriverManager.getConnection(con.URL,con.USUARIO,con.SENHA);
+
          //System.out.print("\nurl: "+url);
             
         //Connection con = DriverManager.getConnection("jdbc:sqlite:"+cfg.url.toString());
@@ -688,10 +687,10 @@ try {
         InputStream in =  this.getClass().getClassLoader().getResourceAsStream("relatorios/FinanceiroBoletos.jrxml");
         JasperDesign jd;
         
-        configurações configs = new configurações();
+        
         conexao con = new conexao();
-        String url ="jdbc:sqlite:"+ configs.leBanco().getProperty("banco"); 
-        Connection conectar = DriverManager.getConnection(url);
+        
+        Connection conectar = DriverManager.getConnection(con.URL,con.USUARIO,con.SENHA);
          //System.out.print("\nurl: "+url);
             
         //Connection con = DriverManager.getConnection("jdbc:sqlite:"+cfg.url.toString());

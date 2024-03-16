@@ -106,6 +106,7 @@ public class frmSaldo extends javax.swing.JFrame {
     {
     conexao con = new conexao();
     con.conecta();
+        
     ResultSet rs = con.executaConsulta("select * from saldo");
     try{
         while (rs.next())
