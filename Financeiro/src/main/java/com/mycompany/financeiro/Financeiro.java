@@ -6,6 +6,7 @@
 package com.mycompany.financeiro;
 
 
+import com.mycompany.financeiro.Menu.frmMenu;
 import com.mycompany.financeiro.dao.utilidades.*;
 import com.mycompany.financeiro.frmsaldo.frmSaldo;
 import com.mypackage.financeiro.login.frmLogin;
@@ -35,8 +36,9 @@ public class Financeiro {
         pegarValorChequesVencidos();
         frmLogin frm = new frmLogin();
         frm.setVisible(true);
-        
-        
+        //As duas linhas acima abrem a tela de login
+        frmMenu menu = new frmMenu();
+        menu.setVisible(true);
         
 }
     
@@ -62,8 +64,11 @@ public class Financeiro {
             
             if(Integer.parseInt(dataregistro)<=Integer.parseInt(datahoje))
             {
-                boletosVencidos= (boletosVencidos+Double.valueOf(rsBoletosVencidos.getString("Valor")));
-                //boletosVencidos= NumberFormat.getCurrencyInstance().format(boletosVencidos);
+               // boletosVencidos= (boletosVencidos+Double.valueOf(rsBoletosVencidos.getDouble("Valor"))); --> Versao sqlite mudando para mysql
+    boletosVencidos= (boletosVencidos+rsBoletosVencidos.getDouble("Valor"));
+               
+                
+//boletosVencidos= NumberFormat.getCurrencyInstance().format(boletosVencidos);
                 //System.out.print("\nAdicionando o valor de "+rsBoletosVencidos.getString("Valor")+" referente ao registro "+rsBoletosVencidos.getString("IdCompromisso")+" somatorio:"+boletosVencidos);
             }
         }
@@ -83,10 +88,14 @@ public class Financeiro {
         try {
             conexao con = new conexao();
             con.conecta();
-            ResultSet rsboletosvencer = con.executaConsulta("select sum(valor) from compromissos where TipoDivida='0' and PagamentoEfetuado ='0'" );
-            if (rsboletosvencer.isBeforeFirst()){
+            
+            ResultSet rsboletosvencer = con.executaConsulta("select sum(valor) from compromissos where TipoDivida=0 and PagamentoEfetuado =0" );
+            rsboletosvencer.next();
+            boletosVencer = Double.parseDouble(rsboletosvencer.getString(1));
+            //System.out.print("rsboletosvencer = " + boletosVencer);
+            if (rsboletosvencer.isFirst()){
                 boletosVencer = Double.valueOf(rsboletosvencer.getString(1));
-                //System.out.print("\nTotal boletos a vencer: "+boletosVencer);
+                System.out.print("\nTotal boletos a vencer: "+boletosVencer);
               
             }
             else
@@ -112,10 +121,11 @@ public class Financeiro {
         String datahoje = formatodata.format(hoje);
         //System.out.print("\n Hoje é:"+datahoje);
         //System.out.print("\nVai pegar resultset");
-        ResultSet rsChequesVencidos = con.executaConsulta("select * from compromissos where TipoDivida='1' and PagamentoEfetuado='0'");
-        //System.out.print("\nPegou resultset");
-     if (rsChequesVencidos.isBeforeFirst()){
-         //System.out.print("\n Há registros de cheques vencidos");
+        ResultSet rsChequesVencidos = con.executaConsulta("select * from compromissos where TipoDivida=1 and PagamentoEfetuado=0");
+        
+//System.out.print("\nPegou resultset");
+     if (rsChequesVencidos!=null){
+         System.out.print("\n Há registros de cheques vencidos");
         while(rsChequesVencidos.next())
         {
             String dataregistro = (rsChequesVencidos.getString("DataVencimento"));
@@ -155,8 +165,8 @@ public class Financeiro {
         try {
             conexao con = new conexao();
             con.conecta();
-            ResultSet rschequesvencer = con.executaConsulta("select sum(valor) as valor from compromissos where TipoDivida='1' and PagamentoEfetuado ='0'" );
-            
+            ResultSet rschequesvencer = con.executaConsulta("select sum(valor) as valor from compromissos where TipoDivida=1 and PagamentoEfetuado =0" );
+            rschequesvencer.next();
             System.out.println(rschequesvencer.getString("valor"));
             //System.out.print("\nPegarvalorchequesvencer->"+chequesVencer);
             //System.out.print("\nResultset size>"+rschequesvencer.getString("valor"));

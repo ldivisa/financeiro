@@ -60,7 +60,7 @@ public boolean conecta()
     try
     {
     Class.forName(DRIVER);
-        System.out.println("\nClasse carregada");
+       // System.out.println("\nClasse carregada");
     }
     catch (ClassNotFoundException e)
     {
@@ -77,9 +77,9 @@ public ResultSet executaConsulta(String SQL)
            // url = configs.leBanco().getProperty("banco"); 
            
            conectar = DriverManager.getConnection(URL,USUARIO,SENHA);
-            System.out.println("\nDriver manager conexao efetuada");
+            //System.out.println("\nDriver manager conexao efetuada");
             statement =conectar.createStatement();
-            System.out.println("\nStatement criado");
+            //System.out.println("\nStatement criado");
             //System.out.println("\nSQL:"+SQL);
             resultado = statement.executeQuery(SQL);
             //statement.close();
@@ -103,10 +103,10 @@ public void executaUpdate(String SQL)
             
             
            conectar = DriverManager.getConnection(URL,USUARIO,SENHA);
-            System.out.println("\nDriver manager conexao efetuada");
+            //System.out.println("\nDriver manager conexao efetuada");
             statement =conectar.createStatement();
-            System.out.println("\nStatement criado");
-            System.out.println("\nSQL:"+SQL);
+            //System.out.println("\nStatement criado");
+            //System.out.println("\nSQL:"+SQL);
             statement.executeUpdate(SQL);
             //System.out.println("\nresultset preenchido");
             statement.close();

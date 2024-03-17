@@ -1358,7 +1358,7 @@ else
     conexao con =new conexao();
     con.conecta();
     rstipoDespesa = null;
-    rstipoDespesa = con.executaConsulta("select * from  tipoDespesa order by NomeDespesa");
+    rstipoDespesa = con.executaConsulta("select * from  tipodespesa order by NomeDespesa");
     tipoDespesa.clear();
     cb_tipoDespesa.removeAllItems();
     try 
