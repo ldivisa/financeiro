@@ -47,7 +47,7 @@ from compromissos c
 
 inner join fornecedores f
 on f.IdFornecedor=c.IdFornecedor
-inner join tipoDespesa t
+inner join tipodespesa t
 on c.TipoDespesa=t.IdTipoDespesa
 
 where PagamentoEfetuado=0 and TipoDivida=1

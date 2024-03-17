@@ -171,7 +171,7 @@ public class frmConsultaCheques extends javax.swing.JFrame {
     public void preencher_Jtable(){
         List<Consulta> ListagemJtable = new ArrayList<>();
         Consulta registroAtual=null;
-        
+        ResultSet rs_Jtable=null;
                 
         DefaultTableModel modelo = (DefaultTableModel)tbl_Boletos.getModel();
             modelo.setNumRows(0);
@@ -182,7 +182,7 @@ public class frmConsultaCheques extends javax.swing.JFrame {
                 {
                     conexao con = new conexao();
                     con.conecta();
-                    ResultSet rs_Jtable = con.executaConsulta("select "+ 
+                    rs_Jtable = con.executaConsulta("select distinct "+ 
                         "a.idCompromisso ,"+
                         "a.TipoDivida ,"+
                         "a.DataVencimento,"+
@@ -211,7 +211,7 @@ public class frmConsultaCheques extends javax.swing.JFrame {
                     ListagemJtable.clear();
                     //pula registro 0 para evitar duplicidade
                     
-                    
+                    rs_Jtable.next();
                     while(!rs_Jtable.isAfterLast()){
                     
                     registroAtual = new Consulta();    
@@ -219,18 +219,15 @@ public class frmConsultaCheques extends javax.swing.JFrame {
                         registroAtual.setCodigoBarras(rs_Jtable.getString("CodigoBarras"));
                         registroAtual.setDataPagamento(rs_Jtable.getString("DataPagamento"));
                         registroAtual.setDataVencimento(rs_Jtable.getString("DataVencimento"));
-                        if (rs_Jtable.getString("Documento")!=null)
-                        {registroAtual.setDocumento(rs_Jtable.getString("Documento"));}
+                        registroAtual.setDocumento(rs_Jtable.getString("Documento"));
                         registroAtual.setIdCompromisso(rs_Jtable.getInt("IdCompromisso"));
                         registroAtual.setIdFornecedorb(rs_Jtable.getInt("IdFornecedorb"));
                         registroAtual.setIdFornecedor(rs_Jtable.getInt("IdFornecedor"));
-                        if (rs_Jtable.getInt("IdTipoDespesa")!=0)
-                        {registroAtual.setIdTipoDespesa(rs_Jtable.getInt("IdTipoDespesa"));}
+                        registroAtual.setIdTipoDespesa(rs_Jtable.getInt("IdTipoDespesa"));
                         registroAtual.setNCheque(rs_Jtable.getString("NCheque"));
                         registroAtual.setNomeDespesa(rs_Jtable.getString("NomeDespesa"));
                         registroAtual.setNomeFornecedor(rs_Jtable.getString("NomeFornecedor"));
-                        if (!rs_Jtable.getString("Observacao").isEmpty())
-                                {registroAtual.setObservacao(rs_Jtable.getString("Observacao"));}
+                        registroAtual.setObservacao(rs_Jtable.getString("Observacao"));
                         registroAtual.setPagamentoEfetuado(rs_Jtable.getBoolean("PagamentoEfetuado"));
                         registroAtual.setParcela(rs_Jtable.getString("Parcela"));
                         registroAtual.setTipoDespesa(rs_Jtable.getInt("TipoDespesa"));
@@ -239,11 +236,9 @@ public class frmConsultaCheques extends javax.swing.JFrame {
 
                         //System.out.print("\n"+registroAtual.getIdFornecedorb());
                         //int_Contador++;
-//                    System.out.print(" "+registroAtual.getIdCompromisso());
+                    System.out.print("\n"+registroAtual.getIdCompromisso());
                         ListagemJtable.add(registroAtual);
                         rs_Jtable.next();
-
-                    
                     }
                                         
                     //System.out.print(rs_Jtable.getString(17)+" \n");

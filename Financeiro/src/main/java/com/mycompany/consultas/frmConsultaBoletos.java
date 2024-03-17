@@ -181,7 +181,7 @@ public class frmConsultaBoletos extends javax.swing.JFrame {
                 {
                     conexao con = new conexao();
                     con.conecta();
-                    ResultSet rs_Jtable = con.executaConsulta("select "+ 
+                    ResultSet rs_Jtable = con.executaConsulta("select distinct "+ 
                         "a.idCompromisso ,"+
                         "a.TipoDivida ,"+
                         "a.DataVencimento,"+

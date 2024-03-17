@@ -4,8 +4,8 @@
   <driver>com.mysql.cj.jdbc.Driver</driver>
   <username></username>
   <password></password>
-  <url>jdbc:mysql://luiz-tjm.hopto.org:3307/financeiro</url>
-  <database></database>
+  <url>jdbc:mysql://luiz-tjm.hopto.org:3307</url>
+  <database>financeiro</database>
   <savePassword>true</savePassword>
   <serverAddress></serverAddress>
 </jdbcDataAdapter>
