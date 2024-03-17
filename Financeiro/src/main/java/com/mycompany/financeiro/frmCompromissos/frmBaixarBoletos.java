@@ -8,7 +8,7 @@ import com.mycompany.financeiro.dao.compromissos;
 import com.mycompany.financeiro.dao.fornecedores;
 import com.mycompany.financeiro.dao.tipodespesa;
 import com.mycompany.financeiro.dao.utilidades.conexao;
-import com.sun.tools.javac.main.OptionHelper;
+
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;

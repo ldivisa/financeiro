@@ -1095,11 +1095,11 @@ rb_boleto.setBackground(Color.lightGray);    }//GEN-LAST:event_rb_boletoFocusLos
                                                 //}
                                                 if (chb_pagamentoEfetuado.isSelected())
                                                 {
-                                                SQL = SQL +"PagamentoEfetuado = true, ";
+                                                SQL = SQL +"PagamentoEfetuado = 1, ";
                                                 }
                                                 else
                                                 {
-                                                SQL = SQL +"PagamentoEfetuado = false, ";
+                                                SQL = SQL +"PagamentoEfetuado = 0, ";
                                                 }
                                                 SQL=SQL+
                                                     "idCompromisso = "+tf_Id.getText()+","+

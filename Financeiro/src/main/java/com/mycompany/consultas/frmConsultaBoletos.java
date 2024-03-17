@@ -204,7 +204,7 @@ public class frmConsultaBoletos extends javax.swing.JFrame {
                         "SUBSTR(DataVencimento,7,4) as Ano "+
                         "from compromissos a INNER JOIN fornecedores b ON a.IdFornecedor = b.IdFornecedor " +
                         "INNER JOIN tipodespesa c ON a.TipoDespesa = c.IdTipoDespesa "+
-                        "where TipoDivida=false "+
+                        "where TipoDivida=0 "+
                         "order by Ano,Mes,Dia "  );
                      //pula registro 0 para evitar duplicidade   
                     rs_Jtable.next();
@@ -218,7 +218,7 @@ public class frmConsultaBoletos extends javax.swing.JFrame {
                         registroAtual.setIdFornecedorb(rs_Jtable.getInt("IdFornecedorb"));
                         registroAtual.setIdFornecedor(rs_Jtable.getInt("IdFornecedor"));
                         registroAtual.setIdTipoDespesa(rs_Jtable.getInt("IdTipoDespesa"));
-                        registroAtual.setNCheque(rs_Jtable.getInt("NCheque"));
+                        registroAtual.setNCheque(rs_Jtable.getString("NCheque"));
                         registroAtual.setNomeDespesa(rs_Jtable.getString("NomeDespesa"));
                         registroAtual.setNomeFornecedor(rs_Jtable.getString("NomeFornecedor"));
                         registroAtual.setObservacao(rs_Jtable.getString("Observacao"));

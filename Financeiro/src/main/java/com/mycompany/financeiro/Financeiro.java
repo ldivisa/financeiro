@@ -38,7 +38,7 @@ public class Financeiro {
         frm.setVisible(true);
         //As duas linhas acima abrem a tela de login
         frmMenu menu = new frmMenu();
-        menu.setVisible(true);
+        //menu.setVisible(true);
         
 }
     
@@ -95,7 +95,7 @@ public class Financeiro {
             //System.out.print("rsboletosvencer = " + boletosVencer);
             if (rsboletosvencer.isFirst()){
                 boletosVencer = Double.valueOf(rsboletosvencer.getString(1));
-                System.out.print("\nTotal boletos a vencer: "+boletosVencer);
+                //System.out.print("\nTotal boletos a vencer: "+boletosVencer);
               
             }
             else
@@ -167,7 +167,7 @@ public class Financeiro {
             con.conecta();
             ResultSet rschequesvencer = con.executaConsulta("select sum(valor) as valor from compromissos where TipoDivida=1 and PagamentoEfetuado =0" );
             rschequesvencer.next();
-            System.out.println(rschequesvencer.getString("valor"));
+            //System.out.println(rschequesvencer.getString("valor"));
             //System.out.print("\nPegarvalorchequesvencer->"+chequesVencer);
             //System.out.print("\nResultset size>"+rschequesvencer.getString("valor"));
            if (rschequesvencer.getString("valor")!=null)

@@ -21,7 +21,7 @@ public class Consulta {
     private int TipoDespesa;
     private String DataPagamento;
     private boolean PagamentoEfetuado;
-    private int NCheque;
+    private String NCheque;
     private int IdFornecedorb;
     private String NomeFornecedor;
     private int IdTipoDespesa;
@@ -123,11 +123,11 @@ public class Consulta {
         this.PagamentoEfetuado = PagamentoEfetuado;
     }
 
-    public int getNCheque() {
+    public String getNCheque() {
         return NCheque;
     }
 
-    public void setNCheque(int NCheque) {
+    public void setNCheque(String NCheque) {
         this.NCheque = NCheque;
     }
 
