@@ -125,20 +125,20 @@ public class Financeiro {
         
 //System.out.print("\nPegou resultset");
      if (rsChequesVencidos!=null){
-         System.out.print("\n Há registros de cheques vencidos");
+         //System.out.print("\n Há registros de cheques vencidos");
         while(rsChequesVencidos.next())
         {
             String dataregistro = (rsChequesVencidos.getString("DataVencimento"));
             ////System.out.print("\nData registro antes->"+dataregistro);
             dataregistro = dataregistro.substring(6,10)+dataregistro.substring(3,5)+dataregistro.substring(0,2);
             //System.out.print("\n Data registro ->"+dataregistro+" Data hoje: "+datahoje);
-            int intDataHoje=Integer.valueOf(datahoje);
-            int intDataRegistro=Integer.valueOf(dataregistro);
+            int intDataHoje=Integer.parseInt(datahoje);
+            int intDataRegistro=Integer.parseInt(dataregistro);
             //System.out.print("\n Data registro ->"+intDataRegistro+" Data hoje: "+intDataHoje);
                 if(intDataRegistro<=intDataHoje)
                 {
                     //System.out.print("\n * ");
-                chequesVencidos=chequesVencidos+Double.valueOf(rsChequesVencidos.getString("Valor"));
+                chequesVencidos=chequesVencidos+Double.parseDouble(rsChequesVencidos.getString("Valor"));
                 //System.out.print(" Adicionando o valor de "+rsChequesVencidos.getString("Valor")+" referente ao registro "+rsChequesVencidos.getString("IdCompromisso")+" somatorio:"+chequesVencidos);
                 }
         }

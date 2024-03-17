@@ -838,7 +838,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     conexao con =new conexao();
     con.conecta();
     rstipoDespesa = null;
-    rstipoDespesa = con.executaConsulta("select * from  tipoDespesa order by NomeDespesa");
+    rstipoDespesa = con.executaConsulta("select * from  tipodespesa order by NomeDespesa");
     tipoDespesa.clear();
     try 
         {
@@ -1003,7 +1003,7 @@ public class frmBaixarCheques extends javax.swing.JFrame {
     rsCompromissos=null;    
     conexao con = new conexao();
     con.conecta();
-    SQL  = "select * from compromissos where PagamentoEfetuado = '0' and TipoDivida='1' order by Ncheque";
+    SQL  = "select * from compromissos where PagamentoEfetuado = 0 and TipoDivida=1 order by Ncheque";
     rsCompromissos = con.executaConsulta(SQL);
     compromissos.clear();
     

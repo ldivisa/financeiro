@@ -50,7 +50,7 @@ on f.IdFornecedor=c.IdFornecedor
 inner join tipoDespesa t
 on c.TipoDespesa=t.IdTipoDespesa
 
-where PagamentoEfetuado='0' and TipoDivida='1'
+where PagamentoEfetuado=0 and TipoDivida=1
 order by ano asc  ,mes asc ,dia asc, c.Tipodivida]]>
 	</queryString>
 	<field name="idCompromisso" class="java.lang.Integer">
