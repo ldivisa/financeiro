@@ -236,7 +236,7 @@ public class frmConsultaCheques extends javax.swing.JFrame {
 
                         //System.out.print("\n"+registroAtual.getIdFornecedorb());
                         //int_Contador++;
-                    System.out.print("\n"+registroAtual.getIdCompromisso());
+                    //System.out.print("\n"+registroAtual.getIdCompromisso());
                         ListagemJtable.add(registroAtual);
                         rs_Jtable.next();
                     }
