@@ -104,6 +104,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
         btn_sair = new javax.swing.JButton();
         btn_gravarmodificacao = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -353,6 +354,13 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Descritivo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -372,14 +380,16 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
                                     .addComponent(tf_codigodeBarras, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
                                     .addComponent(cb_fornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbl_tipoDespesa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tf_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cb_tipoDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(14, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl_Id)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -480,7 +490,8 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_codigodeBarras)
                     .addComponent(tf_codigodeBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_dataPagamento)
@@ -515,7 +526,7 @@ public class frmBaixarBoletos extends javax.swing.JFrame {
                 .addGap(96, 96, 96))
         );
 
-        setSize(new java.awt.Dimension(810, 625));
+        setSize(new java.awt.Dimension(853, 625));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -806,6 +817,17 @@ if(!rb_boleto.isSelected()&&!rb_cheque.isSelected())
             pesquisaNomeTipoDespesaporID(posicaoTipoDespesa);
     }//GEN-LAST:event_tf_tipoDespesaPropertyChange
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    StringSelection CodigodeBarras = new StringSelection("Comprovante "+
+            cb_fornecedor.getItemAt(posicaoFornecedor)+" "+ tf_documento.getText()+"-"+tf_parcela.getText()+" "+tf_valor.getText()+" "+
+             tf_dataVencimento.getText().substring(0, 2)+"."+
+            tf_dataVencimento.getText().substring(3, 5)+"."+
+            tf_dataVencimento.getText().substring(6, 10));
+    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    clipboard.setContents(CodigodeBarras, null);
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public void carregarFornecedor()
     {
     conexao con =new conexao();
@@ -841,7 +863,7 @@ if(!rb_boleto.isSelected()&&!rb_cheque.isSelected())
     conexao con =new conexao();
     con.conecta();
     rstipoDespesa = null;
-    rstipoDespesa = con.executaConsulta("select * from  tipoDespesa order by NomeDespesa");
+    rstipoDespesa = con.executaConsulta("select * from  tipodespesa order by NomeDespesa");
     tipoDespesa.clear();
     try 
         {
@@ -1147,6 +1169,7 @@ if(!rb_boleto.isSelected()&&!rb_cheque.isSelected())
     private javax.swing.JComboBox<String> cb_tipoDespesa;
     private javax.swing.JCheckBox chb_pagamentoEfetuado;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_DataCadastro;
     private javax.swing.JLabel lbl_Id;

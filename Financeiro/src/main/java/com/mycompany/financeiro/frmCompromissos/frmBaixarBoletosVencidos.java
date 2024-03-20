@@ -109,6 +109,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
         btn_sair = new javax.swing.JButton();
         btn_gravarmodificacao = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -369,6 +370,13 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Descritivo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -425,7 +433,9 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(tf_codigodeBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton1))
+                                                .addComponent(jButton1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton2))
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -509,7 +519,8 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_codigodeBarras)
                     .addComponent(tf_codigodeBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_observacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -538,10 +549,10 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
                     .addComponent(btn_Próximo)
                     .addComponent(btn_Anterior)
                     .addComponent(btn_Primeiro))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(826, 496));
+        setSize(new java.awt.Dimension(826, 525));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -817,6 +828,18 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
     clipboard.setContents(CodigodeBarras, null);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    StringSelection CodigodeBarras = new StringSelection("Comprovante "+ 
+            cb_fornecedor.getItemAt(posicaoFornecedor)+" "+tf_documento.getText()+
+            "-"+tf_parcela.getText()+" "+tf_valor.getText()+" "+
+            tf_dataVencimento.getText().substring(0, 2)+"."+
+            tf_dataVencimento.getText().substring(3, 5)+"."+
+            tf_dataVencimento.getText().substring(6, 10));
+    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    clipboard.setContents(CodigodeBarras, null);
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public void carregarFornecedor()
     {
@@ -1188,6 +1211,7 @@ public class frmBaixarBoletosVencidos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_tipoDespesa;
     private javax.swing.JCheckBox chb_pagamentoEfetuado;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_DataCadastro;
     private javax.swing.JLabel lbl_Id;
